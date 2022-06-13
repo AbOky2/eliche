@@ -1,136 +1,319 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TrapFocus from '@mui/material/Unstable_TrapFocus';
-import { blue } from '@mui/material/colors';
-import Link from 'next/link';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import Paper from '@mui/material/Paper';
-import Slide from '@mui/material/Slide';
-import NumberFormat from 'react-number-format';
-import { Grid, Typography } from '@material-ui/core';
-import { CustomInput } from 'components/form/Input';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { useState, useEffect } from 'react';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-import Demo from './demo';
-import Demo3 from './demo3';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState, useEffect } from 'react';
 
-export const GoogleMaps = ({ onChange, value, placeholder }) => {
-  const [inputValue, setInputValue] = useState(value);
-  const onInputChange = (e) => setInputValue(e);
-  const onClick = (e) => setInputValue('');
-  const [step, setStep] = useState(1);
-  const onclick = (args) => {
-    console.log(args);
-    if (step == 1 && args) {
-      setStep(2);
-    }
-  };
+import { makeStyles } from '@material-ui/core/styles';
+import { GoogleMaps } from 'components/form/Input';
+import { Grid } from '@material-ui/core';
+import Router, { withRouter } from 'next/router';
+import { Card } from 'components';
+import {
+  getPublicPropertiesApiMethod,
+  togglePromotedApiMethod,
+  getPromotedApiMethod,
+} from 'lib/api';
+import withAuth from 'lib/withAuth';
 
-  const [open, setOpen] = React.useState(true);
-  const [checked, setChecked] = React.useState(false);
-  const containerRef = React.useRef(null);
-  const handleChange = () => {
-    setChecked((prev) => !prev);
+import { ListContainer } from 'components/page/search/views/partials';
+import {
+  sortByKeys,
+  defaultLimit,
+  defaultLoc,
+  toggleArray,
+  getAddress,
+  getNbPieces,
+  getCardImg,
+} from 'helpers';
+
+const useStyles = makeStyles((theme) => ({
+  promotedViewContainer: {
+    marginTop: '2rem',
+    '& > div': {
+      margin: '0 1rem',
+      width: '30%',
+    },
+  },
+  mapsViewContainer: {
+    height: 'calc(100vh - 218px)',
+    flexFlow: 'initial',
+    '& > div': {
+      '&:first-of-type': {
+        maxWidth: 550,
+      },
+      '&:last-of-type': {
+        position: 'sticky',
+        top: 0,
+        minHeight: '50vh',
+        maxHeight: '100vh',
+        maxWidth: '100%',
+        flexGrow: 1,
+        '& > div': {
+          zIndex: 3,
+          '&:first-of-type': {
+            borderTopLeftRadius: '1.5rem',
+            overflow: 'hidden',
+            [theme.breakpoints.down('sm')]: {
+              borderTopLeftRadius: 0,
+            },
+          },
+          '& > div > div': {
+            width: '20%',
+            padding: '1rem',
+          },
+          '& #pagintationContainer': {
+            width: '100%',
+          },
+        },
+      },
+      [theme.breakpoints.down('sm')]: {
+        '&:first-of-type': {
+          display: 'none',
+        },
+        '&:last-of-type': {
+          paddingLeft: 0,
+          minHeight: '65vh',
+          '& > div:last-of-type': {
+            position: 'absolute',
+            bottom: '2rem',
+          },
+        },
+      },
+    },
+  },
+  listViewContainer: {
+    height: '100%',
+    padding: '0 2.4rem',
+    '& > div:last-of-type': {
+      height: '100%',
+      paddingBottom: '7rem',
+      paddingRight: 5,
+      '&::-webkit-scrollbar': {
+        width: '.7rem',
+        background: 'transparent',
+      },
+      '&::-webkit-scrollbar-track': {
+        width: '.7rem',
+        background: 'transparent',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: 'rgba(0, 0, 0, 0.2)',
+        boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
+        borderRadius: '.7rem',
+      },
+      '&::-webkit-scrollbar-thumb:hover': {
+        background: '#555',
+      },
+    },
+  },
+  pagination: {
+    marginTop: '1rem',
+  },
+  paginationItem: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    textAlign: 'center',
+    color: 'rgba(0, 0, 0, 0.87)',
+    height: '32px',
+    margin: '0 3px',
+    padding: '0 6px',
+    fontSize: '1.4rem',
+    minWidth: '32px',
+    boxSizing: 'border-box',
+    textAlign: 'center',
+    fontWeight: '400',
+    lineHeight: '1.43',
+    borderRadius: '16px',
+    userSelect: 'none',
+  },
+  paginationDisabledItem: {
+    cursor: 'initial',
+    opacity: 0.38,
+  },
+  paginationSelectedItem: {
+    backgroundColor: 'rgba(0, 0, 0, 0.08)',
+  },
+}));
+const defaultPage = 1;
+const PartnersDashboard = ({ loc, typeOfAnnonce, sort, pieces }) => {
+  const [state, setState] = useState([]);
+  const [curr, setCurr] = useState(null);
+  const [promotedList, setPromotedList] = useState(null);
+  const [liked, setLiked] = useState([]);
+  const [sortBy, setSortBy] = useState(sortByKeys[0]);
+  const [searchValue, setSearchValue] = useState(defaultLoc.buy);
+  const [queryData, setQueryData] = useState({
+    loc,
+    maxPrice: -1,
+    typeOfAnnonce,
+    sort,
+    pieces,
+  });
+  const [page, setPage] = useState({
+    pageList: state?.slice(0, defaultLimit),
+    limit: defaultLimit,
+    totalPages: state?.length,
+  });
+  const classes = useStyles();
+
+  const reloadPartners = async ({ label } = {}) => {
+    const loc = label ?? searchValue;
+
+    const {
+      list: { docs = [], ...pageInfo } = {},
+    } = await getPublicPropertiesApiMethod({
+      ...queryData,
+      loc,
+      page: 1,
+      typeOfAnnonce: 'Vente',
+    });
+
+    if (docs) setState(docs);
+    setSearchValue(loc);
+
+    Router.push(
+      {
+        query: {
+          page: pageInfo.page,
+          loc: queryData.loc,
+          sort: sortBy,
+          maxPrice: -1,
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
   };
+  const paginate = (page_number) =>
+    state?.slice((page_number - 1) * page.limit, page_number * page.limit) ||
+    [];
+  const handlePage = (e, pageOffset) => {
+    e.preventDefault();
+    setPage({ ...page, page: pageOffset });
+  };
+  const handleSortSelect = () => ({ target: { value } }) => {
+    setSortBy(value);
+    setState(
+      state.sort((a, b) => {
+        if (value === sortByKeys[0]) return +a.price - +b.price;
+        return +b.price - +a.price;
+      })
+    );
+    setQueryData({ ...queryData, sort: value });
+    Router.push(
+      {
+        query: {
+          ...Router.query,
+          sort: value,
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+  useEffect(
+    () =>
+      setPage({
+        ...page,
+        pageList: paginate(page.page),
+      }),
+    [page.page]
+  );
+  useEffect(() => {
+    const currPage = defaultPage || 1;
+
+    setPage({
+      ...page,
+      page: currPage,
+      pageList: paginate(currPage),
+      totalPages: Math.ceil(state?.length / page.limit),
+    });
+  }, [state, state[0], defaultPage]);
+
+  const handleBookmark = (id) => {
+    let data = [...liked];
+
+    if (liked.length < 3 || liked.includes(id)) data = toggleArray(liked, id);
+
+    setLiked(data);
+
+    togglePromotedApiMethod({ data }).then(({ list = [] }) =>
+      setPromotedList(list)
+    );
+  };
+  useEffect(() => {
+    (async () => {
+      const { list = [] } = await getPromotedApiMethod();
+
+      setPromotedList(list);
+      setLiked(list.map((e) => e._id));
+      reloadPartners();
+    })();
+  }, []);
+
+  console.log(state.length);
+  console.log("toute les pages", page);
+
+
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)}>
-        Open
-      </button>
-      <FormControlLabel
-        control={<Switch checked={checked} onChange={handleChange} />}
-        label="Show from target"
+      <GoogleMaps
+        name="loc"
+        value={searchValue}
+        onChange={reloadPartners}
+        placeholder="Où cherchez-vous ?"
       />
-      {open && step == 1 ? (
-        <>
-          <Slide direction="up" in={checked} container={containerRef.current}>
-            <div
-              style={{
-                background:
-                  'linear-gradient(219.21deg, #C399DB -0.38%, #5882F7 106.68%)',
-                paddingTop: '48px',
-                borderRadius: '5px',
-                width: '375px',
-                alignContent: 'center',
-              }}
-            >
-              <Box
-                sx={{
-                  height: '524px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  top: '48px',
-                  padding: '24px',
-                  color: 'black',
-                  backgroundColor: 'white',
-                  borderTopLeftRadius: '22px',
-                  borderTopRightRadius: '22px',
-                }}
-              >
-                <Box tabIndex={-1} sx={{ mt: 1, p: 1 }}>
-                  <div style={{ marginBottom: '20px', display: 'inline-flex' }}>
-                    {' '}
-                    localisation
-                    <button
-                      style={{
-                        marginBottom: '10px',
-                        marginLeft: '216px',
-                        background: 'white',
-                        border: 'transparent',
-                      }}
-                      type="button"
-                      onClick={() => setStep(1)}
-                    >
-                      X
-                    </button>
-                  </div>
-                  <br />
-
-                  <GooglePlacesAutocomplete
-                    apiOptions={{ language: 'fr', region: 'fr' }}
-                    autocompletionRequest={{
-                      componentRestrictions: {
-                        country: ['fr'],
-                      },
-                      types: ['(regions)'],
-                    }}
-                    selectProps={{
-                      placeholder,
-                      onChange: onclick,
-                      onInputChange,
-                      inputValue,
-                      onFocus: onClick,
-                      isClearable: true,
-                      components: {
-                        DropdownIndicator: () => null,
-                        IndicatorSeparator: () => null,
-                      },
-                    }}
-                  />
-                </Box>
-              </Box>
-            </div>
-          </Slide>
-        </>
-      ) : step == 2 ? (
-        <Demo setStep={setStep} />
-      ) : (
-        <Demo3 setStep={setStep} />
-      )}
+      <Grid
+        container
+        justify="center"
+        className={classes.promotedViewContainer}
+      >
+        {promotedList?.map(
+          ({
+            _id,
+            heading,
+            pictures,
+            dimensions,
+            price,
+            city,
+            postal,
+            minPieces,
+            maxPieces,
+          }) => (
+            <Grid item key={_id}>
+              <Card
+                _id={_id}
+                title={heading}
+                src={getCardImg(pictures?.[0])}
+                address={getAddress({ city, postal })}
+                description={getNbPieces(minPieces, maxPieces)}
+                dimensions={dimensions}
+                price={price}
+                liked={liked?.includes(_id)}
+                onClick={handleBookmark}
+              />
+            </Grid>
+          )
+        )}
+      </Grid>
+      <Grid container className={classes.mapsViewContainer}>
+        <ListContainer
+          classes={classes}
+          curr={curr}
+          data={state}
+          sortBy={sortBy}
+          handleSortSelect={handleSortSelect}
+          hasData={state.length}
+          page={page}
+          handlePage={handlePage}
+          liked={liked}
+          noRedirect
+          handleBookmark={handleBookmark}
+        />
+      </Grid>
     </>
   );
 };
-GoogleMaps.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-};
-GoogleMaps.defaultProps = {
-  value: '',
-  placeholder: '',
-};
-export default GoogleMaps;
+export default withAuth(withRouter(PartnersDashboard), { adminRequired: true });

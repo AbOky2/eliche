@@ -327,30 +327,7 @@ const styles = (theme) => ({
     },
   },
   listViewContainer: {
-    height: '100%',
-    padding: '0 2.4rem',
-    '& > div:last-of-type': {
-      height: '100%',
-      overflow: 'scroll',
-      paddingBottom: '7rem',
-      paddingRight: 5,
-      '&::-webkit-scrollbar': {
-        width: '.7rem',
-        background: 'transparent',
-      },
-      '&::-webkit-scrollbar-track': {
-        width: '.7rem',
-        background: 'transparent',
-      },
-      '&::-webkit-scrollbar-thumb': {
-        background: 'rgba(0, 0, 0, 0.2)',
-        boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
-        borderRadius: '.7rem',
-      },
-      '&::-webkit-scrollbar-thumb:hover': {
-        background: '#555',
-      },
-    },
+   
   },
   mapsViewContainer: {
     height: 'calc(100vh - 218px)',
@@ -380,7 +357,7 @@ const styles = (theme) => ({
       },
       [theme.breakpoints.down('sm')]: {
         '&:first-of-type': {
-          display: 'none',
+          display: '',
         },
         '&:last-of-type': {
           paddingLeft: 0,
@@ -398,10 +375,13 @@ const styles = (theme) => ({
       width: '100%',
       '& > div:first-of-type': {
         borderTopLeftRadius: 0,
+        height:"906px"
       },
     },
   },
   mdMapsViewContainer: {
+    display:'none',
+    width:'0px',
     height: 'calc(100vh - 160px)',
   },
   pagination: {

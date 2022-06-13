@@ -108,7 +108,7 @@ const MapsContainer = ({
         ''
       )}
     </Grid>
-    {isMdView && (
+    {/* {isMdView && (
       <Grid container>
         <MapsCarousel index={index} handleChange={handleCarouselChange}>
           {data?.map(({ city, postal, ...elems }) => (
@@ -125,7 +125,7 @@ const MapsContainer = ({
           ))}
         </MapsCarousel>
       </Grid>
-    )}
+    )} */}
   </Grid>
 );
 
@@ -244,7 +244,7 @@ const MapsView = withRouter(
             isMdView ? classes.mdMapsViewContainer : ''
           )}
         >
-          {!isMapsView && (
+          {/* {!isMapsView && (
             <ListContainer
               classes={classes}
               curr={curr}
@@ -259,7 +259,7 @@ const MapsView = withRouter(
               liked={liked}
               handleBookmark={handleBookmark}
             />
-          )}
+          )} */}
           <MapsContainer
             classes={classes}
             index={carrouselIndex}

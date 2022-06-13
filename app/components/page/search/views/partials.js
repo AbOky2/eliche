@@ -21,11 +21,12 @@ const PaginationItem = ({
   onClick,
 }) => (
   <Grid
-    className={clsx(
-      classes.paginationItem,
-      selected ? classes.paginationSelectedItem : '',
-      disabled ? classes.paginationDisabledItem : ''
-    )}
+    // className={clsx(
+    //   classes.paginationItem,
+    //   selected ? classes.paginationSelectedItem : '',
+    //   disabled ? classes.paginationDisabledItem : ''
+    // )}
+    className='flex justify-center cursor-pointer h-8'
     onClick={!ellipsis.includes(type) && !disabled ? onClick : null}
   >
     {type === 'next' || type === 'previous' ? (
@@ -68,7 +69,8 @@ const ListFooter = ({ classes, page, matches, isMapsView, handlePage }) =>
     <Grid
       container
       justify="center"
-      className={classes.pagination}
+      //className={classes.pagination}
+      className=''
       id="pagintationContainer"
     >
       <Pagination
@@ -99,7 +101,7 @@ const ListWrapper = ({
 }) => (
   <>
     <ListHeader
-      classes={classes}
+      //classes={classes}
       sortBy={sortBy}
       toggleView={toggleView}
       isMapsView={isMapsView}
@@ -110,7 +112,7 @@ const ListWrapper = ({
         {hasData ? (
           children
         ) : (
-          <div className={classes.notFound}>
+          <div className='bg-white'>
             <Typography variant="body1">
               <span role="img" aria-label="cring">
                 😢
@@ -119,14 +121,13 @@ const ListWrapper = ({
             </Typography>
           </div>
         )}
-        <ListFooter classes={classes} {...footerProps} />
+        <ListFooter {...footerProps} />
       </Grid>
     </div>
   </>
 );
 
 const ListElement = ({
-  className,
   liked,
   handleBookmark,
   _id,
@@ -146,7 +147,7 @@ const ListElement = ({
 }) => (
   <Grid
     item
-    className={clsx(className)}
+    className=''
     onMouseEnter={handleMouseEnter}
     onMouseLeave={handleMouseLeave}
   >
@@ -170,7 +171,7 @@ const ListElement = ({
 );
 
 const ListContainer = ({
-  classes,
+  //classes,
   sortBy,
   curr,
   isMapsView,
@@ -184,9 +185,9 @@ const ListContainer = ({
   handleBookmark,
   noRedirect = false,
 }) => (
-  <Grid item xs={5} className={classes.listViewContainer}>
+  <Grid item xs={5} className=''>
     <ListWrapper
-      classes={classes}
+      //classes={classes}
       sortBy={sortBy}
       isMapsView={isMapsView}
       handleSortSelect={handleSortSelect}
@@ -201,11 +202,12 @@ const ListContainer = ({
           noRedirect={noRedirect}
           handleMouseEnter={handleMouseEnter && handleMouseEnter(elems._id)}
           handleMouseLeave={handleMouseEnter && handleMouseEnter(null)}
-          className={
-            elems._id !== curr?._id
-              ? classes.mapsListContainer
-              : clsx(classes.mapsListContainer, classes.mapsCurrListContainer)
-          }
+          // className={
+          //   elems._id !== curr?._id
+          //     ? classes.mapsListContainer
+          //     : clsx(classes.mapsListContainer, classes.mapsCurrListContainer)
+          // }
+          className=''
           liked={liked}
           handleBookmark={handleBookmark}
           {...elems}

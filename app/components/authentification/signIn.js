@@ -1,8 +1,5 @@
 import { Grid, Typography } from '@material-ui/core';
 import { Btn, Input, Checkbox } from 'components';
-import { GoogleLogin } from 'react-google-login';
-import FacebookAuth from 'react-facebook-auth';
-const { GOOGLE_CLIENT_ID } = require('../../config');
 
 import { Icon } from 'components/form';
 

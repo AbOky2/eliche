@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import Router, { withRouter } from 'next/router';
 import { useMediaQuery } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
+import {ListContainer} from './views/partials'
+
 import {
   getPublicPropertiesApiMethod,
   getPropertiesByCoordApiMethod,
@@ -17,13 +19,21 @@ import {
   pick,
   typeOfAnnonciesObj,
   sortByKeys,
+  defaultLimit,
+
 } from 'helpers';
 import { NotFound, AdminContentWrapper } from 'components';
 import { MapsView } from './views';
 import SearchFields from './searchFields';
 import withStyles from './styles';
 
+
+
+
+
 const pagePropertyWhilist = ['page', 'limit', 'totalPages'];
+const defaultPage = 1;
+
 const isMapsView = false;
 const SearchPage = ({
   classes,
@@ -37,10 +47,16 @@ const SearchPage = ({
   sort,
   pieces = [],
 }) => {
+  // const [page, setPage] = useState({
+  //   ...pick(properties, pagePropertyWhilist),
+  //   page: defaultPage,
+  // });
   const [page, setPage] = useState({
-    ...pick(properties, pagePropertyWhilist),
-    page: defaultPage,
+    pageList: state?.slice(0, defaultLimit),
+    limit: defaultLimit,
+    totalPages: state?.length,
   });
+  const [curr, setCurr] = useState(null);
   const [currView, setCurrView] = useState(isMapsView);
   const [center, setCenter] = useState([]);
   const [mapOptions, setMapOptions] = useState({});
@@ -148,6 +164,11 @@ const SearchPage = ({
       { shallow: true }
     );
   };
+
+  const paginate = (page_number) =>
+    state?.slice((page_number - 1) * page.limit, page_number * page.limit) ||
+    [];
+
   const handleSumit = () => requestData();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
@@ -192,20 +213,36 @@ const SearchPage = ({
   }, [makeRequest]);
 
   if (!state) return <NotFound showLink={false} />;
-  console.log({ loc, list, state });
+  // console.log({ loc, list, state });
+
+  useEffect(
+    () =>
+      setPage({
+        ...page,
+        pageList: paginate(page.page),
+      }),
+    [page.page]
+  );
+
+  useEffect(() => {
+    const currPage = defaultPage || 1;
+
+    setPage({
+      ...page,
+      page: currPage,
+      pageList: paginate(currPage),
+      totalPages: Math.ceil(state?.length / page.limit),
+    });
+  }, [state, state[0], defaultPage]);
+
+  console.log("toute les données", state.length);
+  console.log("La page ", page);
+
+
   return (
     <AdminContentWrapper noRedirect noPadding>
       <div>
-        <div
-          className={
-            isMdView && !currView
-              ? clsx(
-                  classes.searchMapContainer,
-                  classes.resetSearchMapContainer
-                )
-              : classes.searchMapContainer
-          }
-        >
+       
           <SearchFields
             isLocation={isLocation}
             queryData={queryData}
@@ -216,27 +253,48 @@ const SearchPage = ({
             toggleView={toggleView}
             handleSelect={handleSelect}
             isMapsView={currView}
-          />
-          <MapsView
-            allData={allData}
-            queryData={queryData}
-            delimiter={delimiter}
-            isFirstRequest={isFirstRequest}
-            data={state}
-            liked={liked}
-            sortBy={sortBy}
-            refresh={refresh}
-            setIsFirstRequest={setIsFirstRequest}
-            handleBookmark={handleBookmark}
-            handleSortSelect={handleSortSelect}
-            toggleView={toggleView}
-            page={page?.page}
-            matches={matches}
-            isMdView={isMdView}
-            handlePointChange={handlePointChange}
-            toggleRefresh={toggleRefresh}
-            isMapsView={currView}
-          />
+          /> 
+
+       <div className=' flex flex-row justify-between'>
+            <section className='bg-red-900 w-[900px]'>
+                <MapsView
+                  allData={allData}
+                  queryData={queryData}
+                  delimiter={delimiter}
+                  isFirstRequest={isFirstRequest}
+                  data={state}
+                  liked={liked}
+                  // sortBy={sortBy}
+                  refresh={refresh}
+                  setIsFirstRequest={setIsFirstRequest}
+                  handleBookmark={handleBookmark}
+                  handleSortSelect={handleSortSelect}
+                  toggleView={toggleView}
+                  // page={page?.page}
+                  matches={matches}
+                  isMdView={isMdView}
+                  handlePointChange={handlePointChange}
+                  toggleRefresh={toggleRefresh}
+                  isMapsView={currView}
+                />
+          </section>
+
+          <section className='bg-green-900 p-6 order-first xl:w-[600px] lg:w-[100%] overflow-scroll h-[560px] '>
+              <ListContainer
+              classes={classes}
+                curr={currView}
+                data={state}
+                sortBy={sortBy}
+                handleSortSelect={handleSortSelect}
+                hasData={state.length}
+                page={page}
+                //handlePage={handlePage}
+                liked={liked}
+                noRedirect
+                handleBookmark={handleBookmark}
+              />
+        </section>
+
         </div>
       </div>
     </AdminContentWrapper>
