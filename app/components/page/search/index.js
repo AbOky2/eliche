@@ -24,6 +24,7 @@ import {
 } from 'helpers';
 import { NotFound, AdminContentWrapper,Icon } from 'components';
 import { MapsView } from './views';
+import { ListContainer } from './views/partials';
 import SearchFields from './searchFields';
 import withStyles from './styles';
 
@@ -98,6 +99,8 @@ const SearchPage = ({
     pieces = pieces.map((e) => parseInt(e, 10));
     setQueryData({ ...queryData, pieces });
   };
+  const [curr, setCurr] = useState(null);
+
   const handleSortSelect =
     () =>
     ({ target: { value } }) => {
@@ -124,6 +127,11 @@ const SearchPage = ({
     setLiked(toggleArray(liked, id));
     addBookmarkApiMethod({ id }).then(({ user: currUser }) => update(currUser));
   };
+  const handlePage = (e, pageOffset) => {
+    e.preventDefault();
+    setPage({ ...page, page: pageOffset });
+  };
+
   const handlePointChange = async (list, mapOptions = {}) => {
     if (isArray(mapOptions.center)) return;
 
@@ -138,6 +146,7 @@ const SearchPage = ({
     if (!queryData.maxPrice) queryData.maxPrice = -1;
     if (!queryData.loc) return (queryData.loc = null);
 
+   
     const { list: { docs, near, zoom, coord, department, ...pageInfo } = {} } =
       await getPublicPropertiesApiMethod({
         ...queryData,
@@ -186,6 +195,7 @@ const SearchPage = ({
       if (!makeChangeRequest || isArray(center)) return;
       if (!queryData.maxPrice) queryData.maxPrice = -1;
       if (!queryData.loc) queryData.loc = null;
+      
 
       const { list: { docs, near, zoom, ...pageInfo } = {} } =
         await getPropertiesByCoordApiMethod({

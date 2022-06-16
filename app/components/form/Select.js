@@ -18,7 +18,14 @@ const positionType = ['', 'left', 'right'];
 
 const styles = (theme) => ({
   container: {
+    // [theme.breakpoints.down('sm')]: {
+    //   height: '0.5rem',
+    // },
     '& select': {
+      [theme.breakpoints.down('sm')]: {
+        padding: '1.4rem 1.2rem',
+        fontSize: '1.2rem',
+      },
       padding: '1.8rem 1.6rem',
       fontSize: '1.4rem',
       outline: 'none',
@@ -72,19 +79,23 @@ const styles = (theme) => ({
   },
   customSelectContainer: {
     position: 'relative',
-    height: '100%',
+    height: '40%',
     '& input': {
       width: '100%',
-      height: '100%',
-      backgroundColor: 'white',
+      height: '60%',
+      backgroundColor: 'transparent',
       paddingRight: '3rem',
-      border: `solid 2px ${theme.palette.lightBlue}`,
+      marginTop: '0.6rem',
+      border: 'none', // border: `solid 2px ${theme.palette.lightBlue}`,
       ...theme.ui.searchInput,
-      paddingLeft: '2.4rem',
+      paddingLeft: '1.8rem',
       [theme.breakpoints.down('sm')]: {
         padding: '2.1rem 1.4rem',
         borderRadius: '0!important',
       },
+    },
+    '&  input::placeholder': {
+      fontSize: '1rem',
     },
     '& > span': {
       position: 'absolute',

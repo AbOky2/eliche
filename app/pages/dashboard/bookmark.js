@@ -7,19 +7,20 @@ import { connect } from 'react-redux';
 import { userActions } from 'redux/_actions';
 import { AdminContentWrapper } from 'components/wrapper';
 import { addBookmarkApiMethod } from 'lib/api/customer';
+import { toast } from 'react-toastify';
 import { Card, Btn, btnHover } from 'components';
 import { getAddress, getNbPieces, getCardImg, singlePath } from 'helpers';
 import withAuth from 'lib/withAuth';
-import Demo from './demo'
-import Demo2 from './demo2'
-import Demo3 from './demo3'
-import Partager from './partageButtom'
-import Profile from '../../components/UpdateProfile'
+import { useTheme } from '@material-ui/core/styles';
+import { useMediaQuery } from '@material-ui/core';
+import Demo from './demo';
+import Demo2 from './demo2';
+import Demo3 from './demo3';
+import Partager from './partageButtom';
+import Profile from '../../components/UpdateProfile';
 import clsx from 'clsx';
 import { Input, Select, Modal, Icon } from '../../components/form';
 import { userRoleSelect } from 'helpers';
-
-
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -46,6 +47,41 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     width: 'calc(100% - 14px)',
+  },
+  advisorContact: {
+    '& svg:first-of-type': {
+      marginRight: '1.4rem',
+    },
+  },
+  advisorContainer: {
+    '& h2': {
+      fontSize: '18px',
+      lineHeight: '23px',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '18px',
+        lineHeight: '23px',
+      },
+      marginBottom: '4px',
+    },
+  },
+  advisorInfo: {
+    flexGrow: '1',
+    paddingLeft: '1.6rem',
+    paddingTop: '1rem',
+    '& h2': {
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '18px',
+        lineHeight: '23px',
+      },
+      color: theme.palette.normalBlue,
+    },
+    '& p': {
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '14px',
+        lineHeight: '18px',
+      },
+      marginBottom: 0,
+    },
   },
   btnContainer: {
     textAlign: 'center',
@@ -104,12 +140,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-
-
 export const UpdateProfile = ({ user, update, logout, transparent }) => {
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const theme = useTheme();
+  const isMdView = useMediaQuery(theme.breakpoints.down('sm'));
   const [openModal, setOpenModal] = useState(false);
   const [state, setState] = useState(user);
   const handleChange =
@@ -127,16 +161,17 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
     setOpenModal(false);
     if (!hasUpdate) setState(user);
   };
+  console.log(state);
   // eslint-disable-next-line no-return-assign
   const handleLogOut = () => logout(() => (window.location = '/login'));
 
-  const handleSumbit = () => update(state, () => handleModalClose(true));
+  const handleSumbit = () => update(state);
   const onKeyPress = (e) => e.key === 'Enter' && handleSumbit(true);
 
   const classes = useStyles();
 
   return (
-    <div className=''>
+    <div className="">
       <div className="relative">
         <div
           className={
@@ -144,45 +179,106 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               ? classes.contextMenu
               : clsx(classes.contextMenu, classes.openMenu)
           }
-        >
-         
+        ></div>
+        <div className="w-[287px] h-[30px] mb-[79px]">
+          <p
+            className="w-[287px] h-[30px] absolute left-4 top-8 text-[34px] font-bold text-left text-_aPropos"
+            style={{
+              fontFamily: 'Nunito',
+
+              color: 'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+              transition: 'background .1s ease-out, box-shadow .1s ease-out',
+            }}
+          >
+            Mon profil
+          </p>
+        </div>
+        <div className={classes.advisorContainer}>
+          <Typography
+            style={{
+              fontSize: '18px',
+              fontWeight: '700',
+              lineHeight: '23px',
+              color: '#272832',
+              marginLeft: '17px',
+            }}
+          >
+            Mon conseiller
+          </Typography>
+          <Grid container alignItems="center">
+            <Grid item>
+              <img src="/static/img/advisor.png" alt="" />
+            </Grid>
+            <Grid item className={classes.advisorInfo}>
+              <Grid container justify="space-between">
+                <Grid item>
+                  <Grid container justify="space-between">
+                    <div>
+                      <Typography variant="h2">Raphael Altman</Typography>
+                      <Typography
+                        style={{ fontSize: '14px', lineHeight: '18px' }}
+                      >
+                        raltman@nexity.fr
+                      </Typography>
+                      <Typography
+                        style={{ fontSize: '14px', lineHeight: '18px' }}
+                      >
+                        06 99 77 65 16
+                      </Typography>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         </div>
         <Grid
           container
           alignItems="center"
           justify="space-between"
-          className=''
           onClick={toggleShowSubMenu}
         >
           {/* <Icon type="user" /> */}
-          <div className="w-[287px] h-[30px] mb-[39px]">
-            <p className="w-[287px] h-[30px] absolute left-4 top-8 text-[28px] font-bold text-left text-_aPropos">
-              Mon profil
-            </p>
-          </div>
 
-          <div className='flex justify-center gap-9 mx-4 mt-7 mb-5 sm:gap-14'>
-                    <div>
-                      <p className=" text-xl font-extrabold text-left text-[#272832]">Mes informations</p>
-                      </div>
-                      <div
-                        className="flex justify-between items-center relative px-[47px] py-2 rounded-xl border-2 border-[#eff4ff]"
-                        style={{ background: "linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)" }}
-                      >
-                        <button type="submit" className=" cursor-pointer flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white">Enregistrer</button>
-                      </div>
-        </div>
+          <div
+            className="flex justify-between gap-9 mx-4 mt-7 mb-5 sm:gap-14"
+            style={{
+              width: '100%',
+            }}
+          >
+            <div>
+              <p className=" text-[18px] font-extrabold text-left text-[#272832]">
+                Mes informations
+              </p>
+            </div>
+            <div
+              className="flex justify-between items-center relative rounded-xl border-2 border-[#eff4ff]"
+              style={{
+                background:
+                  'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
+                padding: '8px 47px',
+                width: '167px',
+                height: '34px',
+              }}
+            >
+              <button
+                type="submit"
+                className="cursor-pointer flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white"
+                style={{
+                  width: '75px',
+                  height: '18px',
+                }}
+              >
+                Enregistrer
+              </button>
+            </div>
+          </div>
         </Grid>
       </div>
-      <div
-      
-        onClick={handleSumbit}
-        title="Mon Profil"
-        confirmText="Enregistrer"
-      >
-        <Grid container item justify="center" className="form-container">
-          <Grid container item>
-            <div
+      <div onClick={handleSumbit} title="Mon Profil" confirmText="Enregistrer">
+        <Grid item justify="center" className="form-container">
+          <Grid item>
+            {/* <div
               style={{
                 background:
                   'linear-gradient(219.21deg, #C399DB -0.38%, #5882F7 106.68%)',
@@ -191,25 +287,24 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
                 borderRadius: '50%',
                 padding: '22px',
                 marginBottom: '19px',
-                
               }}
             >
               <Icon type="leK" size="large" noColor />
-            </div>
+            </div> */}
             <Input
               value={state.lastName}
               onChange={handleChange}
               onKeyPress={onKeyPress}
               name="lastName"
-              position="left"
-              placeholder='Nom'
+              // position="left"
+              placeholder="Nom"
             />
             <Input
               value={state.firstName}
               onChange={handleChange}
               onKeyPress={onKeyPress}
               name="firstName"
-              position="right"
+              // position="right"
               placeholder="Prenom"
             />
             <Input
@@ -218,8 +313,8 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               onKeyPress={onKeyPress}
               name="email"
               type="email"
-              position="left"
-              placeholder='Email'
+              // position="left"
+              placeholder="Email"
             />
             <Input
               value={state.phone}
@@ -227,8 +322,8 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               onKeyPress={onKeyPress}
               name="phone"
               type="phone"
-              position="right"
-              placeholder='Telephone'
+              // position="right"
+              placeholder="Telephone"
             />
             <Input
               value={state.password}
@@ -237,20 +332,25 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               onKeyPress={onKeyPress}
               name="password"
               type="password"
-              position="left"
+              // position="left"
             />
             <Select
               name="role"
               value={state.role}
               onChange={handleChange}
-              position="right"
+              // position="right"
               list={userRoleSelect}
             />
-          <div onClick={handleLogOut}
-            className="mt-5 bg-red-700 cursor-pointer text-white flex justify-between items-center relative px-[47px] py-2 rounded-xl border-2 border-[#eff4ff]"
-          >
-            Déconnexion
-          </div>
+            {isMdView ? (
+              <div
+                onClick={handleLogOut}
+                className="mt-5 bg-red-700 cursor-pointer text-white flex justify-between items-center relative px-[47px] py-2 rounded-xl border-2 border-[#eff4ff]"
+              >
+                Déconnexion
+              </div>
+            ) : (
+              ''
+            )}
           </Grid>
         </Grid>
       </div>
@@ -258,14 +358,7 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
   );
 };
 
-
-
-
-
-
-
-
-    /*
+/*
     <AdminContentWrapper noRedirect mobilePadding>
       <div>
         <Typography variant="h1" className={classes.title}>
@@ -351,12 +444,11 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
       </div>
     </AdminContentWrapper>
     */
-  
 
 UpdateProfile.propTypes = {
   user: PropTypes.object.isRequired,
   update: PropTypes.func.isRequired,
-  logout:PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 const mapState = (state) => {
   const { loggingIn, user } = state.authentication;
@@ -366,6 +458,5 @@ const mapState = (state) => {
 const actionCreators = {
   update: userActions.updateUserDataOnly,
   logout: userActions.logout,
-
 };
 export default withAuth(connect(mapState, actionCreators)(UpdateProfile));

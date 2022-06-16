@@ -58,7 +58,6 @@ export default function withAuth(
     }
 
     componentDidMount() {
-      console.log("PROPS ", this.props)
       const { user, isFromServer } = this.props;
       this.props.checkUserSession(user);
 

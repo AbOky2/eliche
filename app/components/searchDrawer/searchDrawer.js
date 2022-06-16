@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { LocationStep } from './locationStep';
 import { BudgetStep } from './budgetStep';
 import { PieceStep } from './pieceStep';
+import { isArray } from 'helpers';
 
 const compList = [LocationStep, BudgetStep, PieceStep];
 export const SearchDrawer = ({ showSearch, setShowSearch }) => {
@@ -18,6 +19,12 @@ export const SearchDrawer = ({ showSearch, setShowSearch }) => {
       query: { ...state },
     });
   };
+  const handleSelectPieces = (arg) => {
+    let pieces = isArray(arg) ? arg : [arg];
+
+    pieces = pieces.map((e) => parseInt(e, 10));
+    setState({ ...state, pieces });
+  };
   const handleNextStep = () =>
     step < compList.length - 1 ? setStep(step + 1) : handleFinish();
 
@@ -28,7 +35,7 @@ export const SearchDrawer = ({ showSearch, setShowSearch }) => {
       id="test1"
       style={{
         position: 'fixed',
-        width:'100%',
+        width: '100%',
         height: '100%',
         top: '0',
         left: '0',
@@ -42,6 +49,7 @@ export const SearchDrawer = ({ showSearch, setShowSearch }) => {
         handleChange={handleChange}
         setStep={setStep}
         handleNextStep={handleNextStep}
+        handleSelect={handleSelectPieces}
       />
     </div>
   );

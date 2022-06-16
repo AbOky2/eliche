@@ -16,7 +16,7 @@ const {
 } = process.env;
 
 const PORT = process.env.PORT || 3001;
-const ROOT_URL = process.env.ROOT_URL || `http://localhost:${PORT}`;
+const ROOT_URL = process.env.ROOT_URL || `http://212.47.235.69:${PORT}`;
 const IS_DEV = NODE_ENV !== 'production';
 const MONGO_URL = IS_DEV ? MONGO_URL_TEST : MONGO_URL_PROD;
 const PROPERTIES_DIR = 'properties';

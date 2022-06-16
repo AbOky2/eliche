@@ -14,8 +14,6 @@ import useStyles from './styles';
 import { useMediaQuery } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 
-
-
 export const Card = ({
   _id,
   title,
@@ -34,7 +32,6 @@ export const Card = ({
   const isMdView = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-
     <>
 
     {isMdView? (
@@ -117,25 +114,11 @@ export const Card = ({
                 />
               </p>
             )}
-      </div>
+          </div>
+        </div>
+      )}
 
-
-    </div>
-
-    )}
-
-   
-
-
-
-
-
-
-
-
-
-
-{/* 
+      {/* 
     // <div className={classes.container}>
     //   <div className='bg-black' >
     //     <div style={{ backgroundImage: `url(${src})` }}></div>
@@ -178,8 +161,6 @@ export const Card = ({
     //   </div>
     // </div> 
   */}
-
-
     </>
   );
 };

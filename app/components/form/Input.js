@@ -26,14 +26,21 @@ const styles = (theme) => ({
       marginBottom: '8px',
       boxSizing: 'border-box',
       width: '100%',
-      height: 'auto',
+      height: '50px',
       borderRadius: '1rem',
       border: `solid 1px ${theme.palette.lightBlue}`,
       color: theme.palette.newBlack,
       ...sharedInputStyle,
       outline: 'none',
-      fontSize: '1.4rem',
-      lineHeight: '1.9rem',
+      fontSize: '14px',
+      lineHeight: '18px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '14px',
+        lineHeight: '18px',
+        height: '50px',
+        padding: '16px',
+        borderRadius: '10px',
+      },
       '&:focus': {
         border: `solid 1px ${theme.palette.newBlue}`,
         transition: 'border .1s ease-out, box-shadow .1s ease-out',
@@ -88,15 +95,19 @@ const styles = (theme) => ({
   },
   custom: {
     position: 'relative',
-    height: '100%',
+    height: '40%',
     '&  input': {
       width: '100%',
-      padding: '2rem',
+      // padding: '2rem',
+      marginTop: '0.3rem',
       borderBottomRightRadius: '.6rem',
       borderTopRightRadius: '.6rem',
       ...sharedInputStyle,
       paddingLeft: '2.4rem',
       ...theme.ui.searchInput,
+    },
+    '&  input::placeholder': {
+      fontSize: '1rem',
     },
     '& > div:last-of-type': {
       display: 'none',
@@ -161,13 +172,74 @@ export const GoogleMaps = ({ onChange, value, placeholder }) => {
   return (
     <GooglePlacesAutocomplete
       apiOptions={{ language: 'fr', region: 'fr' }}
+      minLengthAutocomplete={2}
       autocompletionRequest={{
         componentRestrictions: {
           country: ['fr'],
         },
         types: ['(regions)'],
       }}
+      styles={{
+        description: {
+          fontWeight: 'bold',
+          backgroundColor: 'red',
+        },
+        predefinedPlacesDescription: {
+          color: '#1faadb',
+        },
+      }}
       selectProps={{
+        styles: {
+          input: (provided) => ({
+            ...provided,
+            color: '#8C97B6',
+            width: '100%',
+            border: 'none',
+            outline: 'none',
+          }),
+          placeholder: (provided) => ({
+            ...provided,
+            color: '#8C97B6',
+            fontSize: '1rem',
+            width: '100%',
+            fontWeight: '600!important',
+            outline: 'none',
+          }),
+          control: (provided) => ({
+            ...provided,
+            outline: 'none',
+            border: 'none',
+            fontSize: '1rem',
+            marginLeft: '1.7rem',
+            boxShadow: 'none',
+            marginTop: '0.3rem',
+          }),
+          option: (provided) => ({
+            ...provided,
+            color: '#8C97B6',
+            fontSize: '1rem',
+          }),
+          menuList: (provided) => ({
+            ...provided,
+          }),
+          menu: (provided) => ({
+            ...provided,
+            color: '#8C97B6',
+            fontSize: '1rem',
+            marginLeft: '1.7rem',
+          }),
+          noOptionsMessage: (provided) => ({
+            ...provided,
+            color: '#8C97B6',
+            fontSize: '1rem',
+          }),
+          singleValue: (provided) => ({
+            ...provided,
+            color: '#8C97B6',
+            border: 'none',
+            fontSize: '1rem',
+          }),
+        },
         placeholder,
         onChange,
         onInputChange,

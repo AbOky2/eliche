@@ -72,6 +72,9 @@ export const StudentMenuComp = connect(
                 user={user}
                 logout={logout}
                 update={update}
+                login={login}
+                register={register}
+                authSocialMedia={authSocialMedia}
                 noHeaderMargin={noHeaderMargin}
               />
             </Hidden>

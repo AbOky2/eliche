@@ -24,7 +24,7 @@ export const LocationStep = ({
   return (
     <Slide direction="up" in={showSearch} container={containerRef.current}>
       <div
-      className=' w-full'
+        className=" w-full"
         style={{
           background:
             'linear-gradient(219.21deg, #C399DB -0.38%, #5882F7 106.68%)',
@@ -32,7 +32,6 @@ export const LocationStep = ({
           borderRadius: '5px',
           alignContent: 'center',
         }}
-      
       >
         <Box
           sx={{
@@ -48,20 +47,24 @@ export const LocationStep = ({
           }}
         >
           <Box tabIndex={-1} sx={{ mt: 1, p: 1 }}>
-            <div className='flex flex-row-reverse justify-between'>
-            <p className="flex-grow-0 flex-shrink-0 text-base font-bold text-center text-[#3679ff]">
+            <div className="flex flex-row-reverse justify-between">
+              <p className="flex-grow-0 flex-shrink-0 text-base font-bold text-center text-[#3679ff]">
                 Localisation ?
               </p>
-               <div className=' '
-              type="button" onClick={() => setShowSearch(false)}>
+              <div
+                className=" "
+                type="button"
+                onClick={() => setShowSearch(false)}
+              >
                 <svg
-                      width={24}
-                      height={24}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
-                      preserveAspectRatio="xMidYMid meet">
+                  width={24}
+                  height={24}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+                  preserveAspectRatio="xMidYMid meet"
+                >
                   <path
                     d="M20 12C20 16.4183 16.4183 20 12 20V22C17.5228 22 22 17.5228 22 12H20ZM12 20C7.58172 20 4 16.4183 4 12H2C2 17.5228 6.47715 22 12 22V20ZM4 12C4 7.58172 7.58172 4 12 4V2C6.47715 2 2 6.47715 2 12H4ZM12 4C16.4183 4 20 7.58172 20 12H22C22 6.47715 17.5228 2 12 2V4Z"
                     fill="#14181F"
@@ -71,7 +74,6 @@ export const LocationStep = ({
                     fill="#14181F"
                   />
                 </svg>
-                
               </div>
             </div>
             <br />

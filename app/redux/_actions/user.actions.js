@@ -12,7 +12,6 @@ import { alertActions } from './alert.actions';
 
 const redirectAfterAccess = ({ user, redirect }) => {
   const params = queryParams(window.location.href);
-  console.log('Redirect: ', redirect);
   if (redirect) window.open(redirect);
   window.location = user?.role === 'admin' ? '/admin' : window.location.href; // : `/dashboard${params?.id ? `/property/buy/${params.id}` : ''}`;
 };
@@ -26,7 +25,6 @@ function login(args, redirect) {
     signIn(args)
       .then(({ user }) => {
         if (user && user._id) {
-          console.log('args: ', redirect);
           dispatch(success(user));
           redirectAfterAccess({ user, redirect });
         }

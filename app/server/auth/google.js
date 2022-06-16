@@ -34,8 +34,6 @@ function auth({ ROOT_URL, server }) {
     // console.log(stats.data.items);
     /* END TESTING YOUTUBE */
 
-    console.log('acc: ', accessToken);
-    console.log('refre: ', refreshToken);
     if (profile.emails) {
       email = profile.emails[0].value;
     }
@@ -63,7 +61,6 @@ function auth({ ROOT_URL, server }) {
         lastName,
         avatarUrl,
       });
-      console.log('email: ', email);
       verified(null, user);
     } catch (err) {
       verified(err);
@@ -75,7 +72,6 @@ function auth({ ROOT_URL, server }) {
   passport.deserializeUser(async (id, done) => {
     try {
       const user = await UserModel.getById(id);
-      console.log('Passe avec user: ', user);
       done(null, user);
     } catch (err) {
       done(err);

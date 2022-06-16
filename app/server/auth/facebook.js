@@ -14,9 +14,6 @@ function auth({ ROOT_URL, server }) {
   const uri = '/auth/facebook/oauth2callback';
   const redirectUri = ROOT_URL + uri;
   const verify = async (accessToken, refreshToken, profile, verified) => {
-    console.log('ACCESS', accessToken);
-    console.log('REFRESH', refreshToken);
-    console.log('PROFILE', profile);
     const fbUser = FB.extend({
       accessToken,
       appId: '487070945537857', //process.env.FACEBOOK_CLIENT_ID,
@@ -26,7 +23,6 @@ function auth({ ROOT_URL, server }) {
     const userFb = await fbUser.api(
       'me?fields=id,address,birthday,email,first_name,last_name,languages,picture,gender,accounts{fan_count}'
     );
-    console.log('DATA', JSON.stringify(userFb, null, 2));
     // if (!userFb.accounts || userFb.accounts.data.length === 0) {
     //   return verified(new Error('You need to link a page.'));
     // }

@@ -7,11 +7,16 @@ export default makeStyles((theme) => ({
   },
   socialAuth: {
     padding: '1.4rem 2.4rem',
-    marginBottom: '1.6rem',
+    marginTop: '1.6rem',
+    cursor: 'pointer',
     border: `1px solid ${theme.palette.lightBlue}`,
     borderRadius: '1rem',
     '& p': {
-      marginLeft: '3.1rem',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '1.2rem',
+        marginLeft: '1.3rem',
+      },
+      marginLeft: '2.0rem',
       fontWeight: '700',
       color: theme.palette.newDark,
     },

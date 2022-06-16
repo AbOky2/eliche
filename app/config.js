@@ -21,8 +21,8 @@
 //   SENDGRID_API_KEY,
 // } = process.env;
 
-const NEXT_PUBLIC_ROOT_URL = 'http://localhost:3000';
-const NEXT_PUBLIC_UPLOAD_URL = 'http://localhost:3001';
+const NEXT_PUBLIC_ROOT_URL = 'http://212.47.235.69:3000';
+const NEXT_PUBLIC_UPLOAD_URL = 'http://212.47.235.69:3001';
 const NODE_ENV = 'dev';
 const MONGO_URL_TEST =
   'mongodb+srv://dbtest:dbtest@cluster0.h9mof.mongodb.net/?retryWrites=true&w=majority';
@@ -45,7 +45,7 @@ const SENDGRID_API_KEY =
 const MAIL_USER = 'kitlenid@gmail.com';
 
 const PORT = process.env.PORT || 3000;
-const ROOT_URL = process.env.ROOT_URL || `http://localhost:${PORT}`;
+const ROOT_URL = process.env.ROOT_URL || `http://212.47.235.69:${PORT}`;
 // const SESSION_SECRET =
 //   process.env.SESSION_SECRET || 'M87kjdsfs876d98hdshhfjsecret';
 const dev = NODE_ENV !== 'production';
