@@ -24,7 +24,6 @@ import {
 } from 'helpers';
 import { NotFound, AdminContentWrapper,Icon } from 'components';
 import { MapsView } from './views';
-import { ListContainer } from './views/partials';
 import SearchFields from './searchFields';
 import withStyles from './styles';
 
@@ -57,7 +56,6 @@ const SearchPage = ({
     limit: defaultLimit,
     totalPages: state?.length,
   });
-  const [curr, setCurr] = useState(null);
   const [currView, setCurrView] = useState(isMapsView);
   const [center, setCenter] = useState([]);
   const [mapOptions, setMapOptions] = useState({});
