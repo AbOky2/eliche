@@ -33,36 +33,28 @@ const LocationTable = ({
     const conditionalColumn = hasReduction ? 1 : 2;
 
     return (
-      <div key={elem} className="flex flex-col items-center justify-center p-4  bg-white border rounded-xl border-_aPropos mb-4">
+      <div key={elem} className="flex flex-col bg-white border rounded-xl w-full border-_aPropos mb-4  ">
         <Grid
           container
-          className="pointer"
+          className="pointer h-[50px]"
           justify = "space-between"
           onClick={() => handleCurrOpen(elem)}
         >
-          <Grid container justify="space-between">
-            <Grid item>
-              <div
-                style={{
-                  color: 'rgba(79, 128, 255, 1)',
-                  fontWeight: '700',
-                  fontSize: '14px',
-                  lineHeight: '17px',
-                }}
-              >
+          <div className=' flex justify-between text-sm sm:text-xs text-_aPropos '>
+            <div  className=' '>
+             
                 {` ${elem} pièce${elem > 1 ? 's' : ''} à partir de `}
 
                 <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong>
-              </div>
-            </Grid>
-            <Grid item className="text-center">
+            </div>
+            <div  className=" order-last">
               <Icon
-                type={isOpen ? 'less' : 'plus'}
-                color="newBlue"
+                type={isOpen ? 'signeM' : 'signeP'}
                 size="small"
+                strokeColor='newBlue'
               />
-            </Grid>
-          </Grid> 
+            </div>
+          </div> 
          
           <div style={{color:'rgba(79, 128, 255, 1)', fontWeight:'700', fontSize:'14px', lineHeight:'17px'}}>
                 {` ${elem} pièce${elem > 1 ? 's' : ''} à partir de `}
@@ -104,44 +96,44 @@ const LocationTable = ({
           </div>
         </Grid>
         {isOpen && (
-          <div >
+          <div className='   p-2 ' >
             <Grid container className={classes.discoveryContentHeader}>
-              {hasReduction && (
+                {hasReduction && (
+                  <Grid item md={2} xs={2} className="text-center text-xs">
+                    {`TVA réduite${vat ? ` ${vat}%` : ''}`}
+                  </Grid>
+                )}
                 <Grid item md={2} xs={2} className="text-center text-xs">
-                  {`TVA réduite${vat ? ` ${vat}%` : ''}`}
+                  Prix TVA 20%
                 </Grid>
-              )}
-              <Grid item md={2} xs={2} className="text-center text-xs">
-                Prix TVA 20%
-              </Grid>
-              <Grid item md={1} xs={1} className="text-center text-xs">
-                Surface
-              </Grid>
-              <Grid item md={2} xs={2} className="text-center text-xs">
-                Étage
-              </Grid>
-              <Grid item md={1} xs={1} className="text-center text-xs">
-                Orientation
-              </Grid>
-              <Grid
-                item
-                md={conditionalColumn}
-                xs={conditionalColumn}
-                className="text-center text-xs"
-              >
-                Parking
-              </Grid>
-              <Grid
-                item
-                md={conditionalColumn}
-                xs={conditionalColumn}
-                className="text-center text-xs"
-              >
-                Les +
-              </Grid>
-              <Grid item md={2} xs={2} className="text-center text-xs">
-                Plan 2D
-              </Grid>
+                <Grid item md={1} xs={1} className="text-center text-xs">
+                  Surface
+                </Grid>
+                <Grid item md={2} xs={2} className="text-center text-xs">
+                  Étage
+                </Grid>
+                <Grid item md={1} xs={1} className="text-center text-xs">
+                  Orientation
+                </Grid>
+                <Grid
+                  item
+                  md={conditionalColumn}
+                  xs={conditionalColumn}
+                  className="text-center text-xs"
+                >
+                  Parking
+                </Grid>
+                <Grid
+                  item
+                  md={conditionalColumn}
+                  xs={conditionalColumn}
+                  className="text-center text-xs"
+                >
+                  Les +
+                </Grid>
+                <Grid item md={2} xs={2} className="text-center text-xs">
+                  Plan 2D
+                </Grid>
             </Grid>
             {current.list
               ?.sort((a, b) => a.price - b.price)
@@ -175,7 +167,7 @@ const LocationTable = ({
                     container
                     className={classes.discoveryContent}
                   >
-                    <div className='flex flex-col items-center'>
+                    <div className='flex flex-col '>
                      
                       <div className='flex flex-col items-center w-full '>
                           {hasReduction && (
@@ -184,26 +176,48 @@ const LocationTable = ({
                           <p className="w-44 h-5 text-sm font-medium justify-end flex">{`${price}€`}</p>
                         </div>
                         )}
-                      <div className='flex flex-row justify-between mb-1'>
-                            <p className="w-44 h-5 text-sm font-medium">Prix TVA 20%</p>
-                            <p className="w-44 h-5 text-sm font-medium justify-end flex">{vatPrice}</p>
+
+                      <div className='flex justify-between   '>
+                            <div className='  flex'>
+                                  <p className=" text-sm font-medium">Prix TVA 20%</p>
+                            </div>
+                            <div className='flex '>
+                                  <p className="text-sm font-medium justify-end flex">{vatPrice}</p>
+                            </div>
                       </div>
-                      <div className='flex flex-row justify-between mb-1'>
-                            <p className="w-44 h-5 text-sm font-medium">Surface</p>
-                            <p className="w-44 h-5 text-sm font-medium justify-end flex">{`${curr.surface}m²`}</p>
+                      <div className='flex justify-between  w-full'>
+                            <div className='  flex'>
+                                  <p className=" text-sm font-medium">Surface</p>
+                            </div>
+                            <div className='flex '>
+                                  <p className="text-sm font-medium justify-end flex">{`${curr.surface}m²`}</p>
+                            </div>
                       </div>
-                      <div className='flex flex-row justify-between mb-1'>
-                            <p className="w-44 h-5 text-sm font-medium">Étage</p>
-                            <p className="w-44 h-5 text-sm font-medium justify-end flex">{floor}</p>
+                      <div className='flex justify-between  w-full'>
+                            <div className='  flex'>
+                                  <p className=" text-sm font-medium">Étage</p>
+                            </div>
+                            <div className='flex '>
+                                  <p className="text-sm font-medium justify-end flex">{floor}</p>
+                            </div>
                       </div>
-                      <div className='flex flex-row justify-between mb-1'>
-                            <p className="w-44 h-5 text-sm font-medium">Orientation</p>
-                            <p className="w-44 h-5 text-sm font-medium justify-end flex">{orientation}</p>
+                      <div className='flex justify-between   w-full'>
+                            <div className='  flex'>
+                                  <p className=" text-sm font-medium">Orientation</p>
+                            </div>
+                            <div className='flex '>
+                                  <p className="text-sm font-medium justify-end flex">{orientation}</p>
+                            </div>
                       </div>
-                      <div className='flex flex-row justify-between mb-1'>
-                            <p className="w-44 h-5 text-sm font-medium">Parking</p>
-                            <p className="w-44 h-5 text-sm font-medium justify-end flex">{parking}</p>
+                      <div className='flex justify-between  w-full'>
+                            <div className='  flex'>
+                                  <p className=" text-sm font-medium">Parking</p>
+                            </div>
+                            <div className='flex '>
+                                  <p className="text-sm font-medium justify-end flex">{parking}</p>
+                            </div>
                       </div>
+                    
                   </div>
         
                     <div

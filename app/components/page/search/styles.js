@@ -1,13 +1,28 @@
 import { withStyles } from '@material-ui/core';
 import { btnHover } from 'components/form/Btn';
 
-const inputRadius = '20px';
+const inputRadius = '12px';
 
 const styles = (theme) => ({
   searchMapContainer: {
-    '& > div:first-of-type > div:first-of-type > div:last-of-type > svg ': {
-      display: 'none',
+    '& > div:first-of-type': {
+      position: 'absolute',
+      top: 0,
+      left: '15%',
+      transform: 'translateY(calc(10% + 1rem))',
+      zIndex: 1,
+      width: '50%',
+      '& > div:first-of-type > div:last-of-type > svg': {
+        display: 'block',
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        zIndex: 3,
+        transform: 'initial',
+      },
     },
+   
+    
     [theme.breakpoints.down('sm')]: {
       '& > div:first-of-type': {
         position: 'absolute',
@@ -15,7 +30,7 @@ const styles = (theme) => ({
         left: '15%',
         transform: 'translateY(calc(10% + 1rem))',
         zIndex: 1,
-        width: '70%',
+        width: '94%',
         '& > div:first-of-type > div:last-of-type > svg': {
           display: 'block',
           position: 'absolute',
@@ -106,12 +121,9 @@ const styles = (theme) => ({
           minHeight: 62,
           borderRadius: inputRadius,
           ...theme.ui.searchInput,
-          borderTopRightRadius: 0,
-          borderBottomRightRadius: 0,
-          borderRight: 0,
           boxShadow: 'none',
           border: '2px solid #EAEFFA',
-          borderColor: theme.palette.lightBlue,
+         // borderColor: theme.palette.lightBlue,
           height: '100%',
           [theme.breakpoints.down('sm')]: {
             borderRadius: '1.1rem!important',
@@ -152,7 +164,6 @@ const styles = (theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       '& > div': {
-        display: 'block',
         width: '100%',
       },
       '& > div:nth-child(2) > div > div > div': {
@@ -199,7 +210,7 @@ const styles = (theme) => ({
     left: '2.5rem',
     width: 'fit-content',
     [theme.breakpoints.down('sm')]: {
-      display: 'none',
+      display: '',
     },
   },
   reloadMapsContainer: {
@@ -259,7 +270,7 @@ const styles = (theme) => ({
       color: theme.palette.blue,
     },
     [theme.breakpoints.down('sm')]: {
-      display: 'none',
+      display: '',
       position: 'absolute',
       top: 55,
       left: '50%',
@@ -380,9 +391,10 @@ const styles = (theme) => ({
     },
   },
   mdMapsViewContainer: {
-    display:'none',
-    width:'0px',
+    display:"flex",
+    width:'100%',
     height: 'calc(100vh - 160px)',
+    position:"relative"
   },
   pagination: {
     marginTop: '1rem',

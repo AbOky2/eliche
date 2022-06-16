@@ -140,7 +140,7 @@ const styles = (theme) => ({
     cursor: 'pointer',
     position: 'absolute',
     ...theme.ui.bordered,
-    top: 0,
+    top: '',
     height: '100%',
     overflow: 'hidden',
     right: 0,
@@ -210,7 +210,7 @@ export const Input = withStyles(styles)(
     const [showPassword, setShowPassword] = useState(false);
 
     const toggleShowPassword = () => setShowPassword(!showPassword);
-    // console.log({ value });
+    console.log({ value });
     return (
       <Grid
         item
@@ -307,57 +307,124 @@ export const CustomInput = withStyles(styles)(
     useEffect(() => setValue(inputProps.value), [inputProps.value]);
 
     return (
-      <div className={classes.customWrapper}>
-        <Grid
-          container
-          className={
-            showSub && open
-              ? clsx(classes.custom, classes.customOpen)
-              : classes.custom
-          }
+      <div>
+       <div
+      className=' w-full p-3'
+        
           ref={node}
         >
-          <NumberFormat
-            thousandSeparator=" "
-            suffix=" €"
-            {...inputProps}
-            value={value}
-            placeholder="Budget maximal"
-            onChange={onChange}
-            className={classes.container}
-            onKeyPress={onKeyPress}
-            autoComplete="off"
-          />
-          <Grid container>
-            <Typography variant="h4">Quel est votre budget ?</Typography>
-            <Typography>
-              Nous vous aidons à déterminer votre budget maximal en simulant le
-              montant que vous pouvez emprunter.
-            </Typography>
-            <NumberFormat
-              thousandSeparator=" "
-              suffix=" €"
-              value={state.salary}
-              onChange={handleChange('salary')}
-              placeholder="Votre salaire net mensuel"
-            />
-            <NumberFormat
-              thousandSeparator=" "
-              suffix=" €"
-              value={state.contributtion}
-              placeholder="Votre apport personnel"
-              onChange={handleChange('contributtion')}
-            />
-            <Typography>
-              Ce calcul est réalisé avec les hypothèses suivantes : <br />
-              durée de prêt : 25 ans <br />
-              taux d’intérêt : 1,5%
-            </Typography>
-          </Grid>
-        </Grid>
-        <div onClick={handleSumit} style={{background:'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)'}}className='bg-blue-700 w-[50px] h-[50px] p-3 rounded-xl absolute top-6 left-60'>
-        <Icon type="recherche" size='small' color='white'  />
+          <p className="text-base mb-2 font-bold text-left text-[#0e215c]">Votre budget</p>
+
+<NumberFormat
+ className="w-full h-[52px] rounded-xl bg-white border-2 border-[#eff4ff]"
+
+  thousandSeparator=" "
+  suffix=" €"
+  prefix="  "
+  {...inputProps}
+  value={value} 
+  focus={true}
+  placeholder="  Budget maximal"
+  onChange={onChange}
+  onKeyPress={onKeyPress}
+  autoComplete="off"
+/>
+<br />
+<br />
+
+<div className="flex justify-center mb-4 items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 p-4 rounded-xl bg-[#eff4ff] border border-[#3679ff]">
+        <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#3679ff]">
+          <span className="flex-grow-0 flex-shrink-0 text-base font-bold text-left text-[#3679ff]">
+            Vous ne connaissez pas{" "}
+          </span>
+          <br />
+          <span className="flex-grow-0 flex-shrink-0 text-base font-bold text-left text-[#3679ff]">
+            votre budget ?{" "}
+          </span>
+          <br />
+          <span className="flex-grow-0 flex-shrink-0 text-base text-left text-[#3679ff]">
+            Utiliser notre simulateur ci-dessous.
+          </span>
+        </p>
+</div>
+
+<p className="text-base mb-2 font-bold text-left text-[#0e215c]">Votre salaire mensuel net (avant impôt)</p>
+
+<NumberFormat
+ className="w-full mb-4 h-[52px] rounded-xl bg-white border-2 border-[#eff4ff]"
+
+  thousandSeparator=" "
+  suffix=" €"
+  prefix="   "
+  value={state.salary}
+  onChange={handleChange('salary')}
+  placeholder="  Votre salaire net mensuel"
+/>
+
+<p className="text-base mb-2 font-bold text-left text-[#0e215c]">Votre apport</p>
+
+
+<NumberFormat
+ className="w-full h-[52px] rounded-xl bg-white border-2 border-[#eff4ff]"
+  thousandSeparator=" "
+  suffix=" €"
+  prefix="    "
+  value={state.contributtion}
+  placeholder="  Votre apport personnel"
+  onChange={handleChange('contributtion')}
+/>
+
+<div className='flex h-2 text-white' >
+<button
+                onClick={handleSumit}
+                className={classes.submit}
+                type="submit"
+                style={{
+                  background:
+                    'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  width: '127px',
+                  height: '42px',
+                  borderRadius: '12px',
+                  margin: '16px',
+                  marginLeft: '210px',
+                  placeItems: 'center',
+                  padding: '22px',
+                }}
+              >
+                Valider
+              </button>
+  
+</div>
         </div>
+        {/* <button
+                onClick={handleSumit}
+                className={classes.submit}
+                type="submit"
+                style={{
+                  background:
+                    'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  width: '120px',
+                  height: '2px',
+                  borderRadius: '12px',
+                  border: 'transparent',
+                  flexDirection: 'row',
+                  margin: '12px',
+                  marginLeft: '210px',
+                  placeItems: 'center',
+                  position: 'static',
+                  padding: '22px',
+                }}
+              >
+                Valider
+              </button> */}
       </div>
     );
   }

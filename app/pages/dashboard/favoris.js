@@ -119,7 +119,7 @@ const BookmarkPage = ({ user, update }) => {
           Favoris
         </Typography>
         {state?.length ? (
-          <Grid container spacing={3}>
+          <Grid  spacing={3}>
             {state.map(
               ({
                 _id,

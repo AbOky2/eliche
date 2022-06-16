@@ -11,10 +11,11 @@ import { Btn, Icon } from 'components';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    paddingTop: '2rem',
+    paddingTop: '10rem',
     paddingLeft: '2rem',
-    width: 'calc(100% - 2rem)',
+    width: '366px',
     height: 'calc(100% - 2rem)',
+    borderRadius:"12px",
   },
   title: {
     paddingTop: '4rem',
@@ -95,11 +96,11 @@ export const Modal = ({
       // disableBackdropClick
       // fullWidth
       // maxWidth="lg"
-      className={clsx(classes.wrapper)}
+      className=' p-3 rounded-xl h-[700px] '
       // {...props}
     >
       <div className={classes.close} onClick={onClose}>
-        <Icon type="close" />
+        <Icon type="close" size='large' />
       </div>
       <div>
         {title ? (

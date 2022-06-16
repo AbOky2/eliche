@@ -137,12 +137,12 @@ const PropertyPage = ({
                            {property.heading}</p>
 
             ):(
-                    <p className="text-[48px] text-left text-blue-500 font-bold text-3xl"
+                    <p className="text-[28px] text-left text-blue-500 font-bold "
                     style={{color:"linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)"}}
                     >              
                     {property.heading}</p>
             )}</div>
-            <p className="text-sm font-medium text-left text-gray-600">{property.fullAddress}</p>
+            <p className="text-[14px] font-medium text-left leading-[18px] text-[#6976A0]">{property.fullAddress}</p>
            
             {isLocation ?(
             <div className='m-2 border-4 border-r-0 border-t-0 border-b-0 border-_rougeStudea mt-9'>
@@ -182,7 +182,7 @@ const PropertyPage = ({
           </Grid>
           <div>
             
-            <div className=' w-96'>
+            <div className=' '>
               {isLocation ? (
                  <div className="flex justify-center items-center w-[343px] relative gap-2.5 px-[120px] py-4 rounded-xl bg-_rougeStudea">
                 <AnchorLink href="#table" className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white font-_spaceGrotesk">
@@ -323,7 +323,7 @@ const PropertyPage = ({
 
         <Grid container className={classes.discoveryContainer}>
           
-          <Grid container id="table">
+          <div className='flex flex-col'>
             {property.typeOfAnnonce === typeOfAnnoncies[0] ? (
               <BuyTable
                 state={state}
@@ -341,7 +341,7 @@ const PropertyPage = ({
                 handleCurrOpen={handleCurrOpen}
               />
             )}
-          </Grid>
+          </div>
         </Grid>
         <LocationModal
           className={classes.modal}
@@ -352,42 +352,9 @@ const PropertyPage = ({
           handleClose={() => handleSelectLot(null)}
         />
         
- <div className='grid '>
-          <div className='grid lg:grid-cols-2 lg:gap-4'>
-            <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu -mb-9 lg:mb-0 lg:w-_344">
-              {isLocation?(
-                <p className="flex-grow-0 flex-shrink-0 w-_295 text-left text-_rougeStudea text-xl font-semibold">
-                À propos de cette résidence</p>
-
-              ):(
-                <p className="flex-grow-0 flex-shrink-0 w-_295 text-left text-_aPropos text-2xl font-semibold">
-                À propos de cette résidence</p>
-
-              )}
-              
-                <p className="self-stretch flex-grow-0 flex-shrink-0 text-sm font-normal text-left  text-_gris">
-                <span
-                  dangerouslySetInnerHTML={{ __html: property.description }}
-                />
-              </p>
-            </div>
-
-            <div className="">
-            <Sidebar
-              isLocation={isLocation}
-              property={property}
-              classes={classes}
-            /> </div>
-            <div className="flex flex-col h-_343 justify-start items-start  gap-2 rounded-2xl bg-white border border-_bordureBleu lg:w-_702">
-              <Maps loc={property.loc?.coordinates} />
-            </div>
-          </div>
-         
-            
-             
-        </div>
-
-    <div className='p-6 gap-2 lg:w-_344'
+ <div className=' '>
+          <div className=''>
+          <div className='p-6 gap-2 '
           style={{background : 'linear-gradient(219.21deg, #C399DB -0.38%, #5882F7 106.68%)', borderRadius:'12px', marginBottom:"20px", marginTop:"16px", padding:'24px'}}>
                         <svg
                   width={34}
@@ -395,7 +362,7 @@ const PropertyPage = ({
                   viewBox="0 0 34 34"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="flex-grow-0 flex-shrink-0 w-_34 h-_34px -mx-3 mb-2"
+                  className="flex-grow-0 flex-shrink-0 w-_34 h-_34px -mx-2 mb-2"
                   preserveAspectRatio="none"
                 >
                   <rect width={34} height={34} rx={11} fill="url(#paint0_linear_483_5298)" />
@@ -419,15 +386,49 @@ const PropertyPage = ({
                     </lineargradient>
                   </defs>
                 </svg>
-                <p className="flex-grow-0 flex-shrink-0 w-_295 text-2xl font-bold text-left text-white mb-2">
+                <p className=" text-[18px] font-bold text-left text-white mb-2">
                   Le mot de Kit le nid.
                 </p>
-                <p className="self-stretch flex-grow-0 flex-shrink-0  w-_295 text-sm font-medium text-left text-white">
+                <p className="  text-[14px] font-medium text-left text-white">
                   Kit le nid aime bien faire des prouts dans les logements, et ça tombe bien parce que il y a un
                   piano livré avec l’appartement ! À vous les gateaux aux chocolats mmmm !
                 </p>
    </div>
 
+            <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-4">
+              {isLocation?(
+                <p className="flex-grow-0  text-left text-_rougeStudea text-[18px] font-semibold">
+                À propos de cette résidence</p>
+
+              ):(
+                <p className="flex-grow-0  text-left text-_aPropos text-[18px] font-semibold">
+                À propos de cette résidence</p>
+
+              )}
+              
+                <p className="self-stretch flex-grow-0 flex-shrink-0 text-[14px] font-normal text-left  text-_gris">
+                <span
+                  dangerouslySetInnerHTML={{ __html: property.description }}
+                />
+              </p>
+            </div>
+
+            <div className="">
+            <Sidebar
+              isLocation={isLocation}
+              property={property}
+              classes={classes}
+            /> </div>
+            <div className="flex flex-col h-_343 justify-start items-start  gap-2 rounded-[12px] bg-white border border-_bordureBleu ">
+              <Maps loc={property.loc?.coordinates} />
+            </div>
+          </div>
+         
+            
+             
+        </div>
+
+    
        
 
       </div>

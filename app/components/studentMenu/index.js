@@ -113,10 +113,11 @@ export const MobileMenu = ({
        {isAuth?(
         <div >
           <a href="/dashboard/favoris">
+            <div className=' px-2'>
           <Icon
               type="heart"
               noColor
-              />
+              /></div>
             <p>Favoris</p> 
           </a>
         </div>
@@ -125,13 +126,15 @@ export const MobileMenu = ({
       )}
 
       {isAuth?(
-        <div >
+        <div className=' flex'>
           <a href="/dashboard/bookmark">
-          <Icon
-              type="profile"
-              noColor
-              />
-            <p>Mon Profil</p> 
+            <div className='items-center px-2'>
+            <Icon
+                type="profile"
+                noColor
+              /></div>
+              <div className=''>
+            <p>Mon Profil</p> </div>
             
        {/* { href: '/dashboard/bookmark',
         iconProps: { type: 'profile', style: { padding: 1 } },

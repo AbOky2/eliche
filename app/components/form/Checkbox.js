@@ -109,9 +109,8 @@ export const Checkbox = ({
           <span className={clsx(classes.icon, classes.checkedIcon)} />
         }
         icon={<span className={classes.icon} />}
-        inputProps={{ 'aria-label': 'decorative checkbox' }}
       />
-      <Typography>{label}</Typography>
+      <p className=' text-_gris text-xs'>{label}</p>
     </Grid>
   );
 };

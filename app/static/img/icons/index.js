@@ -68,8 +68,12 @@ export { default as leK } from './leK.svg';
 export { default as NexityLogo } from './NexityLogo.svg';
 export { default as LogoVV } from './LogoVV.svg';
 //export { default as House } from './House1.svg';
+// export { default as Decouverte } from './Decouverte.svg';
+// export { default as House } from './House1.svg';
 export { default as carte } from './carteV2.svg';
 export { default as liste } from './listV2.svg';
+export { default as signeP } from './Add_Plus_Circle.svg';
+export { default as signeM } from './Remove_Minus_Circle.svg';
 
 
 export { default as profilLogo } from './profileLogo.svg';

@@ -21,12 +21,12 @@ const PaginationItem = ({
   onClick,
 }) => (
   <Grid
-    // className={clsx(
-    //   classes.paginationItem,
-    //   selected ? classes.paginationSelectedItem : '',
-    //   disabled ? classes.paginationDisabledItem : ''
-    // )}
-    className='flex justify-center cursor-pointer h-8'
+    //  className={clsx(
+    //    classes.paginationItem,
+    //    selected ? classes.paginationSelectedItem : '',
+    //    disabled ? classes.paginationDisabledItem : ''
+    //  )}
+    className='flex justify-center cursor-pointer h-8 p-2'
     onClick={!ellipsis.includes(type) && !disabled ? onClick : null}
   >
     {type === 'next' || type === 'previous' ? (
@@ -147,11 +147,12 @@ const ListElement = ({
 }) => (
   <Grid
     item
-    className=''
+    className=' bg-yellow-400 '
     onMouseEnter={handleMouseEnter}
     onMouseLeave={handleMouseLeave}
   >
-    <Link href={noRedirect ? '#' : singlePath({ typeOfAnnonce, _id })}>
+    {/* <Link href={noRedirect ? '#' : singlePath({ typeOfAnnonce, _id })}> */}
+     <Link href={ singlePath({ typeOfAnnonce, _id })}>
       <a>
         <Card
           _id={_id}
@@ -185,7 +186,7 @@ const ListContainer = ({
   handleBookmark,
   noRedirect = false,
 }) => (
-  <Grid item xs={5} className=''>
+  <Grid  className=' items-center'>
     <ListWrapper
       //classes={classes}
       sortBy={sortBy}

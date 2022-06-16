@@ -22,7 +22,7 @@ import {
   defaultLimit,
 
 } from 'helpers';
-import { NotFound, AdminContentWrapper } from 'components';
+import { NotFound, AdminContentWrapper,Icon } from 'components';
 import { MapsView } from './views';
 import SearchFields from './searchFields';
 import withStyles from './styles';
@@ -173,6 +173,9 @@ const SearchPage = ({
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
   const isMdView = useMediaQuery(theme.breakpoints.down('sm'));
+  
+  const [show, setShow] = useState(true);
+
 
   useEffect(() => {
     if (isFirstRequest) return;
@@ -237,12 +240,21 @@ const SearchPage = ({
 
   console.log("toute les données", state.length);
   console.log("La page ", page);
+  
 
+  function listMap(){
+    document.getElementById("classe")
+  }
 
   return (
     <AdminContentWrapper noRedirect noPadding>
       <div>
-       
+       <div  className={
+               clsx(
+                  classes.searchMapContainer,
+                  classes.resetSearchMapContainer
+                )
+          }>
           <SearchFields
             isLocation={isLocation}
             queryData={queryData}
@@ -253,49 +265,125 @@ const SearchPage = ({
             toggleView={toggleView}
             handleSelect={handleSelect}
             isMapsView={currView}
-          /> 
+          /> </div>
 
-       <div className=' flex flex-row justify-between'>
-            <section className='bg-red-900 w-[900px]'>
-                <MapsView
-                  allData={allData}
-                  queryData={queryData}
-                  delimiter={delimiter}
-                  isFirstRequest={isFirstRequest}
+         {isMdView?(
+
+          <div className=' flex flex-row justify-between gap-4'>
+            
+             {show?(<section className=' w-[900px]'>
+                  <MapsView
+                    allData={allData}
+                    queryData={queryData}
+                    delimiter={delimiter}
+                    isFirstRequest={isFirstRequest}
+                    data={state}
+                    liked={liked}
+                    // sortBy={sortBy}
+                    refresh={refresh}
+                    setIsFirstRequest={setIsFirstRequest}
+                    handleBookmark={handleBookmark}
+                    handleSortSelect={handleSortSelect}
+                    toggleView={toggleView}
+                    // page={page?.page}
+                    matches={matches}
+                    isMdView={isMdView}
+                    handlePointChange={handlePointChange}
+                    toggleRefresh={toggleRefresh}
+                    isMapsView={currView}
+                  />
+                  <div className=" w-40 h-12  rounded-xl bg-_switchButton flex flex-row my-96 cursor-pointer z-10 absolute top-[38%] sm:top-[40%] xs:top-[20%] items-center left-[40%]  " onClick={()=>setShow(!show)} >
+                          <p className="left-4 top-2 text-sm font-bold text-white text-center p-3 mx-4">Mode Liste</p>
+                          <div 
+                          className=' py-3 -mx-3'
+                          >
+                          <Icon
+                            type="liste"
+                            size="small"
+                            color='white'
+                          />
+                        </div>
+                  </div>
+              </section>):(
+
+               <section id='classe' className=' p-6 order-first overflow-scroll w-[700px] h-[560px]'>
+                <ListContainer
+                  classes={classes}
+                  curr={currView}
                   data={state}
-                  liked={liked}
-                  // sortBy={sortBy}
-                  refresh={refresh}
-                  setIsFirstRequest={setIsFirstRequest}
-                  handleBookmark={handleBookmark}
+                  sortBy={sortBy}
                   handleSortSelect={handleSortSelect}
-                  toggleView={toggleView}
-                  // page={page?.page}
-                  matches={matches}
-                  isMdView={isMdView}
-                  handlePointChange={handlePointChange}
-                  toggleRefresh={toggleRefresh}
-                  isMapsView={currView}
+                  hasData={state.length}
+                  page={page}
+                  //handlePage={handlePage}
+                  liked={liked}
+                  noRedirect
+                  handleBookmark={handleBookmark}
                 />
-          </section>
+                  
+                    <div className=" w-40 h-12  rounded-xl bg-_switchButton flex flex-row my-96 cursor-pointer z-10 absolute top-[38%] sm:top-[40%] xs:top-[20%  items-center left-[40%] " onClick={()=>setShow(!show)}>
+                          <p className="left-4 top-2 text-sm font-bold text-white text-center p-3 mx-4">Mode Carte</p>
+                          <div 
+                          className=' py-3 -mx-3'
+                          >
+                          <Icon
+                            type="carte"
+                            size="small"
+                            color='white'
+                          />
+                        </div>
+                  </div>
+              </section> 
+                )}
+            
+            
 
-          <section className='bg-green-900 p-6 order-first xl:w-[600px] lg:w-[100%] overflow-scroll h-[560px] '>
-              <ListContainer
-              classes={classes}
-                curr={currView}
+              </div>
+
+         ):(
+          <div className=' flex flex-row justify-between gap-4'>
+          <section className=' w-[900px]'>
+              <MapsView
+                allData={allData}
+                queryData={queryData}
+                delimiter={delimiter}
+                isFirstRequest={isFirstRequest}
                 data={state}
-                sortBy={sortBy}
-                handleSortSelect={handleSortSelect}
-                hasData={state.length}
-                page={page}
-                //handlePage={handlePage}
                 liked={liked}
-                noRedirect
+                // sortBy={sortBy}
+                refresh={refresh}
+                setIsFirstRequest={setIsFirstRequest}
                 handleBookmark={handleBookmark}
+                handleSortSelect={handleSortSelect}
+                toggleView={toggleView}
+                // page={page?.page}
+                matches={matches}
+                isMdView={isMdView}
+                handlePointChange={handlePointChange}
+                toggleRefresh={toggleRefresh}
+                isMapsView={currView}
               />
         </section>
 
-        </div>
+        <section className=' p-6 order-first overflow-scroll w-[700px] h-[560px] '>
+            <ListContainer
+            classes={classes}
+              curr={currView}
+              data={state}
+              sortBy={sortBy}
+              handleSortSelect={handleSortSelect}
+              hasData={state.length}
+              page={page}
+              //handlePage={handlePage}
+              liked={liked}
+              noRedirect
+              handleBookmark={handleBookmark}
+            />
+      </section>
+
+      </div>
+         )}
+       
       </div>
     </AdminContentWrapper>
   );
