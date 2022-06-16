@@ -51,10 +51,8 @@ const MapsContainer = ({
       handlePointChange={handlePointChange}
       handleBookmark={handleBookmark}
     />
-    <Grid container className={classes.changeViewContainer}>
-      {isMapsView? (
-        
-
+    <Grid container>
+      {isMdView? (
         <div className=" w-40 h-12 -left-0.5 rounded-xl bg-_switchButton flex flex-row my-96 mx-36 cursor-pointer" onClick={toggleView}>
         <p className="left-4 top-2 text-sm font-bold text-white text-center p-3 mx-4">Mode Liste</p>
         <div 
@@ -84,13 +82,9 @@ const MapsContainer = ({
          color='white'
        /></div>
      </div>
-
-
-
       )}
-
-      
     </Grid>
+    
     <Grid container className={classes.reloadMapsContainer} direction="column">
       <Checkbox
         checked={reloadMaps}
@@ -102,7 +96,7 @@ const MapsContainer = ({
       {!reloadMaps ? (
         <Grid container alignItems="center" onClick={() => toggleRefresh(true)}>
           <Icon type="refresh" size="small" color="white" />
-          <Typography>Rafraichir</Typography>
+          <p className='text-xs'>Rafraichir</p>
         </Grid>
       ) : (
         ''

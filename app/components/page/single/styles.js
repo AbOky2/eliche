@@ -315,7 +315,7 @@ const useStyles = makeStyles((theme) => ({
     '& > div > div': {
       width: '100%',
       '& > div:first-of-type': {
-        padding: '2.5rem 0',
+        padding: '16px 0',
         '& > div:first-of-type': {
           display: 'none',
           padding: '0 2rem',

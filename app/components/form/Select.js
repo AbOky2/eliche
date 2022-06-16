@@ -47,6 +47,10 @@ const styles = (theme) => ({
       borderWidth: '1px!important',
     },
   },
+  bleu:{
+    backgroundColor:"red",
+  } 
+  ,
   label: {
     margin: '2rem 0 .6rem',
     color: theme.palette.newBlack,
@@ -133,6 +137,12 @@ const styles = (theme) => ({
 
 export const DropdownSelect = withStyles(styles)(
   ({ onChange, value, position, list, placeholder, classes }) => {
+    //On cree la fonction qui change la couleur des boutton quand on les cliques.
+    const [boutton, setBoutton] = useState(false);
+    const handleClick = () => {
+      setBoutton(current => !current)
+      
+    };
     const [node, open] = useToggleOpen();
     const [selected, setSelected] = useState(
       (isArray(value) ? value : [value]).filter((e) => e?.length)
@@ -146,44 +156,48 @@ export const DropdownSelect = withStyles(styles)(
     };
 
     return (
-      <Grid
-        item
-        md={position ? 6 : 12}
-        xs={12}
-        className={
-          open
-            ? clsx(classes.customSelectContainer, classes.open)
-            : classes.customSelectContainer
-        }
+      <div
+        
+       
         ref={node}
       >
-        <input
+        {/* <input
           value={selected.join(' - ')}
           placeholder={placeholder}
           disabled
-        />
+        /> */}
         <span />
-        <Icon type="sliderArrow" size="tiny" color="newGray" />
-        <Grid container>
+        <div className=' sm:grid-rows-2 sm:gap-2  sm:p-0 grid grid-cols-3 p-3 '>
           {list?.map((elem) => (
-            <Grid
-              container
-              item
+            <div
+            
+              
               key={elem.name}
-              md={6}
-              alignItems="center"
-              className="pointer"
+              className=" "
               onClick={() => handleSelected(elem.value + '')}
+              value={selected.join(' - ')}
+              checked ={selected.includes(elem.value + '')}
+
             >
-              <Checkbox
+              {/* <Checkbox
                 color="primary"
                 checked={selected.includes(elem.value + '')}
-              />
-              <Typography variant="body2">{elem.name}</Typography>
-            </Grid>
+              /> */}
+              <div className=' border-2 h-[34px] text-center text-sm p-1 w-[141px] border-_bordureBleu rounded-xl mx-1 mb-1 cursor-pointer '
+             style={{
+              
+
+              backgroundColor :selected.includes(elem.value + '')? '#3679FF' : 'white'
+            }}
+              >
+                
+                <button 
+                >{elem.name}</button>
+              </div>
+            </div>
           ))}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     );
   }
 );

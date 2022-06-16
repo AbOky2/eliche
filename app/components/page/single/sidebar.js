@@ -7,13 +7,13 @@ import { tranportationsKeys, individualAdvantages } from 'helpers';
 
 const BtnCalendly = () => (
   <div
-    className="flex justify-center items-center relative gap-2.5 py-4 rounded-xl mb-1 mt-8 cursor-pointer"
+    className="flex justify-center  relative  py-4 rounded-xl mb-1 mt-6 cursor-pointer w-[343px] sm:w-[260px] xs:w-[200px]"
     onClick={() => openPopupWidget({ url: 'https://calendly.com/kitlenid' })}
     style={{
       background: 'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
     }}
   >
-    <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white">
+    <p className=" flex-shrink-0 text-sm font-bold text-left text-white">
       Être rappelé selon mes dispos{' '}
     </p>
   </div>
@@ -21,7 +21,7 @@ const BtnCalendly = () => (
 
 const Extras = ({ advantages = [] }) => (
   <>
-    <p className="flex-grow-0 flex-shrink-0 w-[295px] font-bold text-left text-[#3679ff] text-_rougeStudea text-2xl">
+    <p className="flex-grow-0 flex-shrink-0 w-[295px] font-bold text-left  text-_rougeStudea text-2xl">
       Les petits plus{' '}
     </p>
     <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-9 mb-5">
@@ -54,11 +54,11 @@ const Sidebar = ({ isLocation, property, classes }) => {
       {Object.keys(transportations).length ? (
         <div className="flex flex-col justify-center items-center relative gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-5 mt-12">
           {isLocation ? (
-            <p className="flex-grow-0 flex-shrink-0 w-[295px] text-2xl font-bold text-center text-_rougeStudea mb-5">
+            <p className=" ext-[18px] font-bold text-center text-_rougeStudea mb-5">
               Transports à proximité
             </p>
           ) : (
-            <p className="flex-grow-0 flex-shrink-0 w-[295px] text-2xl font-bold text-center text-_aPropos mb-5">
+            <p className=" text-[18px] font-bold text-center text-_aPropos mb-5">
               Transports à proximité
             </p>
           )}
@@ -131,10 +131,10 @@ const Sidebar = ({ isLocation, property, classes }) => {
 
       {isLocation && (
         <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-5">
-          <p className="flex-grow-0 flex-shrink-0 w-[295px] font-bold text-left text-[#3679ff] text-_rougeStudea text-2xl">
+          <p className="flex-grow-0 flex-shrink-0 w-[295px] font-bold text-left  text-_rougeStudea text-2xl">
             Frais à prevoir:
           </p>
-          <p className="self-stretch flex-grow-0 flex-shrink-0 w-[295px] text-sm font-normal text-left text-[#6976a0] text-_gris">
+          <p className="self-stretch flex-grow-0 flex-shrink-0 w-[295px] text-sm font-normal text-left  text-_gris">
             Il s’agit de frais uniques, à débourser une seule et unique fois.
             <br />
             Honoraires d’organisation de la visite + Constitution du dossier +

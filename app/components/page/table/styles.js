@@ -44,7 +44,7 @@ const styles = (theme) => ({
       },
       '& > div:first-of-type': {
         display: 'flex',
-        paddingTop: '2.5rem',
+        paddingTop: '2rem',
         borderTop: '1px solid rgba(26, 46, 108, 0.5)',
         '& > div:last-of-type': {
           marginTop: '1.6rem',

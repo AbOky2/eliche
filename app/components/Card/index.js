@@ -39,7 +39,7 @@ export const Card = ({
 
     {isMdView? (
 
-<div className='bg-white rounded-xl border border-_grisBleu flex w-full gap-5 p-4 mb-4'>
+<div className='bg-white rounded-xl border border-_grisBleu flex gap-5 p-4 sm:w-[400px] w-full mb-4 '>
 
     
 <div className="w-[109px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>
@@ -87,7 +87,7 @@ export const Card = ({
       <div className="w-[209px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>
       <div className=''>
               <div
-              className="text-xs font-[700] text-left text-[#3679ff] text-[18px] leading-5"
+              className="text-xs font-[700] text-left text-[#3679ff] text-[18px] w-full "
               >   {title}
               </div>
               <div className='text-xs text-[#6976a0] mt-2'> {address}</div>
@@ -101,7 +101,7 @@ export const Card = ({
       </div>
       <div className=' flex flex-col-reverse order-last'>
           {showLikes && (
-              <span
+              <p
                 onClick={(e) => {
                   e.stopPropagation();
                   e.preventDefault();
@@ -115,7 +115,7 @@ export const Card = ({
                   strokeColor={liked ? 'red' : 'newBlue'}
                   color={liked ? 'red' : 'white'}
                 />
-              </span>
+              </p>
             )}
       </div>
 

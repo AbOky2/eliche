@@ -27,6 +27,7 @@ const sizeTypes = Object.keys(SIZES);
 const useStyles = makeStyles({
   svg: {
     display: 'flex',
+   // margin:'auto',
     verticalAlign: 'middle',
     '& path': {
       fill: ({ noColor, fill }) => (!noColor ? fill : ''),
