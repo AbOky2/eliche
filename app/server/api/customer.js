@@ -60,10 +60,12 @@ router.put(
     requestMiddleware(joiSchema.user.all.user.update),
     async ({ user: sessUser, body } = {}) => {
       const data = { ...body };
+      console.log("Data: ", data)
       try {
         const { user } = await UserModel.updateById(sessUser._id, data);
         return { user };
       } catch (error) {
+        console.log("Error: ", error)
         return error;
       }
     }

@@ -36,7 +36,7 @@ export const Card = ({
 
     {isMdView? (
 
-<div className='bg-white rounded-xl border border-_grisBleu flex gap-5 p-4 sm:w-[400px] w-full mb-4 '>
+<div className='bg-white rounded-xl border border-_grisBleu flex gap-5 p-4 w-full mb-4 '>
 
     
 <div className="w-[109px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>

@@ -350,7 +350,7 @@ const AuthContext = ({
   userSearch = {},
   handleBookmark,
 }) => (
-  <div className="mt-10 xl:mt-60 lg:mt-60 md:mt-10">
+  <div className="mt-10 xl:mt-60 lg:mt-60 md:mt-10 2xl:mt-60 3xl:mt-60">
     <div className={classes.lastSearchContainer}>
       <Typography variant="h2">Vos recherches récentes</Typography>
       {userSearch.lastSearch
@@ -1206,7 +1206,7 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
   return (
     <AdminContentWrapper noRedirect>
       <div className={classes.heading}>
-        <div className="flex justify-center px-20 md:px-80">
+        <div className="flex justify-center px-64 md:px-80 sm:px-20">
           <Icon type="LogoVV" />
         </div>
         <Typography variant="h2">

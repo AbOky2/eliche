@@ -4,9 +4,6 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-
 import {
   FormControl,
   Select as MaterialSelect,
@@ -57,10 +54,6 @@ const styles = (theme) => ({
       borderWidth: '1px!important',
     },
   },
-  bleu:{
-    backgroundColor:"red",
-  } 
-  ,
   label: {
     margin: '2rem 0 .6rem',
     color: theme.palette.newBlack,
@@ -149,44 +142,8 @@ const styles = (theme) => ({
   },
 });
 
-const CustomInput = styled(InputBase)(({ theme }) => ({
-
-  '& .MuiInputBase-input': {
-    display: 'block',
-    padding: '1.0rem',
-    // boxSizing: 'border-box',
-    paddingLeft: '1.5rem',
-    width: '100%',
-    // height: '50px',
-    borderRadius: '10px',
-    border: `solid 1px #D2DCF5`,
-    color: '#0E0E2C',
-    backgroundColor:"white",
-    fontFamily: 'Open Sans',
-    fontSize: '1.2rem',
-    fontWeight: '600',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    outline: 'none',
-    fontSize: '14px',
-    lineHeight: '18px',
-      
-  },
-  placeholder: {
-    color: '#0E0E2C'
-  }
-}));
-
 export const DropdownSelect = withStyles(styles)(
   ({ onChange, value, position, list, placeholder, classes }) => {
-    //On cree la fonction qui change la couleur des boutton quand on les cliques.
-    const [boutton, setBoutton] = useState(false);
-    const handleClick = () => {
-      setBoutton(current => !current)
-      
-    };
     const [node, open] = useToggleOpen();
     const [selected, setSelected] = useState(
       (isArray(value) ? value : [value]).filter((e) => e?.length)
@@ -200,48 +157,44 @@ export const DropdownSelect = withStyles(styles)(
     };
 
     return (
-      <div
-        
-       
+      <Grid
+        item
+        md={position ? 6 : 12}
+        xs={12}
+        className={
+          open
+            ? clsx(classes.customSelectContainer, classes.open)
+            : classes.customSelectContainer
+        }
         ref={node}
       >
-        {/* <input
+        <input
           value={selected.join(' - ')}
           placeholder={placeholder}
           disabled
-        /> */}
+        />
         <span />
-        <div className=' sm:grid-rows-2 sm:gap-2  sm:p-0 grid grid-cols-3 p-3 '>
+        <Icon type="sliderArrow" size="tiny" color="newGray" />
+        <Grid container>
           {list?.map((elem) => (
-            <div
-            
-              
+            <Grid
+              container
+              item
               key={elem.name}
-              className=" "
+              md={6}
+              alignItems="center"
+              className="pointer"
               onClick={() => handleSelected(elem.value + '')}
-              value={selected.join(' - ')}
-              checked ={selected.includes(elem.value + '')}
-
             >
-              {/* <Checkbox
+              <Checkbox
                 color="primary"
                 checked={selected.includes(elem.value + '')}
-              /> */}
-              <div className=' border-2 h-[34px] text-center text-sm p-1 w-[141px] border-_bordureBleu rounded-xl mx-1 mb-1 cursor-pointer '
-             style={{
-              
-
-              backgroundColor :selected.includes(elem.value + '')? '#3679FF' : 'white'
-            }}
-              >
-                
-                <button 
-                >{elem.name}</button>
-              </div>
-            </div>
+              />
+              <Typography variant="body2">{elem.name}</Typography>
+            </Grid>
           ))}
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 );
@@ -269,7 +222,7 @@ export const Select = withStyles(styles)(
           autoWidth
           value={value}
           onChange={onChange(name)}
-          input={<CustomInput />}
+          inputProps={{ name }}
           IconComponent={() => (
             <span style={{ position: 'absolute', right: '1.5rem' }}>
               <Icon

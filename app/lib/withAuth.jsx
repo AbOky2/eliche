@@ -110,6 +110,7 @@ export default function withAuth(
             fullContentWidth={fullContentWidth}
             noHeaderMargin={noHeaderMargin}
           >
+            {console.log("PROPS: ", this.props)}
             <BaseComponent {...this.props} />
           </StudentMenuComp>
         </>

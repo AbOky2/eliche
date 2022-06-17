@@ -118,14 +118,12 @@ export const MobileMenu = ({
 
           return (
             <Grid key={href} item>
-              <Link href={href}>
-                <a>
+                <a href={href}>
                   <Grid container alignItems="center" direction="column">
                     <Icon {...iconProps} />
                     <p>{txt}</p>
                   </Grid>
                 </a>
-              </Link>
             </Grid>
           );
         })}
@@ -425,8 +423,8 @@ const StudentProfile = ({
           {(isAuth ? MenuItems : MenuItems.slice(0, 2))?.map(
             ({ href, txt, singleType }) => (
               <div key={href} item>
-                <Link href={href}>
                   <a
+                  href={href}
                     className={
                       asPath === href ||
                       (href.includes('search') && asPath.includes(href)) ||
@@ -439,7 +437,6 @@ const StudentProfile = ({
                       {txt}
                     </span>
                   </a>
-                </Link>
               </div>
             )
           )}

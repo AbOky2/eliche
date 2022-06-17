@@ -312,11 +312,9 @@ const LoginTab = ({ login, register }) => {
           className={classes.container}
         >
           <div className="fullwidth text-center">
-            <Link href={pageLink.home}>
-              <a>
+              <a href={pageLink.home}>
                 <img src="/logo.svg" alt="kit le nid" />
               </a>
-            </Link>
             <Grid
               container
               item
@@ -437,11 +435,9 @@ const LoginTab = ({ login, register }) => {
                         />
                       </Grid>
                     </Grid>
-                    <Link href="/public/resetPassword">
-                      <a className={classes.resetPassword}>
+                      <a  href="/public/resetPassword" className={classes.resetPassword}>
                         Mot de passe oublié ?
                       </a>
-                    </Link>
                   </div>
                 </Grid>
               </Grid>

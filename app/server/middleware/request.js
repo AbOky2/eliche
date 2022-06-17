@@ -2,14 +2,17 @@ const { removeFiles } = require('../utils/upload');
 const { isArray, isObject } = require('../../helpers/convertAndCheck');
 
 const middleware = (schema, reqProperty = 'body') => (req, res, next) => {
+  console.log("Pass dans request")
   const { error } = schema.validate(req[reqProperty]);
   const valid = error == null;
+  console.log("Pass dans request2")
 
   if (valid) {
     next();
   } else {
     const { details } = error;
     const message = details.map((i) => i.message).join(',');
+    console.log("Pass dans request3", message)
 
     if (req.files) {
       if (isArray(req.files)) removeFiles(req.files.map((e) => e.path.split('static')[1]));

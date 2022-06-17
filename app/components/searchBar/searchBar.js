@@ -2,11 +2,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 
-import { GoogleMaps, CustomInput } from 'components/form/Input';
+import { GoogleMaps, CustomInput } from 'components/form/Input2';
 import { propertyPiecesSelectMap, isArray, typeOfAnnonciesObj } from 'helpers';
 
 import { Grid } from '@material-ui/core';
-import { DropdownSelect } from 'components/form/Select';
+import { DropdownSelect } from 'components/form/Select2';
 
 export const SearchBar = ({}) => {
   const [queryData, setQueryData] = useState({

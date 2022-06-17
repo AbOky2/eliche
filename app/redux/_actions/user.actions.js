@@ -67,6 +67,7 @@ function update(args, callback) {
   const request = (user) => ({ type: userConstants.UPDATE_REQUEST, user });
   const success = (user) => ({ type: userConstants.UPDATE_SUCCESS, user });
   const failure = (error) => ({ type: userConstants.UPDATE_FAILURE, error });
+  console.log("PASSe dans l'update")
   return (dispatch) => {
     dispatch(request({ username: args.username }));
     updateUserApiMethod(args).then(
@@ -87,6 +88,7 @@ function update(args, callback) {
 function updateUserDataOnly(args, callback) {
   const request = (user) => ({ type: userConstants.UPDATE_REQUEST, user });
   const success = (user) => ({ type: userConstants.UPDATE_SUCCESS, user });
+  console.log("PASSe dans l'update")
   return (dispatch) => {
     dispatch(request({ username: args.username }));
     dispatch(success(args));

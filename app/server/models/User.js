@@ -144,6 +144,7 @@ class UserClass extends DBModel {
   }
 
   static async updateById(_id, updates) {
+    console.log("PASSE LÀ")
     const userDoc = await this.findOne({ _id }).populate('bookmarks');
     const salt = await bcrypt.genSalt(10);
 

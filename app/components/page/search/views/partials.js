@@ -152,8 +152,7 @@ const ListElement = ({
     onMouseLeave={handleMouseLeave}
   >
     {/* <Link href={noRedirect ? '#' : singlePath({ typeOfAnnonce, _id })}> */}
-     <Link href={ singlePath({ typeOfAnnonce, _id })}>
-      <a>
+      <a href={ singlePath({ typeOfAnnonce, _id })}>
         <Card
           _id={_id}
           title={heading}
@@ -167,7 +166,6 @@ const ListElement = ({
           showLikes={showLikes}
         />
       </a>
-    </Link>
   </Grid>
 );
 

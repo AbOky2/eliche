@@ -145,7 +145,14 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
   const theme = useTheme();
   const isMdView = useMediaQuery(theme.breakpoints.down('sm'));
   const [openModal, setOpenModal] = useState(false);
-  const [state, setState] = useState(user);
+  const [state, setState] = useState({
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    password: user.password,
+    phone: user.phone,
+    role: user.role
+  });
   const handleChange =
     (name) =>
     ({ target: { value } }) =>
@@ -165,7 +172,7 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
   // eslint-disable-next-line no-return-assign
   const handleLogOut = () => logout(() => (window.location = '/login'));
 
-  const handleSumbit = () => update(state);
+  const handleSumbit = () => update(state, () => toast.success('Profil mis à jour'));
   const onKeyPress = (e) => e.key === 'Enter' && handleSumbit(true);
 
   const classes = useStyles();
@@ -241,7 +248,7 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
           {/* <Icon type="user" /> */}
 
           <div
-            className="flex justify-between gap-9 mx-4 mt-7 mb-5 sm:gap-14"
+            className="flex justify-between gap-9 mx-2 mt-7 mb-5 sm:gap-14"
             style={{
               width: '100%',
             }}
@@ -252,17 +259,18 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               </p>
             </div>
             <div
-              className="flex justify-between items-center relative rounded-xl border-2 border-[#eff4ff]"
+              className="flex  items-center relative rounded-xl border-2 border-[#eff4ff]"
               style={{
                 background:
                   'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
-                padding: '8px 47px',
-                width: '167px',
+                padding: '8px 20px',
+                width: '117px',
                 height: '34px',
               }}
             >
               <button
                 type="submit"
+                onClick={handleSumbit}
                 className="cursor-pointer flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white"
                 style={{
                   width: '75px',
@@ -275,7 +283,7 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
           </div>
         </Grid>
       </div>
-      <div onClick={handleSumbit} title="Mon Profil" confirmText="Enregistrer">
+      <div  title="Mon Profil" confirmText="Enregistrer">
         <Grid item justify="center" className="form-container">
           <Grid item>
             {/* <div
@@ -456,7 +464,7 @@ const mapState = (state) => {
 };
 
 const actionCreators = {
-  update: userActions.updateUserDataOnly,
+  update: userActions.update,
   logout: userActions.logout,
 };
 export default withAuth(connect(mapState, actionCreators)(UpdateProfile));
