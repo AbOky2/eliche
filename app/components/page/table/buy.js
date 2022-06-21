@@ -38,7 +38,7 @@ const LocationTable = ({
     
 
     return (
-      <div key={elem} className="flex flex-col bg-white border rounded-xl  border-_aPropos mb-4  ">
+      <div key={elem} className="flex flex-col font-bold bg-white border rounded-xl  border-_aPropos mb-4  ">
         <Grid
           container
           className="pointer h-[50px]"
@@ -49,9 +49,12 @@ const LocationTable = ({
             
             <div  className=' nokia:w-[140px] blackberry:w-[230px] mobile:w-[260px] w-_344'>
 
-                {` ${elem} pièce${elem > 1 ? 's' : ''}  `}
+                {` ${elem} pièce${elem > 1 ? 's' : ''}  `}(
                 
-               
+                
+              {`${countList} logement${countList > 1 ? 's' : ''} disponible${
+                countList > 1 ? 's' : ''
+              }`})
 
                 {/* <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong> */}
             </div>
@@ -64,11 +67,16 @@ const LocationTable = ({
             </div>
           </div> 
          
-          <div style={{color:'rgba(79, 128, 255, 1)', fontWeight:'700', fontSize:'14px', lineHeight:'17px'}}>
-                {` ${elem} pièce${elem > 1 ? 's' : ''} à partir de `}
+          <div className=' flex  text-[14px] font-bold text-_aPropos  w-full justify-between  '>
+             <div  className=' mx-4 '>
 
-                <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong>
+                {` ${elem} pièce${elem > 1 ? 's' : ''} `}(
+                {`${countList} logement${countList > 1 ? 's' : ''} disponible${
+                countList > 1 ? 's' : ''
+              }`})
               </div>
+
+                {/* <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong> */}
           
           {/*
           <Grid item md={3} xs={5} className={classes.header}>
@@ -95,13 +103,16 @@ const LocationTable = ({
               }`}
             </Typography>
           </Grid>
-          > */}<div className="text-center pointer flex  mx-11 ">
+          > */}
+            <div  className=" order-last mx-4">
             <Icon
-              type={isOpen ? 'less' : 'plus'}
-              color="newBlue"
+              type={isOpen ? 'signeM' : 'signeP'}
+              strokeColor="newBlue"
               size="small"
             />
           </div>
+          </div>
+
         </Grid>
         {isOpen && (
           <div className='p-4 ' >
@@ -166,6 +177,7 @@ const LocationTable = ({
                     : !hasReduction
                     ? price
                     : `${spaceCurrency(round10(standardTva, 1))}€`;
+                    
 
 
                   //issylesmoulineux

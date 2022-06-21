@@ -13,7 +13,7 @@ const BtnCalendly = () => (
       background: 'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
     }}
   >
-    <p className=" flex-shrink-0 text-sm font-bold text-left text-white">
+    <p className=" flex-shrink-0 text-sm font-bold text-left text-white xs:text-xs">
       Être rappelé selon mes dispos{' '}
     </p>
   </div>

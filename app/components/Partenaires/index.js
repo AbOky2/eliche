@@ -16,7 +16,7 @@ export const Partenaires = ({
   </p>
   <div className="flex-grow-0 flex-shrink-0  h-_153 relative mx-8">
     <div className="w-full h-36 absolute -left-1 -top-1 rounded-xl  border border-_bordureBleu" />
-    <p className="w-full absolute left-36 top-11 text-xs font-medium text-left text-_gris">
+    <p className=" absolute left-36 top-11 text-xs font-medium text-left text-_gris">
       Heyme vous offre l’accès à une mutuelle santé à prix réduit.
     </p>
     <p className=" w-_189 absolute left-36 top-4 text-lg font-bold text-left text-_aPropos">
@@ -38,14 +38,14 @@ export const Partenaires = ({
   </div>
   <div className="flex-grow-0 flex-shrink-0  h-36 relative mb-4 mx-8">
     <div className="w-full h-36 absolute -left-1 -top-1 rounded-xl bg-white border border-_bordureBleu " />
-    <p className="w-full absolute left-36 top-11 text-xs font-medium text-left text-_gris">
+    <p className=" absolute left-36 top-11 text-xs font-medium text-left text-_gris">
       Cautioneo vous offre un garant solide pour votre location.
     </p>
-    <p className="w-_189 absolute left-36 top-4 text-lg font-bold text-left text-_aPropos">
+    <p className=" absolute left-36 top-4 text-lg font-bold text-left text-_aPropos">
       Mutuelle santé
     </p>
     <img
-      src="../static/img/cautioneo.svg"
+      src="static/img/cautioneo.svg"
       className="w-28 h-28 absolute left-4 top-4 rounded-xl object-none border border-_bordureBleu"
     />
     <a
@@ -61,14 +61,14 @@ export const Partenaires = ({
 
   <div className="flex-grow-0 flex-shrink-0 h-36 relative mx-8">
     <div className="w-full h-36 absolute -left-1 -top-1 rounded-xl bg-white border border-_bordureBleu" />
-    <p className="w-full absolute left-36 top-11 text-xs font-medium text-left text-_gris">
+    <p className=" absolute left-36 top-11 text-xs font-medium text-left text-_gris">
       Studéa vous offre accès à des résidences étudiantes.
     </p>
     <p className="w-_189 absolute left-36 top-4 text-lg font-bold text-left text-_aPropos">
       studea
     </p>
     <img
-      src="../static/img/studea.svg"
+      src="static/img/studea.svg"
       className="w-28 h-28 absolute left-4 top-4 rounded-xl object-none border border-_bordureBleu"
     />
     <div className="w-28 h-28 absolute left-4 top-4 rounded-xl border border-_bordureBleu" />

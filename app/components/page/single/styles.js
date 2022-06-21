@@ -108,22 +108,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   description: {
-    marginTop: '6rem',
-    marginBottom: '4rem',
+    marginTop: '5rem',
+    marginBottom: '24px',
     '& h2, & h1 > div:last-of-type ': {
       color: theme.palette.blue,
+      
     },
     '& > div:first-of-type > p': {
-      marginBottom: 10,
-      color: theme.palette.newGray,
-      fontSize: '1.4rem',
+      marginBottom: 0,
+      fontSize: '14px',
     },
     '& > div:last-of-type h1 span': {
-      fontSize: '1.2rem',
+      fontSize: '14px',
       color: theme.palette.newGray,
     },
     '& > div:last-of-type > div': {
-      marginTop: '2.4rem',
+      marginTop: '',
     },
     [theme.breakpoints.down('sm')]: {
       '& h2, & h1 ': {

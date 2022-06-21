@@ -17,7 +17,8 @@ module.exports = {
       'nokia': {'max': '360px'},
       'blackberry': {'min': '361px'},
       'mobile': {'min': '400px'},
-      'tablette': {'min': '600px'},
+      'tablette': {'min': '727px'},
+      
 
       '2xl': {'min': '1535px'},
       // => @media (max-width: 1535px) { ... }
