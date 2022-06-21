@@ -19,7 +19,7 @@ const styles = (theme) => ({
     color: theme.palette.newBlue,
 
     [theme.breakpoints.down('sm')]: {
-      paddingBottom: '2.5rem',
+      
       display: 'none',
       '& > div': {
         display: 'none',
@@ -44,8 +44,7 @@ const styles = (theme) => ({
       },
       '& > div:first-of-type': {
         display: 'flex',
-        paddingTop: '2rem',
-        borderTop: '1px solid rgba(26, 46, 108, 0.5)',
+        borderTop: '1px solid #CDD2D8',
         '& > div:last-of-type': {
           marginTop: '1.6rem',
           padding: 0,

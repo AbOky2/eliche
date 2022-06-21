@@ -131,13 +131,13 @@ const PropertyPage = ({
         {isMdView?(
 <Grid container justify="space-between" className={classes.description}>
           <Grid item md={6}>
-            <div className='mb-5'>
+            <div className='mb-4 -mt-20'>
             {isLocation ?(
                            <p className=" text-left text-_rougeStudea font-bold text-3xl">
                            {property.heading}</p>
 
             ):(
-                    <p className="text-[28px] text-left text-blue-500 font-bold "
+                    <p className="text-[28px] text-left text-primary font-bold "
                     style={{color:"linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)"}}
                     >              
                     {property.heading}</p>
@@ -166,7 +166,7 @@ const PropertyPage = ({
                           : `${property.minSurface}m²`
                       }`}
                     </p>
-                    <p className="text-2xl font-medium text-left text-_titre mx-4">
+                    <p className="text-2xl font-medium text-left text-_aPropos mx-4">
                         à partir de
                     {` ${spaceCurrency(property.price)}€`} </p>
                     </div>
@@ -283,7 +283,7 @@ const PropertyPage = ({
         </Grid>
         <div>
           
-          <div className=' w-96 lg:mx-36'>
+          <div className=' w-96 lg:mx-36 xl:mx-36'>
             {isLocation ? (
                <div className="flex justify-center items-center w-[343px] relative gap-2.5 px-[120px] py-4 rounded-xl bg-_rougeStudea">
               <AnchorLink href="#table" className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white font-_spaceGrotesk">
@@ -355,7 +355,7 @@ const PropertyPage = ({
  <div className=' '>
           <div className=''>
           <div className='p-6 gap-2 '
-          style={{background : 'linear-gradient(219.21deg, #C399DB -0.38%, #5882F7 106.68%)', borderRadius:'12px', marginBottom:"20px", marginTop:"16px", padding:'24px'}}>
+          style={{background : 'linear-gradient(219.21deg, #C399DB -0.38%, #5882F7 106.68%)', borderRadius:'12px', marginBottom:"8px", marginTop:"8px", padding:'24px'}}>
                         <svg
                   width={34}
                   height={34}
@@ -395,38 +395,49 @@ const PropertyPage = ({
                 </p>
    </div>
 
-            <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-4">
-              {isLocation?(
-                <p className="flex-grow-0  text-left text-_rougeStudea text-[18px] font-semibold">
-                À propos de cette résidence</p>
+            <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-2">
+                      {isLocation?(
+                        <p className="flex-grow-0  text-left text-_rougeStudea text-[18px] font-semibold">
+                        À propos de cette résidence</p>
 
-              ):(
-                <p className="flex-grow-0  text-left text-_aPropos text-[18px] font-semibold">
-                À propos de cette résidence</p>
+                      ):(
+                        <p className="flex-grow-0  text-left text-_aPropos text-[18px] font-semibold">
+                        À propos de cette résidence</p>
 
-              )}
-              
-                <p className="self-stretch flex-grow-0 flex-shrink-0 text-[14px] font-normal text-left  text-_gris">
-                <span
-                  dangerouslySetInnerHTML={{ __html: property.description }}
-                />
-              </p>
+                      )}
+                      
+                        <p className="self-stretch flex-grow-0 flex-shrink-0 text-[14px] font-normal text-left  text-_gris">
+                        <span
+                          dangerouslySetInnerHTML={{ __html: property.description }}
+                        />
+                      </p>
+                    </div>
+
+                    <div className="">
+                    <Sidebar
+                      isLocation={isLocation}
+                      property={property}
+                      classes={classes}
+                    /> </div>
+                    <div className="flex flex-col h-_343 justify-start items-start  rounded-[12px] bg-white border border-_bordureBleu ">
+                      <Maps loc={property.loc?.coordinates} />
+                    </div>
+
+                    <div className="flex flex-col justify-start items-start relative gap-2 p-6 rounded-xl bg-white border border-[#eaeffa] mt-4">
+                        <p className="flex-grow-0 flex-shrink-0  text-lg font-bold text-left text-[#0e215c]">
+                          La Banque Postale peut sûrement financer ton projet !
+                        </p>
+                        <p className="self-stretch flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-[#6976a0]">
+                          Kit le nid et La Banque Postale s’unissent pour t’aider à voler de tes propres ailes.
+                        </p>
+                        <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 px-10 py-3 rounded-xl border border-[#3679ff]">
+                          <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-[#3679ff]">
+                            Découvrir
+                          </p>
+                        </div>
+                    </div>
+              </div>
             </div>
-
-            <div className="">
-            <Sidebar
-              isLocation={isLocation}
-              property={property}
-              classes={classes}
-            /> </div>
-            <div className="flex flex-col h-_343 justify-start items-start  gap-2 rounded-[12px] bg-white border border-_bordureBleu ">
-              <Maps loc={property.loc?.coordinates} />
-            </div>
-          </div>
-         
-            
-             
-        </div>
 
     
        

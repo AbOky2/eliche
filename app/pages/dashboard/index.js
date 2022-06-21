@@ -436,17 +436,17 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
     <>
       {isMdView ? (
         <>
-          <div className="  lg:w-screen lg:-mx-52">
-            <div className="flex flex-col mx-4 lg:flex lg:flex-col lg:order-first lg:justify-between lg:items-end">
+          <div className="">
+            <div className="flex flex-col mx-4">
               <div className="lg:order-last -mx-4 mb-10 my-12 ">
                 <img
-                  src="static/img/icons/House1.svg"
-                  className=" w-_388 h-_175 rounded-xl object-cover lg:w-_515 lg:h-_460 mx-2"
+                  src="../static/img/House1.svg"
+                  className=" w-_388 h-_175 rounded-xl object-cover mx-2"
                 />
               </div>
             </div>
-            <div className=" lg:flex lg:flex-row lg:mb-32 ">
-              <div className="flex flex-row-reverse items-start mx-4 mb-4 lg:w-_388 lg:h-_198">
+            <div className="  ">
+              <div className="flex flex-row-reverse items-start mx-4 mb-4">
                 <div className=" mx-4 ">
                   <p className="text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
                     Des logements dans toute la France
@@ -477,7 +477,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-row-reverse items-start mx-4 mb-4 lg:w-_388 lg:h-_198">
+              <div className="flex flex-row-reverse items-start mx-4 mb-4 ">
                 <div className="mx-4">
                   <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
                     Accès libre aux plans
@@ -516,7 +516,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 </div>
               </div>
 
-              <div className="flex flex-row-reverse items-start mx-4 mb-4 lg:w-_388 lg:h-_198">
+              <div className="flex flex-row-reverse items-start mx-4 mb-4">
                 <div className="mx-4">
                   <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
                     Un unique conseiller dédié
@@ -583,7 +583,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 </div>
               </div>
 
-              <div className="flex flex-row-reverse items-start mx-4 mb-12 lg:w-_388 lg:h-_198">
+              <div className="flex flex-row-reverse items-start mx-4 mb-12">
                 <div className="mx-4">
                   <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
                     Des aides pour votre premier achat{' '}
@@ -699,18 +699,23 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-start items-start relative gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-5 mb-5 mx-4">
-              <p className="flex-grow-0 flex-shrink-0 w-72 text-lg font-bold text-left text-_titre">
+            <div className="flex items-start relative justify-between gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-5 mb-5 mx-4">
+              <div>
+                <p className="flex-grow-0 flex-shrink-0 w-72 text-lg font-bold text-left text-_titre">
                 Découverz notre guide du premier achat.
               </p>
               <p className="self-stretch flex-grow-0 flex-shrink-0 w-72 text-sm font-medium text-left text-_grisBleu">
                 Kit le nid et La Banque Postale s’unissent pour t’aider à voler
                 de tes propres ailes.
               </p>
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 px-10 py-3 rounded-xl border border-_aPropos">
+              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 px-10 py-3 rounded-xl border border-_aPropos mt-6">
                 <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-_aPropos">
                   Télécharger notre guide
                 </p>
+              </div>
+              </div>
+              <div >
+                <img src="static/img/GuideAchat.svg" />
               </div>
             </div>
             <div className=" text-_grisBleu font-thin text-sm mt-16 -mb-10">
@@ -750,7 +755,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
               </div>
             </div>
             <img
-              src="static/img/icons/House1.svg"
+              src="static/img/House1.svg"
               className="w-[515px] h-[460px] absolute left-[846.42px] top-[135.42px] rounded-[20px] object-cover"
             />
             <p className="w-[426px] absolute left-[108px] top-80 text-xl text-left text-[#849cd9]">

@@ -303,10 +303,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   discoveryContainer: {
-    marginTop: '4rem',
+    marginTop: '8px',
     '& h2': {
       color: theme.palette.blue,
-      marginBottom: '4rem',
+      marginBottom: '8px',
     },
 
     '& > div > div:last-of-type > div:first-of-type': {

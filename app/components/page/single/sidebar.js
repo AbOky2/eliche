@@ -52,7 +52,7 @@ const Sidebar = ({ isLocation, property, classes }) => {
   return (
     <div>
       {Object.keys(transportations).length ? (
-        <div className="flex flex-col justify-center items-center relative gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-5 mt-12">
+        <div className="flex flex-col justify-center items-center relative gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-[8px] ">
           {isLocation ? (
             <p className=" ext-[18px] font-bold text-center text-_rougeStudea mb-5">
               Transports à proximité

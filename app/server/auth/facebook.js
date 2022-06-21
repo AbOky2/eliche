@@ -16,8 +16,8 @@ function auth({ ROOT_URL, server }) {
   const verify = async (accessToken, refreshToken, profile, verified) => {
     const fbUser = FB.extend({
       accessToken,
-      appId: '487070945537857', //process.env.FACEBOOK_CLIENT_ID,
-      appSecret: 'e52f683d83dc4841a2a002edc7ebdd14', //process.env.FACEBOOK_CLIENT_SECRET,
+      appId: process.env.FACEBOOK_CLIENT_ID,
+      appSecret: process.env.FACEBOOK_CLIENT_SECRET,
       version: 'v3.2',
     });
     const userFb = await fbUser.api(
@@ -69,8 +69,8 @@ function auth({ ROOT_URL, server }) {
   passport.use(
     new FacebookStrategy(
       {
-        clientID: '487070945537857', //process.env.FACEBOOK_CLIENT_ID,
-        clientSecret: 'e52f683d83dc4841a2a002edc7ebdd14', //process.env.FACEBOOK_CLIENT_SECRET,
+        clientID: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         callbackURL: redirectUri,
         scope: [
           'email',

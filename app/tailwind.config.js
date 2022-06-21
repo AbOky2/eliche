@@ -14,13 +14,18 @@ module.exports = {
 
 
     screens: {
+      'nokia': {'max': '360px'},
+      'blackberry': {'min': '361px'},
+      'mobile': {'min': '400px'},
+      'tablette': {'min': '600px'},
+
       '2xl': {'min': '1535px'},
       // => @media (max-width: 1535px) { ... }
 
-      'xl': {'max': '1279px'},
+      'xl': {'min': '1279px'},
       // => @media (max-width: 1279px) { ... }
 
-      'lg': {'max': '1023px'},
+      'lg': {'min': '1023px'},
       // => @media (max-width: 1023px) { ... }
 
       'md': {'max': '767px'},

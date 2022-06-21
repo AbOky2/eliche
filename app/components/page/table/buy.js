@@ -1,4 +1,6 @@
 import { Grid, Typography } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+
 
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
@@ -21,6 +23,8 @@ const LocationTable = ({
   setShowAuthModal,
 }) =>
   Object.keys(state).map((elem) => {
+    const [total, setTotal] = useState(0);
+
     const current = state[elem];
     const isOpen = currOpen === elem;
     const countList = current.list.length;
@@ -31,9 +35,10 @@ const LocationTable = ({
     const vat = parseFloat(current.vat);
     const hasReduction = vat === reducedVat || vat === 0;
     const conditionalColumn = hasReduction ? 1 : 2;
+    
 
     return (
-      <div key={elem} className="flex flex-col bg-white border rounded-xl w-full border-_aPropos mb-4  ">
+      <div key={elem} className="flex flex-col bg-white border rounded-xl  border-_aPropos mb-4  ">
         <Grid
           container
           className="pointer h-[50px]"
@@ -41,11 +46,14 @@ const LocationTable = ({
           onClick={() => handleCurrOpen(elem)}
         >
           <div className=' flex justify-between text-sm sm:text-xs text-_aPropos '>
-            <div  className=' '>
-             
-                {` ${elem} pièce${elem > 1 ? 's' : ''} à partir de `}
+            
+            <div  className=' nokia:w-[140px] blackberry:w-[230px] mobile:w-[260px] w-_344'>
 
-                <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong>
+                {` ${elem} pièce${elem > 1 ? 's' : ''}  `}
+                
+               
+
+                {/* <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong> */}
             </div>
             <div  className=" order-last">
               <Icon
@@ -96,10 +104,10 @@ const LocationTable = ({
           </div>
         </Grid>
         {isOpen && (
-          <div className='   p-2 ' >
+          <div className='p-4 ' >
             <Grid container className={classes.discoveryContentHeader}>
                 {hasReduction && (
-                  <Grid item md={2} xs={2} className="text-center text-xs">
+                  <Grid item md={2} xs={2} className="text-center text-xs ">
                     {`TVA réduite${vat ? ` ${vat}%` : ''}`}
                   </Grid>
                 )}
@@ -167,17 +175,22 @@ const LocationTable = ({
                     container
                     className={classes.discoveryContent}
                   >
-                    <div className='flex flex-col '>
+                    <div className='flex flex-col  w-full'>
                      
-                      <div className='flex flex-col items-center w-full '>
+                      <div className='flex flex-col items-center w-full mt-4 '>
                           {hasReduction && (
-                          <div className='flex flex-row justify-between mb-1'>
-                          <p className="w-44 h-5 text-sm font-medium">{`TVA réduite${vat ? ` ${vat}%` : ''}`}</p>
-                          <p className="w-44 h-5 text-sm font-medium justify-end flex">{`${price}€`}</p>
+                          <div className='flex justify-between w-full '>
+                            <div className='  flex'>
+                                  <p className=" text-sm font-medium">{`TVA réduite${vat ? ` ${vat}%` : ''}`}</p>
+                            </div>
+                            <div className='flex '>
+                                  <p className="text-sm font-medium justify-end flex">{`${price}€`}</p>
+                            </div>
+                        
                         </div>
                         )}
 
-                      <div className='flex justify-between   '>
+                      <div className='flex justify-between w-full  '>
                             <div className='  flex'>
                                   <p className=" text-sm font-medium">Prix TVA 20%</p>
                             </div>
@@ -225,7 +238,7 @@ const LocationTable = ({
                       className=' flex justify-center'>
                       
                       <a
-                            className="flex justify-center items-center w-_344  gap-2.5 px-32 py-4 rounded-xl mb-10 mt-8" href={NEXT_PUBLIC_UPLOAD_URL + curr.file}
+                            className="flex justify-center items-center   gap-2.5 px-32 py-4 rounded-xl mt-4" href={NEXT_PUBLIC_UPLOAD_URL + curr.file}
                             style={{ background: "linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)" }}
                           >
                             <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white">
