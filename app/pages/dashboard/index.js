@@ -386,7 +386,7 @@ const AuthContext = ({
     </div>
     <div className={classes.lastViewdContainer}>
       <Typography variant="h2">Vos récentes consultations</Typography>
-      <Grid container justifyContent="space-between">
+      <Grid  justifyContent="space-between" className='tablette:grid tablette:grid-cols-2 tablette:gap-2'>
         {userSearch.lastViewed?.slice(0, 3).map((elem, index) => (
           <ListElement
             key={index}

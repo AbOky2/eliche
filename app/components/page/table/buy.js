@@ -40,7 +40,7 @@ const LocationTable = ({
     return (
       <div key={elem} className="flex flex-col font-bold bg-white border rounded-xl  border-_aPropos mb-4  ">
         <Grid
-          container
+          
           className="pointer h-[50px]"
           justify = "space-between"
           onClick={() => handleCurrOpen(elem)}
@@ -75,35 +75,6 @@ const LocationTable = ({
                 countList > 1 ? 's' : ''
               }`})
               </div>
-
-                {/* <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong> */}
-          
-          {/*
-          <Grid item md={3} xs={5} className={classes.header}>
-            <Typography>
-              <Icon type="room" color="newBlue" />
-              {surface}
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            md={3}
-            xs={5}
-            className={clsx(classes.header, classes.headerPricing)}
-          >
-            <Typography>
-              <span>à partir de</span>
-              <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong>
-            </Typography>
-          </Grid>
-          <Grid item md={3} xs={5} className={classes.header}>
-            <Typography>
-              {`${countList} logement${countList > 1 ? 's' : ''} disponible${
-                countList > 1 ? 's' : ''
-              }`}
-            </Typography>
-          </Grid>
-          > */}
             <div  className=" order-last mx-4">
             <Icon
               type={isOpen ? 'signeM' : 'signeP'}

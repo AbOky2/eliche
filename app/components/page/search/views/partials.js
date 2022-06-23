@@ -108,7 +108,7 @@ const ListWrapper = ({
       handleSortSelect={handleSortSelect}
     />
     <div id="listViewScrollContainer">
-      <Grid container>
+      <Grid >
         {hasData ? (
           children
         ) : (
@@ -147,7 +147,7 @@ const ListElement = ({
 }) => (
   <Grid
     item
-    className=' bg-yellow-400 '
+    className='  '
     onMouseEnter={handleMouseEnter}
     onMouseLeave={handleMouseLeave}
   >
@@ -184,7 +184,8 @@ const ListContainer = ({
   handleBookmark,
   noRedirect = false,
 }) => (
-  <Grid  className=' items-center'>
+  <Grid  className=' items-center w-full'>
+    <div className=''>
     <ListWrapper
       //classes={classes}
       sortBy={sortBy}
@@ -194,6 +195,7 @@ const ListContainer = ({
       page={page}
       matches={matches}
       handlePage={handlePage}
+    
     >
       {page.pageList?.map((elems) => (
         <ListElement
@@ -212,7 +214,7 @@ const ListContainer = ({
           {...elems}
         />
       ))}
-    </ListWrapper>
+    </ListWrapper></div>
   </Grid>
 );
 export { ListHeader, ListFooter, ListElement, ListContainer };

@@ -19,7 +19,7 @@ export const Partenaires = ({
     <p className=" absolute left-36 top-11 text-xs font-medium text-left text-_gris">
       Heyme vous offre l’accès à une mutuelle santé à prix réduit.
     </p>
-    <p className=" w-_189 absolute left-36 top-4 text-lg font-bold text-left text-_aPropos">
+    <p className="  absolute left-36 top-4 text-lg font-bold text-left text-_aPropos">
       Mutuelle santé
     </p>
     <img
@@ -27,7 +27,7 @@ export const Partenaires = ({
       className="w-28 h-28 absolute left-4 top-4 rounded-xl object-none border border-_bordureBleu"
     />
     <a
-      className="flex justify-center items-center w-_189 absolute left-36 top-20 gap-2.5 px-10 py-3 rounded-xl"
+      className="flex justify-center items-center absolute left-36 top-20 gap-2.5 px-10 py-3 rounded-xl"
       style={{ background: "linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)" }}
       href="partners/6033b549ef86fb3e943fe86d"
     >
@@ -73,7 +73,7 @@ export const Partenaires = ({
     />
     <div className="w-28 h-28 absolute left-4 top-4 rounded-xl border border-_bordureBleu" />
     <div
-      className="flex justify-center items-center w-_189 absolute left-36 top-20 gap-2.5 px-10 py-3 rounded-xl"
+      className="flex justify-center items-center absolute left-36 top-20 gap-2.5 px-10 py-3 rounded-xl"
       style={{ background: "linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)" }}>
       <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white">
         Découvrir Studéa

@@ -36,86 +36,87 @@ export const Card = ({
 
     {isMdView? (
 
-<div className='bg-white rounded-xl border border-_grisBleu flex gap-5 p-4 w-full mb-4 '>
-
-    
-<div className="w-[109px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>
-<div className=''>
-        <div
-        className="text-xs font-[700] text-left text-[#3679ff] text-[18px] leading-5"
-        >   {title}
+<div className='rounded-xl border border-_bordureBleu flex gap-5 p-4 w-full mb-4 flex-row bg-white'>
+        <div className='order-first w-1/2'>
+          <div className="w-[109px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>
         </div>
-        <div className='text-xs text-[#6976a0] mt-2'> {address}</div>
-        <div className='text-[#1a2e6c] text-lg'>{description}</div>
-        <div className='text-[#6976a0] text-sm'> à partir de 
-        <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€`}</strong>
+        <div className=' w-full'>
+                <div className="text-xs font-[700] text-left text-[#3679ff] text-[18px] leading-5">
+                  {title}
+                </div>
+                <div className='text-xs text-[#6976a0] mt-2'> {address}</div>
+                <div className='text-[#1a2e6c] text-lg'>{description}</div>
+                <div className='text-[#6976a0] text-sm'> à partir de 
+                  <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€`}</strong>
+                </div>
+                <div className='text-[#6976a0] text-sm'> soit
+                  <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€ / mois`}</strong>
+                </div>
         </div>
-        <div className='text-[#6976a0] text-sm'> soit
-        <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€ / mois`}</strong>
+        <div className=' flex flex-col-reverse w-full'>
+            {showLikes && (
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    onClick(_id);
+                  }}
+                  className="pointer like flex-row-reverse flex"
+                >
+                  <Icon
+                    type="heart"
+                    size="medium"
+                    strokeColor={liked ? 'red' : 'newBlue'}
+                    color={liked ? 'red' : 'white'}
+                  />
+                </span>
+              )}
         </div>
-</div>
-<div className=' flex flex-col-reverse order-last'>
-    {showLikes && (
-        <span
-          onClick={(e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            onClick(_id);
-          }}
-          className="pointer like"
-        >
-          <Icon
-            type="heart"
-            size="medium"
-            strokeColor={liked ? 'red' : 'newBlue'}
-            color={liked ? 'red' : 'white'}
-          />
-        </span>
-      )}
-</div>
 
 
 </div>
     ):(
       
-      <div className='bg-white rounded-xl border border-_grisBleu flex w-[400px] gap-7 p-4 mb-4'>
-
-    
-      <div className="w-[209px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>
-      <div className=''>
-              <div
-              className="text-xs font-[700] text-left text-[#3679ff] text-[18px] w-full "
-              >   {title}
-              </div>
-              <div className='text-xs text-[#6976a0] mt-2'> {address}</div>
-              <div className='text-[#1a2e6c] text-lg'>{description}</div>
-              <div className='text-[#6976a0] text-sm'> à partir de 
-              <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€`}</strong>
-              </div>
-              <div className='text-[#6976a0] text-sm'> soit
-              <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€ / mois`}</strong>
-              </div>
-      </div>
-      <div className=' flex flex-col-reverse order-last'>
-          {showLikes && (
-              <p
-                onClick={(e) => {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  onClick(_id);
-                }}
-                className="pointer like"
-              >
-                <Icon
-                  type="heart"
-                  size="medium"
-                  strokeColor={liked ? 'red' : 'newBlue'}
-                  color={liked ? 'red' : 'white'}
-                />
-              </p>
-            )}
-          </div>
+      
+<div className='rounded-xl border border-_bordureBleu flex  p-4 w-full mb-4 flex-row bg-white '>
+        <div className='order-first w-[80%]'>
+          <div className="w-[109px] h-[109px] p-4 rounded-[10px] bg-[#c4c4c4] object-contain bg-cover" style={{ backgroundImage: `url(${src})` }}></div>
         </div>
+        <div className=' w-full'>
+                <div className="text-xs font-[700] text-left text-[#3679ff] text-[18px] leading-5">
+                  {title}
+                </div>
+                <div className='text-xs text-[#6976a0] mt-2'> {address}</div>
+                <div className='text-[#1a2e6c] text-lg'>{description}</div>
+                <div className='text-[#6976a0] text-sm'> à partir de 
+                  <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€`}</strong>
+                </div>
+                <div className='text-[#6976a0] text-sm'> soit
+                  <strong className='text-xs text-[#1a2e6c]'>{` ${spaceCurrency(price)}€ / mois`}</strong>
+                </div>
+        </div>
+        <div className=' flex flex-col-reverse w-full'>
+            {showLikes && (
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    onClick(_id);
+                  }}
+                  className="pointer like flex-row-reverse flex"
+                >
+                  <Icon
+                    type="heart"
+                    size="medium"
+                    strokeColor={liked ? 'red' : 'newBlue'}
+                    color={liked ? 'red' : 'white'}
+                  />
+                </span>
+              )}
+        </div>
+
+
+</div>
       )}
 
       {/* 

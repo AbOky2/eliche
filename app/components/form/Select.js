@@ -211,7 +211,7 @@ export const DropdownSelect = withStyles(styles)(
           disabled
         /> */}
         <span />
-        <div className=' sm:grid-rows-2 sm:gap-2  sm:p-0 grid grid-cols-3 p-3 '>
+        <div className=' sm:grid-rows-2 sm:gap-2  sm:p-0 grid grid-cols-3 sm:grid-cols-2 p-3 '>
           {list?.map((elem) => (
             <div
             

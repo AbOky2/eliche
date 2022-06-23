@@ -341,7 +341,7 @@ const styles = (theme) => ({
    
   },
   mapsViewContainer: {
-    height: 'calc(100vh - 218px)',
+    height: '100%',
     overflow: 'hidden',
     flexFlow: 'initial',
     '& > div': {
@@ -352,7 +352,7 @@ const styles = (theme) => ({
         position: 'sticky',
         top: 0,
         minHeight: '80vh',
-        maxHeight: '100vh',
+      
         maxWidth: '100%',
         flexGrow: 1,
         '& > div': {

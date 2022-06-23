@@ -230,7 +230,7 @@ const PropertyPage = ({
               </div>
           </Grid>
 
-          <Grid container className={classes.discoveryContainer}>
+          <Grid  className={classes.discoveryContainer}>
           
           <div className='flex flex-col'>
             {property.typeOfAnnonce === typeOfAnnoncies[0] ? (
@@ -495,7 +495,7 @@ const PropertyPage = ({
                           <Maps loc={property.loc?.coordinates} />
                         </div>
         </div>
-        <div className=' '>
+        <div className='w-full '>
               <div className=''>
               <div className="flex flex-col justify-start items-start  gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mb-2">
                           {isLocation?(

@@ -300,10 +300,11 @@ const SearchPage = ({
                     toggleRefresh={toggleRefresh}
                     isMapsView={currView}
                   />
-                  <div className=" w-40 h-12  rounded-xl bg-_switchButton flex flex-row my-96 cursor-pointer z-10 absolute top-[38%] sm:top-[40%] xs:top-[20%] items-center left-[40%]  " onClick={()=>setShow(!show)} >
-                          <p className="left-4 top-2 text-sm font-bold text-white text-center p-3 mx-4">Mode Liste</p>
+                  <div className=" w-[164px] h-[46px]  rounded-[12px] bg-[#191F2C] flex flex-row cursor-pointer fixed top-[83%] iphone3:top-[76%] nokia:top-[70%] nokia:left-[20%] iphone3:left-[30%] left-[40%] p-4 gap-3 justify-center " onClick={()=>setShow(!show)}>
+                          <div className='-mt-1 text-center'>
+                          <p className=" text-sm font-bold text-white text-center">Mode liste</p></div>
                           <div 
-                          className=' py-3 -mx-3'
+                          className=' justify-center -mt-1 '
                           >
                           <Icon
                             type="liste"
@@ -312,9 +313,10 @@ const SearchPage = ({
                           />
                         </div>
                   </div>
+                 
               </section>):(
 
-               <section id='classe' className=' p-6 order-first overflow-scroll w-[700px] h-[560px]'>
+               <section id='classe' className=' overflow-scroll  w-full h-auto p-4 mb-24 -mt-4'>
                 <ListContainer
                   classes={classes}
                   curr={currView}
@@ -323,16 +325,17 @@ const SearchPage = ({
                   handleSortSelect={handleSortSelect}
                   hasData={state.length}
                   page={page}
-                  //handlePage={handlePage}
+                  handlePage={handlePage}
                   liked={liked}
                   noRedirect
                   handleBookmark={handleBookmark}
                 />
                   
-                    <div className=" w-40 h-12  rounded-xl bg-_switchButton flex flex-row my-96 cursor-pointer z-10 absolute top-[38%] sm:top-[40%] xs:top-[20%  items-center left-[40%] " onClick={()=>setShow(!show)}>
-                          <p className="left-4 top-2 text-sm font-bold text-white text-center p-3 mx-4">Mode Carte</p>
+                    <div className=" w-[164px] h-[46px]  rounded-xl bg-_switchButton flex flex-row cursor-pointer fixed top-[83%] iphone3:left-[30%] iphone3:top-[76%] nokia:top-[60%] justify-center left-[40%] p-4 gap-3 text-center " onClick={()=>setShow(!show)}>
+                          <div className='-mt-1 text-center'>
+                          <p className=" text-sm font-bold text-white text-center">Mode carte</p></div>
                           <div 
-                          className=' py-3 -mx-3'
+                          className=' justify-center -mt-1 '
                           >
                           <Icon
                             type="carte"
@@ -349,8 +352,8 @@ const SearchPage = ({
               </div>
 
          ):(
-          <div className=' flex flex-row justify-between gap-4'>
-          <section className=' w-[900px]'>
+          <div className=' flex flex-row justify-between gap-2'>
+          <section className=' w-full  '>
               <MapsView
                 allData={allData}
                 queryData={queryData}
@@ -373,7 +376,7 @@ const SearchPage = ({
               />
         </section>
 
-        <section className=' p-6 order-first overflow-scroll w-[700px] h-[560px] '>
+        <section className='  order-first overflow-scroll  w-full'>
             <ListContainer
             classes={classes}
               curr={currView}

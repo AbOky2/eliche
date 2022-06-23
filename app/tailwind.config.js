@@ -14,6 +14,7 @@ module.exports = {
 
 
     screens: {
+      'iphone3': {'max': '399px'},
       'nokia': {'max': '360px'},
       'blackberry': {'min': '361px'},
       'mobile': {'min': '400px'},

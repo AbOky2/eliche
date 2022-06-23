@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   card: {
-    width: 'calc(100% - 14px)',
     
   },
   btnContainer: {
@@ -114,12 +113,12 @@ const BookmarkPage = ({ user, update }) => {
 /*<Partenaires />*/
     
     <AdminContentWrapper noRedirect mobilePadding>
-      <div className=' '>
+      <div className=' p-4'>
         <Typography variant="h1" className={classes.title} style={{color:"#3679FF", fontWeight:"bold"}}>
           Favoris
         </Typography>
         {state?.length ? (
-          <Grid  spacing={3}>
+          <Grid  spacing={3} className=' tablette:grid tablette:grid-cols-2 tablette:gap-4'>
             {state.map(
               ({
                 _id,
@@ -136,13 +135,11 @@ const BookmarkPage = ({ user, update }) => {
                 <Grid
                   item
                   key={_id}
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  className={classes.listContainer}
+                 
+                
                 >
                   <Link href={singlePath({ typeOfAnnonce, _id })}>
-                    <a>
+                    <a >
                       <Card
                         _id={_id}
                         title={heading}
