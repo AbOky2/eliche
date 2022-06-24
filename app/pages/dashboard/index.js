@@ -350,7 +350,7 @@ const AuthContext = ({
   userSearch = {},
   handleBookmark,
 }) => (
-  <div className="mt-10 xl:mt-60 lg:mt-60 md:mt-10 2xl:mt-60 3xl:mt-60">
+  <div className=" mt-6">
     <div className={classes.lastSearchContainer}>
       <Typography variant="h2">Vos recherches récentes</Typography>
       {userSearch.lastSearch
@@ -1211,12 +1211,13 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
   return (
     <AdminContentWrapper noRedirect>
       <div className={classes.heading}>
-        <div className="flex justify-center px-64 md:px-80 sm:px-20">
-          <Icon type="LogoVV" />
+        <div className=" flex">
+          <div className='flex justify-center'>
+          <Icon type="LogoVV" /></div>
         </div>
-        <Typography variant="h2">
-          {isAuth ? 'Ravis de vous revoir ' : 'La première ofrre Jeune pour  '}
-          <span>
+        <p className='text-[#113EB6] font-[800] text-[28px] text-center mb-6 lg:mt-8'>
+          {isAuth ? 'Ravis de vous revoir ' : 'La première offre Jeune pour  '}
+          <span className=' text-[#3679FF]'>
             {isAuth ? (
               <>
                 <br />
@@ -1230,13 +1231,13 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
             {!isAuth &&
               'Réalisez votre premier achat immobilier pour seulement 700€ par mois !*'}
           </p>
-        </Typography>
+        </p>
       </div>
       {isAuth ? (
         isMdView ? (
           <div
             onClick={() => setShowSearch(!showSearch)}
-            className="flex flex-row-reverse mt-4 rounded-xl h-_53 bg-white border border-_bordureBleu   sm:w-_295 md:w-_536"
+            className="flex flex-row-reverse mt-4 rounded-xl h-_53 bg-white border border-_bordureBleu  "
           >
             <div
               style={{
@@ -1254,7 +1255,7 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
             </div>
           </div>
         ) : (
-          <div className="absolute z-10 top-[-15%]">
+          <div className="">
             <SearchBar />
           </div>
         )

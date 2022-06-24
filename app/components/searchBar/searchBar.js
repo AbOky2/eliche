@@ -7,6 +7,7 @@ import { propertyPiecesSelectMap, isArray, typeOfAnnonciesObj } from 'helpers';
 
 import { Grid } from '@material-ui/core';
 import { DropdownSelect } from 'components/form/Select2';
+import { LocationStep } from 'components/searchDrawer/locationStep';
 
 export const SearchBar = ({}) => {
   const [queryData, setQueryData] = useState({
@@ -37,8 +38,8 @@ export const SearchBar = ({}) => {
   const handleBudget = (value) =>
     setQueryData({ ...queryData, maxPrice: value });
 
-  return (
-    <Grid className="flex container w-[936px] h-[97px] absolute left-[106.5px] border-2 top-[398.5px] rounded-[20px] bg-white">
+  return (<>
+    {/* <Grid className="flex container w-[936px] h-[97px] absolute left-[106.5px] border-2 top-[398.5px] rounded-[20px] bg-black">
       <Grid item md={3}>
         <p className="relative left-[39px] top-[5px] text-[1.1rem] mt-3 font-[900] text-left text-[#4f80ff]">
           Localisation
@@ -101,7 +102,53 @@ export const SearchBar = ({}) => {
           handleSumit={handleFinish}
         />
       </Grid>
-    </Grid>
+    </Grid> */}
+    <div className='p-5 h-[100px] bg-white border-[2px] border-_bordureBleu w-full rounded-[20px] flex justify-between gap-3'>
+      <div className='border-r-[1px] border-_aPropos  w-full '>
+        <div className='ml-9'>
+          <p className=' text-[#4F80FF] font-bold text-[16px] '>Localisation</p>
+        </div>
+        <div className='  '><GoogleMaps
+          name="loc"
+          className="border-none"
+          value={queryData.loc}
+          onChange={handleMapSearch}
+          placeholder={'Où cherchez-vous ?'}
+        /></div>
+      </div>
+
+      <div className=' w-full border-r-[1px] border-_aPropos'>
+        <div>
+          <p  className=' text-[#4F80FF] font-bold text-[16px] ml-7'>Nombre de pièce</p>
+        </div>
+        <div><DropdownSelect
+          name="typeOfAnnonce"
+          placeholder="Combien de pièce souhaitez-vous?"
+          list={propertyPiecesSelectMap}
+          value={queryData.pieces}
+          onChange={handleSelectPieces}
+        /></div>
+      </div>
+
+      <div className=' w-full'>
+        <div>
+          <p  className=' text-[#4F80FF] font-bold text-[16px] ml-9'>Budget</p>
+        </div>
+        <div><CustomInput
+          name="maxPrice"
+          value={
+            queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
+              ? queryData.maxPrice
+              : ''
+          }
+          showSub={!isLocation}
+          onChange={handleBudget}
+          placeholder="Quel est votre budget?"
+          handleSumit={handleFinish}
+        /></div>
+      </div>
+    </div>
+    </>
     // <div>
     //   <div className="w-[936px] h-[97px] absolute left-[106.5px] top-[398.5px] rounded-[20px] bg-white" />
     //   {/* <div className="w-[1251px] h-[298px] absolute left-[109.5px] top-[1389.5px] rounded-[20px] bg-white" /> */}

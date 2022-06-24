@@ -215,12 +215,12 @@ const styles = (theme) => ({
   },
   reloadMapsContainer: {
     position: 'absolute',
-    top: '2.5rem',
+    top: '16px',
     left: '50%',
     width: 'fit-content',
     transform: 'translateX(-50%)',
     [theme.breakpoints.down('sm')]: {
-      top: 0,
+      top: '16px',
     },
     '& > div': {
       width: 'fit-content',
@@ -344,6 +344,8 @@ const styles = (theme) => ({
     height: '100%',
     overflow: 'hidden',
     flexFlow: 'initial',
+    borderRadius:'12px',
+    border:"1px solid #EFF4FF",
     '& > div': {
       '&:first-of-type': {
         maxWidth: 550,

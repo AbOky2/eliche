@@ -279,7 +279,7 @@ const SearchPage = ({
 
           <div className=' flex flex-row justify-between gap-4'>
             
-             {show?(<section className=' w-[900px]'>
+             {show?(<section className=' w-full p-4 '>
                   <MapsView
                     allData={allData}
                     queryData={queryData}
@@ -376,7 +376,7 @@ const SearchPage = ({
               />
         </section>
 
-        <section className='  order-first overflow-scroll  w-full'>
+        <section className='  order-first overflow-scroll min-w-[487px] p-4'>
             <ListContainer
             classes={classes}
               curr={currView}
