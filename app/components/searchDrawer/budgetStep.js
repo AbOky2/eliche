@@ -72,7 +72,7 @@ export const BudgetStep = withStyles()(
       >
           <Box
             sx={{
-              
+              height: '100%',
               display: 'flex',
               flexDirection: 'column',
               top: '48px',

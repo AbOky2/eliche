@@ -7,12 +7,12 @@ import { withStyles } from '@material-ui/core/styles';
 const redirectStyle = (theme) => ({
   display: 'inline-block',
   position: 'sticky',
-  top: '.5rem',
+  top: '133px',
   width:"30px", height:"30px", borderRadius:"50%",
   backgroundColor: 'white',
   zIndex: 35,
   [theme.breakpoints.down('sm')]: {
-    top: '21px',
+    top: '61px',
   },
   '& h4': {
     textAlign: 'left',

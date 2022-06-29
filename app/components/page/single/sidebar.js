@@ -7,13 +7,13 @@ import { tranportationsKeys, individualAdvantages } from 'helpers';
 
 const BtnCalendly = () => (
   <div
-    className="flex justify-center  relative  py-4 rounded-xl mb-1 mt-6 cursor-pointer w-[343px] sm:w-[260px] xs:w-[200px]"
+    className="flex p-4  rounded-xl  cursor-pointer w-full justify-center"
     onClick={() => openPopupWidget({ url: 'https://calendly.com/kitlenid' })}
     style={{
       background: 'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
     }}
   >
-    <p className=" flex-shrink-0 text-sm font-bold text-left text-white xs:text-xs">
+    <p className=" flex-shrink-0 text-sm font-bold text-white xs:text-xs text-center">
       Être rappelé selon mes dispos{' '}
     </p>
   </div>

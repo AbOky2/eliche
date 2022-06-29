@@ -64,28 +64,26 @@ const searchFields = withStyles(
             : classes.searchContainer
         }
       >
-        <Grid >
-          
+        <div className="bg-white rounded-[14px] w-full" >
+          <div className="">
           <GoogleMaps
             name="loc"
             value={queryData.loc}
             onChange={handleMapSearch}
             placeholder={isMdView ? 'Où cherchez-vous ?' : 'Localisation'}
             
-          />
-         
-            <>
-            
+          /></div>
+                     
               <div onClick={handleSumit} className="">
                 <Icon type="recherche" size='small' color='white'  />
               </div>
-             
-            </>
          
-        </Grid> 
+        </div> 
+        </Grid>
+
         
-        <div className='flex mt-2 gap-2 '>
-          <div className=' bg-white w-[215px] border-2 border-[#EFF4FF] rounded-xl p-1 '>
+        <div className='flex mt-2 gap-2 p-4 '>
+          <div className=' bg-white w-full border-2 border-[#EFF4FF] rounded-xl p-1 '>
             <p className=' text-center text-sm font-bold text-[#43434A] font-_spaceGrotesk cursor-pointer'  onClick={toggleModal2} >
 
               Prix
@@ -93,7 +91,7 @@ const searchFields = withStyles(
            
           </div>
 
-          <div className=' bg-white w-[215px] p-1 border-2 border-[#EFF4FF] rounded-xl'>
+          <div className=' bg-white w-full p-1 border-2 border-[#EFF4FF] rounded-xl'>
             <p className=' text-center text-sm font-bold text-[#43434A] font-_spaceGrotesk cursor-pointer' onClick={toggleModal1}>
             Nombre piece</p>
           </div>
@@ -137,7 +135,6 @@ const searchFields = withStyles(
             />
           </Grid>
         )} */}
-      </Grid>
 
        <Modal
         openModal={showModal1}

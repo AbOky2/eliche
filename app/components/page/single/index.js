@@ -86,7 +86,7 @@ const PropertyPage = ({
     <AdminContentWrapper>
       <div>
        {isMdView?(
-        <div className="relative" style={{margin:'-22px', marginTop:'-60px', display:"flex", flexDirection:"column"}}>
+        <div className="relative" style={{margin:'-22px', marginTop:'-20px', display:"flex", flexDirection:"column"}}>
         {property.pictures && (
           <Carrousel
             list={
@@ -119,7 +119,7 @@ const PropertyPage = ({
       </div>
 
        ):(
-        <div className="relative" style={{margin:'-22px', marginTop:'-60px', display:"flex", flexDirection:"column"}}>
+        <div className="relative" style={{margin:'-22px', marginTop:'-20px', display:"flex", flexDirection:"column"}}>
           {property.pictures && (
             <Carrousel
               list={
@@ -208,9 +208,9 @@ const PropertyPage = ({
                       )}
               
               </Grid>
-              <div>
+              <div className='w-full'>
                 
-                <div className=' tablette:mt-8'>
+                <div className='w-ful'>
                   {isLocation ? (
                     <div className="flex justify-center items-center w-[343px] relative gap-2.5 px-[120px] py-4 rounded-xl bg-_rougeStudea">
                     <AnchorLink href="#table" className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white font-_spaceGrotesk">
@@ -432,9 +432,9 @@ const PropertyPage = ({
                     )}
          
             </Grid>
-            <div>
+            <div className='w-full mt-2'>
               
-              <div className=' w-96 lg:mx-36 xl:mx-36 '>
+              <div className=' w-1/2 '>
                 {isLocation ? (
                   <div className="flex justify-center items-center w-[343px] relative gap-2.5 px-[120px] py-4 rounded-xl bg-_rougeStudea">
                   <AnchorLink href="#table" className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white font-_spaceGrotesk">

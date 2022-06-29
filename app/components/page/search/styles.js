@@ -11,7 +11,7 @@ const styles = (theme) => ({
       left: '15%',
       transform: 'translateY(calc(10% + 1rem))',
       zIndex: 1,
-      width: '50%',
+      width: '100%',
       '& > div:first-of-type > div:last-of-type > svg': {
         display: 'block',
         position: 'absolute',
@@ -102,6 +102,7 @@ const styles = (theme) => ({
   searchContainer: {
     maxWidth: '942px',
     margin: 'auto',
+    width:"100%",
     marginBottom: '1.6rem',
     '& input:focus': {
       border: `solid 1px ${theme.palette.lightGray}`,
@@ -130,6 +131,7 @@ const styles = (theme) => ({
             border: '2px solid #EFF4FF',
             padding:"9px",
             minHeight: 46,
+            
           },
         },
         '& input': {

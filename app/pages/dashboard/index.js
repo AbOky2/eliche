@@ -1262,7 +1262,7 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
       ) : (
         <div
           onClick={() => setShowSearch(!showSearch)}
-          className="flex flex-row-reverse mt-4 rounded-xl h-_53 bg-white border border-_bordureBleu absolute w-_426 sm:w-_295 md:w-_536"
+          className="flex flex-row-reverse mt-4 rounded-xl h-_53 bg-white border border-_bordureBleu absolute w-full"
         >
           <div
             style={{

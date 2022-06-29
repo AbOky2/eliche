@@ -257,7 +257,11 @@ const SearchPage = ({
   return (
     <AdminContentWrapper noRedirect noPadding>
       <div>
-       <div  className={
+       
+
+         {isMdView?(
+          <>
+          <div  className={
                clsx(
                   classes.searchMapContainer,
                   classes.resetSearchMapContainer
@@ -274,8 +278,6 @@ const SearchPage = ({
             handleSelect={handleSelect}
             isMapsView={currView}
           /> </div>
-
-         {isMdView?(
 
           <div className=' flex flex-row justify-between gap-4'>
             
@@ -349,11 +351,12 @@ const SearchPage = ({
             
             
 
-              </div>
+              </div></>
 
          ):(
+
           <div className=' flex flex-row justify-between gap-2'>
-          <section className=' w-full  '>
+          <section className=' w-full mt-8 '>
               <MapsView
                 allData={allData}
                 queryData={queryData}
@@ -377,6 +380,25 @@ const SearchPage = ({
         </section>
 
         <section className='  order-first overflow-scroll min-w-[487px] p-4'>
+          <>
+          <div className=' w-full'>
+          <div  className={
+               clsx(
+                  classes.searchMapContainer,
+                  classes.resetSearchMapContainer
+                )
+          }>
+          <SearchFields
+            isLocation={isLocation}
+            queryData={queryData}
+            isMdView={isMdView}
+            handleMapSearch={handleMapSearch}
+            handleBudget={handleBudget}
+            handleSumit={handleSumit}
+            toggleView={toggleView}
+            handleSelect={handleSelect}
+            isMapsView={currView}
+          /> </div></div>
             <ListContainer
             classes={classes}
               curr={currView}
@@ -390,6 +412,7 @@ const SearchPage = ({
               noRedirect
               handleBookmark={handleBookmark}
             />
+            </>
       </section>
 
       </div>

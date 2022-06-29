@@ -62,7 +62,7 @@ export const PieceStep = withStyles()(
         >
           <Box
             sx={{
-              height: '524px',
+              height: '100%',
               display: 'flex',
               flexDirection: 'column',
               top: '48px',
