@@ -82,7 +82,7 @@ const searchFields = withStyles(
         </Grid>
 
         
-        <div className='flex mt-2 gap-2 p-4 '>
+        <div className='flex -mt-5 gap-2 p-4  '>
           <div className=' bg-white w-full border-2 border-[#EFF4FF] rounded-xl p-1 '>
             <p className=' text-center text-sm font-bold text-[#43434A] font-_spaceGrotesk cursor-pointer'  onClick={toggleModal2} >
 

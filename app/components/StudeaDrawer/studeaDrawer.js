@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
-import { LocationStep } from './locationStep';
-import { BudgetStep } from './budgetStep';
-import { PieceStep } from './pieceStep';
+import { BienStudea } from './bienStudeaStep';
+import { ModalStudea } from './studeaModalStep';
+import { Modal } from 'components';
 
-const compList = [LocationStep, BudgetStep, PieceStep];
+const compList = [ModalStudea, BienStudea];
 export const SearchDrawer = ({ showSearch, setShowSearch }) => {
   const [state, setState] = useState({});
   const [step, setStep] = useState(0);

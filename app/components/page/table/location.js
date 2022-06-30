@@ -26,89 +26,72 @@ const LocationTable = ({
     return (
       <div
         key={elem}
-        className="flex flex-col justify-center p-4 bg-white border rounded-xl border-_rougeStudea w-96 items-center"
+        className="flex flex-col font-bold bg-white border rounded-xl  border-_rougeStudea mb-4 "
       >
         <Grid
-          container
-          className="pointer"
-          alignItems="center"
+          className="pointer h-[50px]"
+          justify="space-between"
           onClick={() => handleCurrOpen(elem)}
         >
-          <Grid container justify="space-between">
-            <Grid item>
-              <div className=" text-_rougeStudea">
-                {` ${elem} pièce${elem > 1 ? 's' : ''} à partir de `}
+          <div className=' flex justify-between text-sm sm:text-xs text-_rougeStudea '>
+            
+            <div  className=' nokia:w-[140px] blackberry:w-[230px] mobile:w-[260px] w-_344'>
 
-                <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong>
-              </div>
-            </Grid>
-            <Grid item className="text-center">
-              <Icon type={isOpen ? 'less' : 'plus'} color="red" size="small" />
-            </Grid>
-          </Grid>
-          <Grid item md={2} xs={5} className={classes.header}>
-            <Typography variant="h3">
-              <Icon type="door" color="newBlue" />
-              {` ${elem} pièce${elem > 1 ? 's' : ''}`}
-            </Typography>
-          </Grid>
-          <Grid item md={3} xs={5} className={classes.header}>
-            <Typography variant="h3">
-              <Icon type="room" color="newBlue" />
-              {surface}
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            md={3}
-            xs={5}
-            className={clsx(classes.header, classes.headerPricing)}
-          >
-            <p className="text-2xl font-medium text-left text-_rougeStudea mx-4">
-              à partir de
-              <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong>
-            </p>
-          </Grid>
-          <Grid item md={3} xs={5} className={classes.header}>
-            <p className="text-2xl font-medium text-left text-_rougeStudea mx-4">
+                {` ${elem} pièce${elem > 1 ? 's' : ''}  `}(
+                
+                
               {`${countList} logement${countList > 1 ? 's' : ''} disponible${
                 countList > 1 ? 's' : ''
-              }`}
-            </p>
-          </Grid>
-          <Grid
-            item
-            md={1}
-            xs={5}
-            onClick={() => handleCurrOpen(elem)}
-            className="text-center pointer"
-          >
+              }`})
+
+                {/* <strong>{` ${spaceCurrency(current.minPrice)}€`}</strong> */}
+            </div>
+            <div  className=" order-last">
+              <Icon
+                type={isOpen ? 'signeM' : 'signeP'}
+                size="small"
+                strokeColor='red'
+              />
+            </div>
+          </div> 
+         
+          <div className=' flex  text-[14px] font-bold text-_rougeStudea  w-full justify-between  '>
+             <div  className=' mx-4 '>
+
+                {` ${elem} pièce${elem > 1 ? 's' : ''} `}(
+                {`${countList} logement${countList > 1 ? 's' : ''} disponible${
+                countList > 1 ? 's' : ''
+              }`})
+              </div>
+            <div  className=" order-last mx-4">
             <Icon
-              type={isOpen ? 'less' : 'plus'}
-              color="newBlue"
+              type={isOpen ? 'signeM' : 'signeP'}
+              strokeColor="red"
               size="small"
             />
-          </Grid>
+          </div>
+          </div>
+
         </Grid>
         {isOpen && (
-          <div>
+         <div className='p-4 ' >
             <Grid container className={classes.discoveryContentHeader}>
-              <Grid item md={2} xs={5} className="text-center">
+              <Grid item md={2} xs={5} className="text-center text-_rougeStudea font-_spaceGrotesk text-[14px]">
                 Loyer mensuel
               </Grid>
-              <Grid item md={2} xs={5} className="text-center">
+              <Grid item md={2} xs={5} className="text-center text-_rougeStudea font-_spaceGrotesk text-[14px]">
                 Dépot de garrantie
               </Grid>
-              <Grid item md={2} xs={5} className="text-center">
+              <Grid item md={2} xs={5} className="text-center text-_rougeStudea font-_spaceGrotesk text-[14px]">
                 Surface
               </Grid>
-              <Grid item md={2} xs={5} className="text-center">
+              <Grid item md={2} xs={5} className="text-center text-_rougeStudea font-_spaceGrotesk text-[14px]">
                 Étage
               </Grid>
-              <Grid item md={2} xs={5} className="text-center">
+              <Grid item md={2} xs={5} className="text-center text-_rougeStudea font-_spaceGrotesk text-[14px]">
                 disponibilité
               </Grid>
-              <Grid item md={2} xs={5} className="text-center">
+              <Grid item md={2} xs={5} className="text-center text-_rougeStudea font-_spaceGrotesk text-[14px]">
                 Réserver
               </Grid>
             </Grid>
@@ -127,37 +110,39 @@ const LocationTable = ({
                     container
                     className={classes.discoveryContent}
                   >
-                    <div className="flex flex-col items-center md:items-end w-full">
-                      <div className="flex flex-row justify-between mb-1">
-                        <p className="w-44 h-5 text-sm font-medium ">
+                    <div className="flex flex-col  w-full">
+
+
+                      <div className="flex justify-between w-full">
+                        <p className=" text-sm font-medium ">
                           Loyer Mensuel
                         </p>
-                        <p className="w-44 h-5 text-sm font-medium justify-end flex">
+                        <p className=" text-sm font-medium justify-end flex">
                           {curr.price} €
                         </p>
                       </div>
-                      <div className="flex flex-row  mb-1">
-                        <p className="w-44 h-5 text-sm font-medium">Surface</p>
-                        <p className="w-44 h-5 text-sm font-medium justify-end flex">{`${curr.surface}m²`}</p>
-                        <span></span>
+                      <div className="flex justify-between w-full">
+                        <p className=" text-sm font-medium">Surface</p>
+                        <p className="text-sm font-medium ">{`${curr.surface}m²`}</p>
+                        
                       </div>
-                      <div className="flex flex-row mb-1">
-                        <p className="w-44 h-5 text-sm font-medium">Étage</p>
-                        <p className="w-44 h-5 text-sm font-medium justify-end flex">
+                      <div className="flex justify-between w-full">
+                        <p className=" text-sm font-medium">Étage</p>
+                        <p className=" text-sm font-medium justify-end flex">
                           {floor}{' '}
                         </p>
                       </div>
-                      <div className="flex flex-row mb-1">
-                        <p className="w-44 h-5 text-sm font-medium">
+                      <div className="flex justify-between w-full">
+                        <p className=" text-sm font-medium">
                           disponibilité
                         </p>
-                        <p className="w-44 h-5 text-sm font-medium justify-end flex">
+                        <p className=" text-sm font-medium justify-end flex">
                           {availableDate}
                         </p>
                       </div>
                       <div className="text-center" item>
                         <div
-                          className="flex justify-center items-center w-_344 relative gap-2.5 px-32 py-4 rounded-xl mb-1 mt-8 bg-_rougeStudea cursor-pointer"
+                          className="flex justify-center items-center p-4 rounded-xl mb-2 bg-_rougeStudea cursor-pointer"
                           onClick={() => handleSelect(curr)}
                         >
                           <button className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white">
@@ -188,15 +173,12 @@ const LocationTable = ({
                         {availableDate}
                       </Grid>
 
-                      <Grid item md={2} xs={5} className={classes.btnContainer}>
-                        <Btn
-                          onClick={() => handleSelect(curr)}
-                          target="_blank"
-                          dataMode="popup"
-                          text="Envoyer une demande"
-                          bordered
-                          whiteColor
-                        />
+                      <Grid item md={2} xs={5} >
+                      
+                        <button className='bg-_rougeStudea rounded-xl text-sm text-white' onClick={() => handleSelect(curr)}>
+                            Envoyer une demande
+                        </button>
+                        
                       </Grid>
                     </Grid>
                   </Grid>

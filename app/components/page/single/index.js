@@ -362,7 +362,7 @@ const PropertyPage = ({
             <Grid item md={6}>
               <div className='mb-5'>
               {isLocation ?(
-                            <p className=" text-left text-_rougeStudea font-bold text-3xl">
+                            <p className=" text-left text-_rougeStudea font-bold text-[48px]">
                             {property.heading}</p>
 
               ):(
@@ -373,20 +373,23 @@ const PropertyPage = ({
               )}</div>
               <p className="text-sm font-bold text-center text-[#6976a0] mb-6">{property.fullAddress}</p>
             
-              {isLocation ?(
-              <div className='m-2 border-4 border-r-0 border-t-0 border-b-0 border-_rougeStudea mt-9'>
-                    <p className="text-lg font-bold text-left text-_pieces mx-4">{getNbPieces(property.minPieces, property.maxPieces)}
-                        <br/>{` de ${
-                        property.minSurface !== property.maxSurface
-                          ? `${property.minSurface}m² à ${property.maxSurface}m²`
-                          : `${property.minSurface}m²`
-                      }`}
-                    </p>
-                    
-                      <p className="text-2xl font-medium text-left text-_rougeStudea mx-4">
-                      à partir de
-                      {` ${spaceCurrency(property.price)}€ CC/mois`} </p>
-                    </div>): 
+              {isLocation ?(<>
+                <div className='flex justify-between gap-4 '>
+                      <div className="w-[259px] h-24 relative rounded-xl bg-white border border-[#eaeffa]">
+                            <p className="absolute left-[65px] top-6 text-lg font-bold text-center text-[#0e215c]">{getNbPieces(property.minPieces, property.maxPieces)}
+                                <br/>{` de ${
+                                property.minSurface !== property.maxSurface
+                                  ? `${property.minSurface}m² à ${property.maxSurface}m²`
+                                  : `${property.minSurface}m²`
+                              }`}
+                            </p>
+                            </div>
+                            <div className="w-[259px] h-24 relative rounded-xl bg-white border border-[#eaeffa]">
+                              <p className="w-[200px] h-[23px] absolute left-[30px] top-[23px] text-lg font-bold text-center text-_rougeStudea mx-4">
+                              à partir de
+                              {` ${spaceCurrency(property.price)}€ CC/mois`} </p>
+                            </div>
+                    </div></>): 
                     
                     (<>
                     <div className='flex justify-between gap-4 '>
@@ -436,7 +439,7 @@ const PropertyPage = ({
               
               <div className=' w-1/2 '>
                 {isLocation ? (
-                  <div className="flex justify-center items-center w-[343px] relative gap-2.5 px-[120px] py-4 rounded-xl bg-_rougeStudea">
+                  <div className="flex justify-center items-center w-full mt-3 mb-3 py-4 rounded-xl bg-_rougeStudea">
                   <AnchorLink href="#table" className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white font-_spaceGrotesk">
                     Déposer mon dossier
                   </AnchorLink></div>

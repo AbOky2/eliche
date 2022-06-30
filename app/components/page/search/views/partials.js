@@ -52,7 +52,7 @@ const ListHeader = ({ classes = {}, sortBy, handleSortSelect }) => (
     justify="space-between"
     className={classes.sortContainer}
   >
-    <Grid item>
+    <Grid item className=' py-4'>
       <Select
         name="sort"
         placeholder="Type de bien"

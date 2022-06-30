@@ -513,3 +513,15 @@
 {"level":"info","message":"> Ready on http://localhost:3000","service":"user-service","timestamp":"2022-06-27T16:35:35.847Z"}
 {"level":"info","message":"> Ready on http://localhost:3000","service":"user-service","timestamp":"2022-06-27T16:41:45.204Z"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-06-28T07:57:43.907Z","value":"[object Object]"}
+{"level":"info","message":"> Ready on http://localhost:3000","service":"user-service","timestamp":"2022-06-29T07:38:29.012Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:40:30.562Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:40:44.771Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:48:12.682Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:49:31.506Z"}
+{"level":"info","message":"> Ready on http://localhost:3000","service":"user-service","timestamp":"2022-06-29T07:50:23.054Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:50:38.186Z"}
+{"level":"info","message":"> Ready on http://localhost:3000","service":"user-service","timestamp":"2022-06-29T07:51:32.885Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:51:44.015Z"}
+{"level":"error","service":"user-service","timestamp":"2022-06-29T07:51:44.095Z"}
+{"level":"info","message":"> Ready on http://localhost:3000","service":"user-service","timestamp":"2022-06-30T12:47:47.915Z"}
+{"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-06-30T12:57:53.164Z","value":"[object Object]"}
