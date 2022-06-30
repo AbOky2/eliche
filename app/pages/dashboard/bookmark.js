@@ -13,11 +13,7 @@ import { getAddress, getNbPieces, getCardImg, singlePath } from 'helpers';
 import withAuth from 'lib/withAuth';
 import { useTheme } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
-import Demo from './demo';
-import Demo2 from './demo2';
-import Demo3 from './demo3';
-import Partager from './partageButtom';
-import Profile from '../../components/UpdateProfile';
+
 import clsx from 'clsx';
 import { Input, Select, Modal, Icon } from '../../components/form';
 import { userRoleSelect } from 'helpers';
@@ -431,9 +427,7 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               </Typography>
             </div>
 
-              <Demo>
-              <Demo2/>
-              </Demo>
+             
             <div>
               <Grid container justify="center" className={classes.btnContainer}>
                 <Btn
