@@ -47,7 +47,7 @@ export { default as plus } from './plus.svg';
 export { default as carrouselArrow } from './carrousel-arrow.svg';
 export { default as sliderArrow } from './slider-arrow.svg';
 export { default as partageV2 } from './partageV2.svg';
-export { default as logoK } from './logo principal.svg';
+//export { default as logoK } from './logo principal.svg';
 export { default as logoNew } from './KLNX.svg';
 export { default as rect } from './recKL.svg';
 export { default as chiffre3 } from './3.svg';

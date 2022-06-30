@@ -7,7 +7,6 @@ export const Partenaires = ({
     
   }) => {
     
-    const [showSearch, setShowSearch] = useState(false);
 
   
     return(
