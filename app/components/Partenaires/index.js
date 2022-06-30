@@ -1,4 +1,3 @@
-import { SearchDrawer } from 'components/studeaDrawer';
 import Link from 'next/link';
 import React from 'react'
 import { useEffect, useState } from 'react';
