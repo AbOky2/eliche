@@ -21,10 +21,10 @@
 //   SENDGRID_API_KEY,
 // } = process.env;
 
-const NEXT_PUBLIC_ROOT_URL = 'https://app.kitlenid.fr';
-const NEXT_PUBLIC_UPLOAD_URL = 'https://media.kitlenid.fr';
+const NEXT_PUBLIC_ROOT_URL = 'http://localhost:3000';
+const NEXT_PUBLIC_UPLOAD_URL = 'http://localhost:3001';
 const NODE_ENV = 'dev';
-const MONGO_URL_PROD =
+const MONGO_URL_TEST =
   'mongodb+srv://dbtest:dbtest@cluster0.h9mof.mongodb.net/?retryWrites=true&w=majority';
 const GOOGLE_CLIENT_ID =
   '667557981280-0guq4m234dku0huhquhb48h1biel89uf.apps.googleusercontent.com';
