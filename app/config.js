@@ -27,7 +27,7 @@ const NODE_ENV = 'production';
 const MONGO_URL_PROD='mongodb+srv://ki75tlenid8bh:bkfjwHUpTAPtwU9c@cluster0.xer1k.mongodb.net/mbi?retryWrites=true&w=majority';
 const MONGO_URL_TEST =
   'mongodb+srv://dbtest:dbtest@cluster0.h9mof.mongodb.net/?retryWrites=true&w=majority';
-const GOOGLE_CLIENT_ID =
+const clientID =GOOGLE_CLIENT_ID =
   '667557981280-0guq4m234dku0huhquhb48h1biel89uf.apps.googleusercontent.com';
 const GOOGLE_CLIENT_SECRET = '_6usf8BxG55vvdv87yWS1jMz';
 const COOKIE_DOMAIN = '';
