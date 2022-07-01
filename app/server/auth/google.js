@@ -77,7 +77,7 @@ function auth({ ROOT_URL, server }) {
       done(err);
     }
   });
-  console.log(process.env.GOOGLE_CLIENT_ID);
+  console.log('l identifiant de google est :',process.env.GOOGLE_CLIENT_ID);
   passport.use(
     new Strategy(
       {

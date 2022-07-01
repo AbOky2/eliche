@@ -65,6 +65,7 @@ function auth({ ROOT_URL, server }) {
   //     done(err);
   //   }
   // });
+  console.log('l identifiant facebook est :',process.env.FACEBOOK_CLIENT_ID);
 
   passport.use(
     new FacebookStrategy(
