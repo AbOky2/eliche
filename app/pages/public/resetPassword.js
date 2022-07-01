@@ -199,7 +199,7 @@ const LoginTab = ({ resetPass }) => {
         toast.success(
           `Un email a été envoyé sur ${user} avec des instructions supplémentaires`
         );
-        push('/public/login');
+        push('/public/');
       }
     } else {
       if (state.password !== state.confirmPassword)

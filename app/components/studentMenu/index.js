@@ -415,7 +415,7 @@ const StudentProfile = ({
           </Link>
         </div>
         <div
-          className="flex font-_spaceGrotesk text-xl font-bold  text-[#113eb6] content-end gap-7 pr-10"
+          className="flex font-_spaceGrotesk text-[20px] font-bold  text-[#113eb6] content-end gap-7 pr-10"
           style={{
             alignItems: 'center',
           }}
@@ -433,7 +433,7 @@ const StudentProfile = ({
                         : null
                     }
                   >
-                    <span className="font-bold text-[#113eb6] text-2xl">
+                    <span className="font-bold text-[#113eb6] text-[20px]">
                       {txt}
                     </span>
                   </a>
@@ -453,7 +453,7 @@ const StudentProfile = ({
 
           <div>
             <Link href="https://kitlenid.fr/blog">
-              <a className=" text-2xl font-bold text-center text-[#113eb6]">
+              <a className=" text-[20px] font-bold text-center text-[#113eb6]">
                 Blog
               </a>
             </Link>
@@ -470,12 +470,15 @@ const StudentProfile = ({
           {!isAuth ? (
             <div
               style={{
-                padding: '1.0rem 1.8rem',
+                padding: '12px',
                 fontStyle: 'normal',
-                fontSize: '1.2rem',
+                justifyContent:'center',
+                display:'flex',
+                fontSize: '14px',
                 color: 'white',
                 wordBreak: 'keep-all',
-                width: 'auto',
+                width: '295px',
+                height:'45px',
                 background:
                   'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
                 transition: 'background .1s ease-out, box-shadow .1s ease-out',

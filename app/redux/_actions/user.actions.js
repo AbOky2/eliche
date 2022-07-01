@@ -116,7 +116,7 @@ function checkUser(args) {
 
 function logout() {
   logOut().then(() => {
-    window.location = '/login';
+    window.location = '/';
   });
   return { type: userConstants.LOGOUT };
 }

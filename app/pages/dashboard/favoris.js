@@ -168,9 +168,9 @@ const BookmarkPage = ({ user, update }) => {
               </Typography>
               <Typography variant="body1">
                 Pour ajouter un logement dans vos favoris, il vous suffit de
-                cliquer sur la coeur en haut à gauche quand vous effectuez une
+                cliquer sur le coeur en haut à gauche quand vous effectuez une
                 recherche de logements. Ou bien, vous pouvez cliquer sur le
-                boutton “sauvegarder” quand vous êtes sur la page d’un logement.
+                bouton “sauvegarder” quand vous êtes sur la page d’un logement.
               </Typography>
             </div>
 

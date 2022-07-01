@@ -142,9 +142,9 @@ $(document).ready(() => {
     //   displayMap({ docs, address: regionName });
     // }, regionName);
   })();
-  $('.redirect-btn').attr('href', `${app_url}/login?register`);
+  $('.redirect-btn').attr('href', `${app_url}/?register`);
   const redirectUrl = (val) =>
-    `${app_url}/login?id=${encodeURIComponent(val)}&register`;
+    `${app_url}/?id=${encodeURIComponent(val)}&register`;
 
   const options = {
     componentRestrictions: { country: 'fr' },

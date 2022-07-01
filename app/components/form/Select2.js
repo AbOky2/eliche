@@ -91,7 +91,7 @@ const styles = (theme) => ({
       },
     },
     '&  input::placeholder': {
-      fontSize: '1rem',
+      fontSize: '12px',
     },
     '& > span': {
       position: 'absolute',

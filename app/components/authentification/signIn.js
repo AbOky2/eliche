@@ -104,25 +104,25 @@ export const SignIn = ({
 
         <Grid
           onClick={() =>
-            window.open('http://localhost:3000/auth/facebook', '_self')
+            window.open('https://app.kitlenid.fr/auth/facebook', '_self')
           }
           container
           alignItems="center"
           className={classes.socialAuth}
         >
           <Icon type="facebook" />
-          <Typography variant="body1">continuer avec Facebook</Typography>
+          <p className='text-[12px] text-_grisBleu'>continuer avec Facebook</p>
         </Grid>
         <Grid
           onClick={() =>
-            window.open('http://localhost:3000/auth/google', '_self')
+            window.open('https://app.kitlenid.fr/auth/google', '_self')
           }
           container
           alignItems="center"
           className={classes.socialAuth}
         >
           <Icon type="google" />
-          <Typography variant="body1">continuer avec Google</Typography>
+          <p className='text-[12px] text-_grisBleu' >continuer avec Google</p>
         </Grid>
         {/* <Grid container alignItems="center" className={classes.socialAuth}>
           <Icon type="instagram" />

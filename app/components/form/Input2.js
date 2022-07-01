@@ -107,7 +107,7 @@ const styles = (theme) => ({
       ...theme.ui.searchInput,
     },
     '&  input::placeholder': {
-      fontSize: '1rem',
+      fontSize: '12px',
     },
     '& > div:last-of-type': {
       display: 'none',
@@ -200,7 +200,7 @@ export const GoogleMaps = ({ onChange, value, placeholder }) => {
           placeholder: (provided) => ({
             ...provided,
             color: '#8C97B6',
-            fontSize: '1rem',
+            fontSize: '12px',
             width: '100%',
             fontWeight: '600!important',
             outline: 'none',
@@ -427,16 +427,7 @@ export const CustomInput = withStyles(styles)(
             </Typography>
           </Grid>
         </Grid>
-        <div
-          onClick={handleSumit}
-          style={{
-            background:
-              'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
-          }}
-          className="bg-blue-700 w-[50px] h-[50px] p-3 rounded-xl absolute top-[-0.9rem] left-[15.2rem]"
-        >
-          <Icon type="recherche" size="small" color="white" />
-        </div>
+       
       </div>
     );
   }

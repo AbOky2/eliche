@@ -408,9 +408,9 @@ const AuthContext = ({
             <Grid item>
               <Grid container justify="space-between">
                 <div>
-                  <Typography variant="h2">Raphael Altman</Typography>
-                  <Typography>raltman@nexity.fr</Typography>
-                  <Typography>06 99 77 65 16</Typography>
+                  <Typography variant="h2">Nicolas BLOUIN</Typography>
+                  <Typography>nblouin@nexity.fr</Typography>
+                  <Typography>06 65 07 11 66</Typography>
                 </div>
               </Grid>
             </Grid>
@@ -448,10 +448,10 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
             <div className="  ">
               <div className="flex flex-row-reverse items-start mx-4 mb-4">
                 <div className=" mx-4 ">
-                  <p className="text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <p className="text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Des logements dans toute la France
                   </p>
-                  <p className=" text-_grisBleu font-_spaceGrotesk mt-1">
+                  <p className=" text-_grisBleu font-_spaceGrotesk mt-1 text-[14px]">
                     Accéder à notre carte avec plus de 2 500 logements neufs
                     disponibles.{' '}
                   </p>
@@ -479,10 +479,10 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
               </div>
               <div className="flex flex-row-reverse items-start mx-4 mb-4 ">
                 <div className="mx-4">
-                  <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <p className=" text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Accès libre aux plans
                   </p>
-                  <p className=" text-_grisBleu font-_spaceGrotesk  mt-1">
+                  <p className=" text-_grisBleu font-_spaceGrotesk  mt-1 text-[14px]">
                     Télécharger gratuitement les plans des appartements et les
                     plaquettes de présentation de nos résidences.{' '}
                   </p>
@@ -518,10 +518,10 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
 
               <div className="flex flex-row-reverse items-start mx-4 mb-4">
                 <div className="mx-4">
-                  <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <p className=" text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Un unique conseiller dédié
                   </p>
-                  <p className=" text-_grisBleu font-_spaceGrotesk  mt-1">
+                  <p className=" text-_grisBleu font-_spaceGrotesk  mt-1 text-[14px]">
                     Une même personne pour vous accompagner, de la recherche de
                     votre appartement jusqu’à votre emménagement.
                   </p>
@@ -585,10 +585,10 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
 
               <div className="flex flex-row-reverse items-start mx-4 mb-12">
                 <div className="mx-4">
-                  <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <p className=" text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Des aides pour votre premier achat{' '}
                   </p>
-                  <p className="text-_grisBleu font-_spaceGrotesk mt-1">
+                  <p className="text-_grisBleu font-_spaceGrotesk mt-1 text-[14px]">
                     Prêt à Taux Zéro - TVA 5,5 % Des remises(2) sur 100% des
                     logements Nexity.{' '}
                   </p>
@@ -629,11 +629,16 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 </div>
               </div>
             </div>
+            <div className='mb-2'>
+                <div className="" >
+                  <img src="static/img/icons/group123.svg" />
+                </div>
+              </div>
 
-            <p class=" text-2xl font-semibold text-_bleuMarine mx-4">
+            <p class=" text-[18px] font-semibold text-_bleuMarine mx-4">
               Nos services partenaires pour les étudiants
             </p>
-            <div class="text-md text-_grisBleu p-3 mx-4">
+            <div class="text-[14px] text-_grisBleu p-3 mx-4">
               Kit le nid vous propose un ensemble d’offres avantageuses pour
               mieux répondre à vos besoins lors de vos études :
               <ul>
@@ -643,87 +648,32 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
               </ul>
             </div>
 
-            <div class="relative" style={{ height: '487.03px' }}>
-              <div
-                class="w-40 h-40 absolute bg-indigo-50  rounded-xl"
-                style={{ left: '110.90px', top: '260.36px' }}
-              />
-              <div
-                class="w-40 h-40 absolute bg-indigo-50  rounded-xl"
-                style={{ left: '200.66px', top: '48.79px' }}
-              />
-              <div
-                class="w-20 h-20 absolute bg-green-50  rounded-xl"
-                style={{ left: '382.59px', top: '311.62px' }}
-              />
-              <div
-                class="w-20 h-20 absolute bg-yellow-100  rounded-xl"
-                style={{ left: '370.76px', top: '0px' }}
-              />
-              <div
-                class="w-20 h-20 absolute bg-purple-100  rounded-xl border-purple-100 border-opacity-10"
-                style={{ left: '0px', top: '201.83px' }}
-              />
-              <div
-                class="w-40 h-40 absolute"
-                style={{ left: '180.76px', top: '320.68px' }}
-              >
-                <div class="flex items-center justify-center flex-1 h-full px-4 py-14 bg-white rounded-xl">
-                  <div class="inline-flex flex-col space-y-2 items-center justify-end flex-1 h-full">
-                    <img class="w-28 h-4" src="static/img/LogoCautioneo.svg" />
-                    <div class="w-full h-8">
-                      <div class="flex items-center justify-center flex-1 h-full pl-3 pr-3.5 pt-1.5 pb-1 bg-indigo-600 bg-opacity-10 rounded-lg">
-                        <p class="flex-1 h-full text-sm font-bold text-center text-indigo-600">
-                          3 mois offerts
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="w-40 h-40 absolute"
-                style={{ left: '130.59px', top: '90.90px' }}
-              >
-                <div class="flex items-center justify-center flex-1 h-full px-5 py-10 bg-white rounded-xl">
-                  <div class="inline-flex flex-col space-y-0.5 items-center justify-end flex-1 h-full">
-                    <img class="w-full h-1/2" src="static/img/LogoHeyme.svg" />
-                    <div class="w-3/4 h-10">
-                      <div class="flex items-center justify-center flex-1 h-full px-5 py-1.5 bg-red-500 bg-opacity-10 rounded-xl">
-                        <p class="flex-1 h-full text-base font-bold text-center text-red-500">
-                          -15%
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-start relative justify-between gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-5 mb-5 mx-4">
-              <div>
-                <p className="flex-grow-0 flex-shrink-0 w-72 text-lg font-bold text-left text-_titre">
-                Découverz notre guide du premier achat.
+            
+            <div className="flex  flex-row xs items-start justify-between gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-5 mb-5 mx-4 md:flex-col md:flex">
+              <div className=''>
+                <p className="text-[18px] font-bold text-left text-_titre">
+                Découvrez notre guide du premier achat.
               </p>
-              <p className="self-stretch flex-grow-0 flex-shrink-0 w-72 text-sm font-medium text-left text-_grisBleu">
+              <p className=" text-[14px] font-medium text-left text-_grisBleu">
                 Kit le nid et La Banque Postale s’unissent pour t’aider à voler
                 de tes propres ailes.
               </p>
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 px-10 py-3 rounded-xl border border-_aPropos mt-6">
-                <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-_aPropos">
+              <div className="flex justify-center items-center gap-2.5 px-10 py-3 rounded-[14px] border border-_aPropos mt-6">
+                <p className=" text-sm font-bold text-left text-_aPropos">
                   Télécharger notre guide
                 </p>
               </div>
               </div>
-              <div >
+              <div className=''>
                 <img src="static/img/GuideAchat.svg" />
               </div>
             </div>
-            <div className=" text-_grisBleu font-thin text-sm mt-16 -mb-10">
+            <div className=" text-_grisBleu font-thin text-[12px] mt-16 ">
               (1) Mensualités données à titre indicatif uniquement et non
-              contractuelles, pour l’achat d’un appartement de 187.000 €, sur
+              contractuelles, pour l’achat d’un appartement de 187 000 €, sur
               une base de durée de 25 ans, à un taux d’intérêt fixe moyen
               constaté sur le marché de 1.4%, hors frais, hors assurance et avec
-              un apport personnel de 7.500€. Pour être éligible au PTZ : il doit
+              un apport personnel de 7 500€. Pour être éligible au PTZ : il doit
               s’agir de votre premier achat en résidence principale et votre
               revenu fiscal de référence sur l’année 2 ans avant la réservation
               de l’appartement doit être inférieur à 37 000 €
@@ -743,28 +693,29 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                         <strong> La première Offre Jeune pour devenir propriétaire</strong>
                       </p>
                       <p className='text-[#849CD9] text-[20px]'>
-                        Réalisez votre <strong>premier achat immobilier</strong> <br/> pour seulement <strong>699€/mois !(1)</strong>
+                        Réalisez votre <strong>premier achat immobilier</strong> <br/> pour seulement <strong>699€/mois ! (1)</strong>
                       </p>
                       <div className=' absolute mt-4'>
                       <SearchBar />
                       </div>
                   </div>
-                  <div className=" rounded-[20px] object-cover">
+                  <div>
+                  <div className="rounded-[20px]  object-cover">
                     <img
-                    src="static/img/House1.svg"
+                    src="/static/img/House1.svg"
                     
                   />
-                  </div>
+                  </div></div>
                   
               </div>
              
             </div>
 
-            <div className='flex  mt-[62px] mb-[62px] justify-between'>
+            <div className='flex  mt-[62px] mb-[62px] justify-between gap-8'>
 
-              <div className='flex flex-col '>
+              <div className='flex flex-col w-full '>
                 
-                  <div className='justify-center flex'>
+                  <div className='justify-center flex mb-4'>
                     <svg
                       width={53}
                       height={53}
@@ -784,19 +735,19 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                       />
                     </svg>
                   </div>
-                  <div className=" mx-4 ">
-                    <p className="text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <div className=" mx-4 w-full">
+                    <p className="text-_bleuMarine font-_spaceGrotesk text-xl font-bold mb-2">
                       Des logements dans toute la France
                     </p>
-                    <p className=" text-_grisBleu font-_spaceGrotesk mt-1">
+                    <p className=" text-_grisBleu font-_spaceGrotesk mt-1 text-[18px]">
                       Accéder à notre carte avec plus de 2 500 logements neufs
                       disponibles.{' '}
                     </p>
                   </div>
               </div>
-              <div className='flex flex-col'>
+              <div className='flex flex-col w-full'>
                 
-                  <div className='justify-center flex'>
+                  <div className='justify-center flex mb-4'>
                     <svg
                       width={53}
                       height={53}
@@ -830,18 +781,18 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                       />
                     </svg>
                   </div>
-                  <div className="mx-4">
-                    <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <div className="mx-4 w-full">
+                    <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold mb-2">
                       Des aides pour votre premier achat{' '}
                     </p>
-                    <p className="text-_grisBleu font-_spaceGrotesk mt-1">
+                    <p className="text-_grisBleu font-_spaceGrotesk text-[18px] mt-1">
                       Prêt à Taux Zéro - TVA 5,5 % Des remises(2) sur 100% des
                       logements Nexity.{' '}
                     </p>
                   </div>
               </div>
-              <div className='flex flex-col'>
-                <div className='justify-center flex'>
+              <div className='flex flex-col w-full'>
+                <div className='justify-center flex mb-4'>
                       <svg
                         width={53}
                         height={53}
@@ -868,20 +819,20 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                         />
                       </svg>
                     </div>
-                  <div className="mx-4">
-                      <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                  <div className="mx-4 w-full">
+                      <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold mb-2">
                         Accès libre aux plans
                       </p>
-                      <p className=" text-_grisBleu font-_spaceGrotesk  mt-1">
+                      <p className=" text-_grisBleu font-_spaceGrotesk text-[18px] mt-1">
                         Télécharger gratuitement les plans des appartements et les
                         plaquettes de présentation de nos résidences.{' '}
                       </p>
                     </div>
                     
               </div>
-              <div className='flex flex-col'>
+              <div className='flex flex-col w-full'>
               
-                <div className='justify-center flex'>
+                <div className='justify-center flex mb-4'>
                   <svg
                     width={53}
                     height={53}
@@ -936,11 +887,11 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                     />
                   </svg>
                 </div>
-                <div className="mx-4">
-                  <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold">
+                <div className="mx-4 w-full">
+                  <p className=" text-_bleuMarine font-_spaceGrotesk text-xl font-bold mb-2">
                     Un unique conseiller dédié
                   </p>
-                  <p className=" text-_grisBleu font-_spaceGrotesk  mt-1">
+                  <p className=" text-_grisBleu font-_spaceGrotesk text-[18px] mt-1">
                     Une même personne pour vous accompagner, de la recherche de
                     votre appartement jusqu’à votre emménagement.
                   </p>
@@ -951,7 +902,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
 
             <div className='flex '>
               <div>
-                <h2 className='text-[#0E215C] text-[28px] font-bold'>
+                <h2 className='text-[#0E215C] text-[28px] font-bold mb-[14px]'>
                   Nos services partenaires
                 </h2>
                 <p className='text-[#849CD9] text-[18px]'>
@@ -974,7 +925,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
             <div className="flex items-start relative justify-between gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-5 mb-5 mx-4">
               <div>
                 <p className="flex-grow-0 flex-shrink-0 w-72 text-lg font-bold text-left text-_titre">
-                Découverz notre guide du premier achat.
+                Découvrez notre guide du premier achat.
               </p>
               <p className="self-stretch flex-grow-0 flex-shrink-0 w-72 text-sm font-medium text-left text-_grisBleu">
                 Kit le nid et La Banque Postale s’unissent pour t’aider à voler
@@ -992,10 +943,10 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
             </div>
             <div className=" text-_grisBleu font-thin text-sm ">
               (1) Mensualités données à titre indicatif uniquement et non
-              contractuelles, pour l’achat d’un appartement de 187.000 €, sur
+              contractuelles, pour l’achat d’un appartement de 187 000 €, sur
               une base de durée de 25 ans, à un taux d’intérêt fixe moyen
               constaté sur le marché de 1.4%, hors frais, hors assurance et avec
-              un apport personnel de 7.500€. Pour être éligible au PTZ : il doit
+              un apport personnel de 7 500€. Pour être éligible au PTZ : il doit
               s’agir de votre premier achat en résidence principale et votre
               revenu fiscal de référence sur l’année 2 ans avant la réservation
               de l’appartement doit être inférieur à 37 000 €

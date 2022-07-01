@@ -104,7 +104,7 @@ function auth({ ROOT_URL, server }) {
     '/oauth2callback',
     passport.authenticate('google', {
       // successRedirect: '/auth/google/success',
-      failureRedirect: '/login',
+      failureRedirect: '/',
     }),
     consumeSignUpInfos,
     // redirecAfterAuth

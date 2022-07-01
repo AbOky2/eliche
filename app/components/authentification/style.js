@@ -6,10 +6,10 @@ export default makeStyles((theme) => ({
     padding: '0 2.4rem 0 2.4rem',
   },
   socialAuth: {
-    padding: '1.4rem 2.4rem',
+    padding: '15px',
     marginTop: '1.6rem',
     cursor: 'pointer',
-    border: `1px solid ${theme.palette.lightBlue}`,
+    border: `1px solid #EAEFFA`,
     borderRadius: '1rem',
     '& p': {
       [theme.breakpoints.down('sm')]: {

@@ -1,4 +1,4 @@
 export const pageLink = {
-  home: '/acceuil',
-  login: '/login',
+  home: '/',
+  login: '/',
 };

@@ -93,7 +93,7 @@ const searchFields = withStyles(
 
           <div className=' bg-white w-full p-1 border-2 border-[#EFF4FF] rounded-xl'>
             <p className=' text-center text-sm font-bold text-[#43434A] font-_spaceGrotesk cursor-pointer' onClick={toggleModal1}>
-            Nombre piece</p>
+            Nombre de pièce</p>
           </div>
           {/* <DropdownSelect
                   name="typeOfAnnonce"
@@ -142,7 +142,7 @@ const searchFields = withStyles(
         onClick={handleSumbit}
         showActions={false}
         className="w-0 h-40"
-        title='Pieces'>
+        title='Pièces'>
 
             <DropdownSelect
                   name="typeOfAnnonce"

@@ -112,13 +112,13 @@ const ListWrapper = ({
         {hasData ? (
           children
         ) : (
-          <div className='bg-white'>
-            <Typography variant="body1">
+          <div className='bg-white rounded-[12px] border-1 border-_bordureBleu'>
+            <p className=' font-_spaceGrotesk text-xs text-_aPropos'>
               <span role="img" aria-label="cring">
                 😢
-              </span>
+              </span> &nbsp;
               Aucun résultat ne correspond à votre critère de recherche.
-            </Typography>
+            </p>
           </div>
         )}
         <ListFooter {...footerProps} />

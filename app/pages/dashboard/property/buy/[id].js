@@ -5,7 +5,7 @@ import withAuth from 'lib/withAuth';
 const PropertyPage = (props) => <Single {...props} />;
 PropertyPage.getInitialProps = async ({ req, res, query: { id } }) => {
   if (req && !req.user) {
-    res.redirect('/login');
+    res.redirect('/');
     return { partners: [] };
   }
   const headers = {};

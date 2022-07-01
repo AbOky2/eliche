@@ -35,7 +35,7 @@ const optionsMenuAdmin = [
     href: '/logout',
     onClick: (e) => {
       e.preventDefault();
-      logOut().then(() => (window.location = '/login'));
+      logOut().then(() => (window.location = '/'));
     },
   },
 ];
@@ -102,11 +102,11 @@ export const Header = ({ user, hideHeader, redirectUrl }) => (
           ) : (
             <Link
               href={{
-                pathname: '/public/login',
+                pathname: '/public/',
                 query: { redirectUrl },
               }}
               as={{
-                pathname: '/login',
+                pathname: '/',
                 query: { redirectUrl },
               }}
             >

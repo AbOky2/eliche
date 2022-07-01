@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
+import { Icon } from 'components';
+
 
 import { GoogleMaps, CustomInput } from 'components/form/Input2';
 import { propertyPiecesSelectMap, isArray, typeOfAnnonciesObj } from 'helpers';
@@ -121,7 +123,7 @@ export const SearchBar = ({}) => {
         <div>
           <p  className=' text-[#4F80FF] font-bold text-[16px] ml-7'>Nombre de pièce</p>
         </div>
-        <div><DropdownSelect
+        <div className='text-xs'><DropdownSelect
           name="typeOfAnnonce"
           placeholder="Combien de pièce souhaitez-vous?"
           list={propertyPiecesSelectMap}
@@ -130,22 +132,40 @@ export const SearchBar = ({}) => {
         /></div>
       </div>
 
-      <div className=' w-full'>
-        <div>
-          <p  className=' text-[#4F80FF] font-bold text-[16px] ml-9'>Budget</p>
-        </div>
-        <div><CustomInput
-          name="maxPrice"
-          value={
-            queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
-              ? queryData.maxPrice
-              : ''
-          }
-          showSub={!isLocation}
-          onChange={handleBudget}
-          placeholder="Quel est votre budget?"
-          handleSumit={handleFinish}
-        /></div>
+      <div className=' w-full '>
+       <div className=' flex'>
+        <div className='flex flex-col'>
+                <div className=''>
+                  <p  className=' text-[#4F80FF] font-bold text-[16px] ml-9'>Budget</p>
+                </div>
+            
+                <div><CustomInput
+                  name="maxPrice"
+                  value={
+                    queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
+                      ? queryData.maxPrice
+                      : ''
+                  }
+                  showSub={!isLocation}
+                  onChange={handleBudget}
+                  placeholder="Quel est votre budget?"
+                  //handleSumit={handleFinish}
+                /></div>
+            </div>
+            <div className=''>
+                <div
+                  onClick={handleFinish}
+                  style={{
+                    background:
+                      'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                  }}
+                  className=" w-[50px] h-[50px] p-3 rounded-xl "
+                >
+                  <Icon type="recherche" size="small" color="white" />
+                </div>
+            </div>
+      </div>
+
       </div>
     </div>
     </>

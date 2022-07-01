@@ -47,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Space Grotesk',
     ...btnHover.blue,
     '& a, & > span': {
-      padding: '1.6rem 2.4rem',
+      padding: '14px',
       fontStyle: 'normal',
-      fontSize: '1.4rem',
+      fontSize: '12px',
       color: 'white',
       wordBreak: 'keep-all',
     },
