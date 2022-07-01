@@ -65,7 +65,7 @@
 //   //     done(err);
 //   //   }
 //   // });
-//   console.log('l identifiant facebook est :',process.env.FACEBOOK_CLIENT_ID);
+//   console.log('l identifiant de facebook est :',process.env.FACEBOOK_CLIENT_ID);
 
 //   passport.use(
 //     new FacebookStrategy(

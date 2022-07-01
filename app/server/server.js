@@ -5,7 +5,7 @@ const { MONGO_URL, PORT, dev, ROOT_URL } = require('../config');
 const auth = require('./auth/basic');
 const instagramAuth = require('./auth/instagram');
 const googleAuth = require('./auth/google');
-const facebookAuth = require('./auth/facebook');
+//const facebookAuth = require('./auth/facebook');
 const api = require('./api');
 const logger = require('./logs');
 const httpMiddleware = require('./middleware/http');
@@ -38,7 +38,7 @@ app.prepare().then(async () => {
   auth({ server, ROOT_URL });
   googleAuth({ server, ROOT_URL });
   // instagramAuth({ app, ROOT_URL });
-  facebookAuth({ server, ROOT_URL });
+  //facebookAuth({ server, ROOT_URL });
   api(server);
 
   server.get('*', (req, res) => {
