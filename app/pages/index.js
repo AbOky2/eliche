@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-// import Header from 'components/Header/Header';
-// import Coeur from 'components/Coeur/Coeur';
-// import Footer from 'components/Footer/Footer';
+//  import Header from 'components/Header/Header';
+//  import Coeur from 'components/Coeur/Coeur';
+//  import Footer from 'components/Footer/Footer';
 
 const propTypes = {
   user: PropTypes.shape({
