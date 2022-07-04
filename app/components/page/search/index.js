@@ -302,11 +302,11 @@ const SearchPage = ({
                     toggleRefresh={toggleRefresh}
                     isMapsView={currView}
                   />
-                  <div className=" w-[164px] h-[46px]  rounded-[12px] bg-[#191F2C] flex flex-row cursor-pointer fixed top-[83%] iphone3:top-[76%] nokia:top-[70%] nokia:left-[20%] iphone3:left-[30%] left-[40%] p-4 gap-3 justify-center " onClick={()=>setShow(!show)}>
-                          <div className='-mt-1 text-center'>
+                  <div className=" w-[164px] h-[46px]  rounded-[12px] bg-[#191F2C] flex flex-row cursor-pointer fixed top-[77%] iphone3:top-[76%] nokia:top-[70%] nokia:left-[20%] iphone3:left-[30%] left-[40%] p-3 gap-3 justify-center " onClick={()=>setShow(!show)}>
+                          <div className=' text-center flex'>
                           <p className=" text-sm font-bold text-white text-center">Mode liste</p></div>
                           <div 
-                          className=' justify-center -mt-1 '
+                          className=' justify-center flex '
                           >
                           <Icon
                             type="liste"
@@ -333,11 +333,11 @@ const SearchPage = ({
                   handleBookmark={handleBookmark}
                 />
                   
-                    <div className=" w-[164px] h-[46px]  rounded-xl bg-_switchButton flex flex-row cursor-pointer fixed top-[83%] iphone3:left-[30%] iphone3:top-[76%] nokia:top-[60%] justify-center left-[40%] p-4 gap-3 text-center " onClick={()=>setShow(!show)}>
-                          <div className='-mt-1 text-center'>
+                    <div className=" w-[164px] h-[46px]  rounded-xl bg-_switchButton flex flex-row cursor-pointer fixed top-[77%] iphone3:left-[30%] iphone3:top-[76%] nokia:top-[60%] justify-center left-[40%] p-3 gap-3 text-center " onClick={()=>setShow(!show)}>
+                          <div className=' text-center flex'>
                           <p className=" text-sm font-bold text-white text-center">Mode carte</p></div>
                           <div 
-                          className=' justify-center -mt-1 '
+                          className=' justify-center flex '
                           >
                           <Icon
                             type="carte"

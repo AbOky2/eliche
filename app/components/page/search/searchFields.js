@@ -7,6 +7,8 @@ import { DropdownSelect } from 'components/form/Select';
 import { propertyPiecesSelectMap } from 'helpers';
 import withStyles from './styles';
 import {Modal} from '../../../components/form';
+import Dialog from '@material-ui/core/Dialog';
+
 import {BudgetStep} from '../../searchDrawer/budgetStep';
 import {PieceStep} from '../../searchDrawer/pieceStep';
 
@@ -135,14 +137,98 @@ const searchFields = withStyles(
             />
           </Grid>
         )} */}
+        {isMdView?(<>
+          <Dialog
+          open={showModal1}
+          onClose={toggleModal1}
+          PaperProps={{
+            style: {
+              borderRadius: '12px',
+              padding: '24px',
+              width: '100%',
+              height: '253px',
+              // backgroundColor: 'red',
+              display: 'absolute',
+  
+              top: '30%',
+            },
+          }}>
+  
+              <DropdownSelect
+                    name="typeOfAnnonce"
+                    placeholder="Nombre de pièces"
+                    list={propertyPiecesSelectMap}
+                    value={queryData.pieces}
+                    onChange={handleSelect}
+                  />      
+        </Dialog> 
+        
+  
+          <Dialog
+              open={showModal2}
+              onClose={toggleModal2}
+              onClick={handleSumit}
+              showActions={false}
+              title='Budget'
+              PaperProps={{
+                style: {
+                  borderRadius: '12px',
+                  padding: '24px',
+                  width: '100%',
+                  height: '95%',
+                  // backgroundColor: 'red',
+                  display: 'absolute',
+      
+                  top: '20%',
+                },
+              }}>
+                
+                 <CustomInput
+                name="maxPrice"
+                value={
+                  queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
+                    ? queryData.maxPrice
+                    : ''
+                }
+                showSub={!isLocation}
+                onChange={handleBudget}
+                placeholder="Budget maximal"
+                handleSumit={handleSumit}
+              /> 
+              {/* <BudgetPopUp 
+              handleSumit = {handleSumit}
+               value={
+                queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
+                  ? queryData.maxPrice
+                  : ''
+              }
+              onChange={handleBudget}
+  
+              /> */}
+  
+  
+                
+              </Dialog>
+              </>
 
-       <Modal
-        openModal={showModal1}
+        ):(
+          <>
+          <Dialog
+        open={showModal1}
         onClose={toggleModal1}
-        onClick={handleSumbit}
-        showActions={false}
-        className="w-0 h-40"
-        title='Pièces'>
+        PaperProps={{
+          style: {
+            borderRadius: '12px',
+            padding: '24px',
+            width: '48%',
+            height: '18%',
+            right:'16%',
+            // backgroundColor: 'red',
+            display: 'absolute',
+
+            top: '0%',
+          },
+        }}>
 
             <DropdownSelect
                   name="typeOfAnnonce"
@@ -151,14 +237,28 @@ const searchFields = withStyles(
                   value={queryData.pieces}
                   onChange={handleSelect}
                 />      
-      </Modal> 
+      </Dialog> 
+      
 
-        <Modal
-            openModal={showModal2}
+        <Dialog
+            open={showModal2}
             onClose={toggleModal2}
             onClick={handleSumit}
             showActions={false}
-            title='Budget'>
+            title='Budget'
+            PaperProps={{
+              style: {
+                borderRadius: '12px',
+                padding: '24px',
+                width: '39%',
+                height: '60%',
+                right:'30%',
+                // backgroundColor: 'red',
+                display: 'absolute',
+    
+                top: '6%',
+              },
+            }}>
               
                <CustomInput
               name="maxPrice"
@@ -172,20 +272,13 @@ const searchFields = withStyles(
               placeholder="Budget maximal"
               handleSumit={handleSumit}
             /> 
-            {/* <BudgetPopUp 
-            handleSumit = {handleSumit}
-             value={
-              queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
-                ? queryData.maxPrice
-                : ''
-            }
-            onChange={handleBudget}
+           
+            </Dialog>
+          </>
 
-            /> */}
-
-
-              
-            </Modal>
+        )}
+      
+       
 
     
     </>

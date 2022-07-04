@@ -11,12 +11,9 @@ export const Partenaires = ({
     return(
     <>
     <div>
-  <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-80 relative">
-   
-    
-  </div>
+  
   <p className="flex-grow-0 flex-shrink-0  text-sm font-medium text-left text-_gris mb-4 mx-8">
-    Kit le nid vous propose un ensembles d’offres avantageuses pour mieux répondre à vos besoins
+    Kit le nid vous propose un ensemble d’offres avantageuses pour mieux répondre à vos besoins
     lors de vos études.
   </p>
   <div className="flex-grow-0 flex-shrink-0  h-_153 relative mx-8">

@@ -191,8 +191,8 @@ export const MobileMenu = ({
               // backgroundColor: 'red',
               display: 'absolute',
 
-              top: '200px',
-              left: '50px',
+              top: '150px',
+              left: '20%',
             },
           }}
 
@@ -238,7 +238,7 @@ export const MobileMenu = ({
                 color: 'white',
                 borderRadius: '12px',
                 cursor: 'pointer',
-                fontWeight: '700',
+                fontWeight: '200',
                 fontFamily: 'Space Grotesk',
                 '&:hover': {
                   background:

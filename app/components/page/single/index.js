@@ -132,21 +132,21 @@ const PropertyPage = ({
           <Grid
             className={clsx(classes.save, liked ? classes.saved : '')}
             style={{display:'flex', flexDirection:'row-reverse', justifyContent:"end"}} >
-            <div className="flex flex-row-reverse mr-4 h-10 md:top-5 tablette:top-4 lg:top-0 ">
+            <div className="flex flex-row-reverse h-10 w-9 md:top-5 tablette:top-4 lg:top-0 ">
               <div onClick={handleBookmark}
-              className=' bg-white rounded-full w-9 h-9 py-2 px-1.5'>
+              className=' bg-white rounded-full w-9 h-9 p-2 px-1.5 '>
               <Icon
                 type="heart"
                 size='large'
                 color={liked ? 'newBlue' : 'white'}
                 strokeColor={liked ? 'newBlue' : 'newBlue'}
               /></div>
-              <div 
+              {/* <div 
               className=' bg-white rounded-full w-9 h-9 py-1.5 px-1 justify-between mx-2'>
               <Icon
               type="partageV2"
               noColor
-              /></div>
+              /></div> */}
             </div>
           </Grid>
         </div>
@@ -200,7 +200,7 @@ const PropertyPage = ({
                         </div>
                         )}
                       {property.available_date && !isLocation ? (
-                        <p className="self-stretch flex-grow-0 flex-shrink-0 w-[295px] text-2xl font-normal text-left text-_gris mx-3">
+                        <p className="self-stretch flex-grow-0 flex-shrink-0 w-[295px] text-[18px] font-normal text-left text-_gris mx-3">
                         {`Fin de construction le ${property.available_date}`}
                                     </p>
                       ) : (
@@ -362,11 +362,11 @@ const PropertyPage = ({
             <Grid item md={6}>
               <div className='mb-5'>
               {isLocation ?(
-                            <p className=" text-left text-_rougeStudea font-bold text-[48px]">
+                            <p className=" text-left text-_rougeStudea font-bold text-[28px]">
                             {property.heading}</p>
 
               ):(
-                      <p className="text-[48px] text-left text-blue-500 font-bold text-3xl lg:text-center"
+                      <p className=" text-left text-blue-500 font-bold text-[28px] lg:text-center"
                       style={{color:"linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)"}}
                       >              
                       {property.heading}</p>
@@ -393,7 +393,7 @@ const PropertyPage = ({
                     
                     (<>
                     <div className='flex justify-between gap-4 '>
-                        <div className="w-[259px] h-24 relative rounded-xl bg-white border border-[#eaeffa]">
+                        <div className="w-full h-24 relative rounded-xl bg-white border border-[#eaeffa]">
                           <p className="absolute left-[65px] top-6 text-lg font-bold text-center text-[#0e215c]">
                           {getNbPieces(property.minPieces, property.maxPieces)}
                             <br/>{` de ${
@@ -405,7 +405,7 @@ const PropertyPage = ({
                         
                         </div>
 
-                        <div className="w-[259px] h-24 relative  rounded-xl bg-white border border-[#eaeffa]">
+                        <div className="w-full h-24 relative  rounded-xl bg-white border border-[#eaeffa] ">
                         <p className="w-[200px] h-[23px] absolute left-[30px] top-[23px] text-lg font-bold text-center text-[#3679ff]">
                           à partir de {` ${spaceCurrency(property.price)}€`}
                         </p>
@@ -427,7 +427,7 @@ const PropertyPage = ({
                       // </div>
                       )}
                     {property.available_date && !isLocation ? (
-                      <p className="self-stretch flex-grow-0 text-2xl font-normal text-_gris mx-3 text-center mt-[8px]">
+                      <p className="self-stretch flex-grow-0 text-[18px] font-normal text-_gris mx-3 text-center mt-[8px]">
                       {`Fin de construction le ${property.available_date}`}
                                   </p>
                     ) : (
@@ -553,8 +553,9 @@ const PropertyPage = ({
                           Le mot de Kit le nid.
                         </p>
                         <p className="  text-[14px] font-medium text-left text-white">
-                          Kit le nid aime bien faire des prouts dans les logements, et ça tombe bien parce que il y a un
-                          piano livré avec l’appartement ! À vous les gateaux aux chocolats mmmm !
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Curabitur lobortis felis eu posuere semper. 
+                        Proin egestas eros at odio porttitor efficitur. Quisque id enim orci
                         </p>
                   </div>
 
@@ -567,7 +568,7 @@ const PropertyPage = ({
                           /> 
                         </div>
                        
-                        <div className="flex flex-col justify-start items-start relative gap-2 p-6 rounded-xl bg-white border border-[#eaeffa] mt-4">
+                        {/* <div className="flex flex-col justify-start items-start relative gap-2 p-6 rounded-xl bg-white border border-[#eaeffa] mt-4">
                             <p className="flex-grow-0 flex-shrink-0  text-lg font-bold text-left text-[#0e215c]">
                               La Banque Postale peut sûrement financer ton projet !
                             </p>
@@ -579,7 +580,7 @@ const PropertyPage = ({
                                 Découvrir
                               </p>
                             </div>
-                        </div>
+                        </div> */}
                   </div>
               </div>
          </div>

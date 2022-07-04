@@ -208,8 +208,8 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
           >
             Mon conseiller
           </Typography>
-          <Grid container alignItems="center">
-            <Grid item>
+          <Grid container alignItems="center" className=" p-2">
+            <Grid item className=''>
               <img src="/static/img/advisor.png" alt="" />
             </Grid>
             <Grid item className={classes.advisorInfo}>
@@ -217,16 +217,16 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
                 <Grid item>
                   <Grid container justify="space-between">
                     <div>
-                      <Typography variant="h2">Raphael Altman</Typography>
+                      <Typography variant="h2">Nicolas BLOUIN</Typography>
                       <Typography
                         style={{ fontSize: '14px', lineHeight: '18px' }}
                       >
-                        raltman@nexity.fr
+                        nblouin@nexity.fr
                       </Typography>
                       <Typography
                         style={{ fontSize: '14px', lineHeight: '18px' }}
                       >
-                        06 99 77 65 16
+                        06 65 07 11 66
                       </Typography>
                     </div>
                   </Grid>
@@ -255,19 +255,20 @@ export const UpdateProfile = ({ user, update, logout, transparent }) => {
               </p>
             </div>
             <div
-              className="flex  items-center relative rounded-xl border-2 border-[#eff4ff]"
-              style={{
-                background:
-                  'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
-                padding: '8px 20px',
-                width: '117px',
-                height: '34px',
-              }}
+              className="flex justify-center pt-1 relative rounded-xl border-2 border-[#EFF4FF] bg-white w-[167px] h-[34px] hover:bg-_aPropos"
+              // style={{
+              //   background:
+              //     'linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)',
+              //   padding: '8px 20px',
+              //   width: '117px',
+              //   height: '34px',
+                
+              // }}
             >
               <button
                 type="submit"
                 onClick={handleSumbit}
-                className="cursor-pointer flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white"
+                className="cursor-pointer  text-xs text-left font-[800]  "
                 style={{
                   width: '75px',
                   height: '18px',

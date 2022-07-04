@@ -416,8 +416,10 @@ const AuthContext = ({
             </Grid>
             <Grid item>
               <Grid container className={classes.advisorContact}>
-                <Icon type="phone" />
-                <Icon type="mail" />
+                <a href='tel:+33 06 65 07 11 66'>
+                <Icon type="phone" /></a>
+                <a href='mailto:nblouin@nexity.fr'>
+                <Icon type="mail" /></a>
               </Grid>
             </Grid>
           </Grid>
@@ -447,7 +449,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
             </div>
             <div className="  ">
               <div className="flex flex-row-reverse items-start mx-4 mb-4">
-                <div className=" mx-4 ">
+                <div className=" mx-4 w-full">
                   <p className="text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Des logements dans toute la France
                   </p>
@@ -478,7 +480,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 </div>
               </div>
               <div className="flex flex-row-reverse items-start mx-4 mb-4 ">
-                <div className="mx-4">
+                <div className="mx-4 w-full">
                   <p className=" text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Accès libre aux plans
                   </p>
@@ -517,7 +519,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
               </div>
 
               <div className="flex flex-row-reverse items-start mx-4 mb-4">
-                <div className="mx-4">
+                <div className="mx-4 w-full">
                   <p className=" text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Un unique conseiller dédié
                   </p>
@@ -584,7 +586,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
               </div>
 
               <div className="flex flex-row-reverse items-start mx-4 mb-12">
-                <div className="mx-4">
+                <div className="mx-4 w-full">
                   <p className=" text-_bleuMarine font-_spaceGrotesk text-[18px] font-bold">
                     Des aides pour votre premier achat{' '}
                   </p>
@@ -629,13 +631,90 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 </div>
               </div>
             </div>
+
+
+            <div className='bg-white border-1 border-_bordureBleu rounded-[12px] p-4 mb-4'>
+             <div className="w-8 h-8 mb-2">
+                <div className="flex items-center justify-center flex-1 h-full px-3 py-0.5 bg-yellow-400 rounded-full">
+                    <p className="text-base font-bold leading-loose text-white">1</p>
+                </div>
+              </div>
+              <div>
+                <h1 className=' text-_aPropos font-bold text-[18px] mb-2'>
+                    Rejoignez la plateforme Kit le Nid
+                </h1>
+                <p className=' text-[#849CD9] font-bold text-[14px]'>
+                    Inscrivez-vous et développez votre projet avec nos conseillers.
+                </p>
+              </div>
+            </div>
+
+
+
+            <div className='bg-white border-1 border-_bordureBleu rounded-[12px] p-4 mb-4'>
+             <div className="w-8 h-8 mb-2">
+                <div className="flex items-center justify-center flex-1 h-full px-3 py-0.5 bg-yellow-400 rounded-full">
+                    <p className="text-base font-bold leading-loose text-white">2</p>
+                </div>
+              </div>
+              <div>
+                <h1 className=' text-_aPropos font-bold text-[18px] mb-2'>
+                    Sélectionnez votre logement
+                </h1>
+                <p className=' text-[#849CD9] font-bold text-[14px]'>
+                    Choisissez et réservez votre appartement en ligne.
+                </p>
+              </div>
+            </div>
+
+
+
+            <div className='bg-white border-1 border-_bordureBleu rounded-[12px] p-4 mb-4'>
+             <div className="w-8 h-8 mb-2">
+                <div className="flex items-center justify-center flex-1 h-full px-3 py-0.5 bg-yellow-400 rounded-full">
+                    <p className="text-base font-bold leading-loose text-white">3</p>
+                </div>
+              </div>
+              <div>
+                <h1 className=' text-_aPropos font-bold text-[18px] mb-2'>
+                    Profitez d’un financement simplifié
+                </h1>
+                <p className=' text-[#849CD9] font-bold text-[14px]'>
+                   Kit le nid vous accompagne dans toutes vos démarches de prêt.
+                </p>
+              </div>
+            </div>
+
+
+
+
+            <div className='bg-white border-1 border-_bordureBleu rounded-[12px] p-4 mb-4'>
+             <div className="w-8 h-8 mb-2">
+                <div className="flex items-center justify-center flex-1 h-full px-3 py-0.5 bg-yellow-400 rounded-full">
+                    <p className="text-base font-bold leading-loose text-white">4</p>
+                </div>
+              </div>
+              <div>
+                <h1 className=' text-_aPropos font-bold text-[18px] mb-2'>
+                    Personnalisez votre bien avec nos équipes
+                </h1>
+                <p className=' text-[#849CD9] font-bold text-[14px]'>
+                    Trouvez les meilleures solutions de décoration et d’aménagement pour votre appartement en attendant sa livraison.
+                </p>
+              </div>
+            </div>
+
+
+
+
+
             <div className='mb-2'>
                 <div className="" >
                   <img src="static/img/icons/group123.svg" />
                 </div>
               </div>
 
-            <p class=" text-[18px] font-semibold text-_bleuMarine mx-4">
+            {/* <p class=" text-[18px] font-semibold text-_bleuMarine mx-4">
               Nos services partenaires pour les étudiants
             </p>
             <div class="text-[14px] text-_grisBleu p-3 mx-4">
@@ -646,28 +725,12 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 <li>une mutuelle santé</li>
                 <li>un garant solide pour vous</li>
               </ul>
-            </div>
+            </div> */}
 
             
-            <div className="flex  flex-row xs items-start justify-between gap-2 p-6 rounded-xl bg-white border border-_bordureBleu mt-5 mb-5 mx-4 md:flex-col md:flex">
-              <div className=''>
-                <p className="text-[18px] font-bold text-left text-_titre">
-                Découvrez notre guide du premier achat.
-              </p>
-              <p className=" text-[14px] font-medium text-left text-_grisBleu">
-                Kit le nid et La Banque Postale s’unissent pour t’aider à voler
-                de tes propres ailes.
-              </p>
-              <div className="flex justify-center items-center gap-2.5 px-10 py-3 rounded-[14px] border border-_aPropos mt-6">
-                <p className=" text-sm font-bold text-left text-_aPropos">
-                  Télécharger notre guide
-                </p>
-              </div>
-              </div>
-              <div className=''>
-                <img src="static/img/GuideAchat.svg" />
-              </div>
-            </div>
+
+
+            
             <div className=" text-_grisBleu font-thin text-[12px] mt-16 ">
               (1) Mensualités données à titre indicatif uniquement et non
               contractuelles, pour l’achat d’un appartement de 187 000 €, sur
@@ -1028,6 +1091,7 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
                 height: '39px',
                 borderRadius: '12px',
                 padding: '7px',
+                paddingTop:'4px',
                 marginTop: '7px',
                 marginRight: '9px',
               }}
@@ -1044,7 +1108,7 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
         
         <div
           onClick={() => setShowSearch(!showSearch)}
-          className="flex flex-row-reverse mt-4 rounded-xl h-_53 bg-white border border-_bordureBleu absolute w-full lg:hidden"
+          className="flex flex-row-reverse mt-4 rounded-xl h-_53 bg-white border border-_bordureBleu absolute min-w-[70%] ml-9 lg:hidden"
         >
           <div
             style={{
@@ -1054,11 +1118,12 @@ const Dashboard = ({ classes, user = {}, userSearch, update }) => {
               height: '39px',
               borderRadius: '12px',
               padding: '7px',
+              paddingTop:'4px',
               marginTop: '7px',
               marginRight: '9px',
             }}
           >
-            <Icon type="recherche" color="white" />
+            <Icon type="recherche" color="white" size='small' />
           </div>
         </div>
       )}

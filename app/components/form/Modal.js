@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       top: '2rem',
       right: '1rem',
+      
     },
   },
   contentContainer: {
@@ -45,11 +46,15 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     margin: '0 auto 1rem',
     padding: '4rem 0 5rem',
+    
     [theme.breakpoints.down('sm')]: {
       padding: '2rem 0 4rem',
+      
+      
     },
   },
   noDivider: {
+    
     borderBottom: `none`,
     paddingBottom: 0,
   },
@@ -96,39 +101,42 @@ export const Modal = ({
       // disableBackdropClick
       // fullWidth
       // maxWidth="lg"
-      className=' p-3 rounded-xl h-[700px] '
+      
+      className='  rounded-[12px] h-[700px]  mt-8 '
       // {...props}
     >
-      <div className={classes.close} onClick={onClose}>
-        <Icon type="close" size='large' />
-      </div>
-      <div>
-        {title ? (
-          <Typography variant="h2" className={classes.title}>
-            {title}
-          </Typography>
-        ) : (
-          ''
-        )}
-        <div
-          className={clsx(
-            classes.contentContainer,
-            !showDivider ? classes.noDivider : ''
-          )}
-        >
-          {children}
+      <div className='rounded-[12px] '>
+        <div className={classes.close} onClick={onClose}>
+          <Icon type="close" size='large' />
         </div>
-        {showActions && (
-          <Grid container justify="center" className={classes.btnContainer}>
-            <Grid item md={6}>
-              <Btn text="Annuler" whiteColor onClick={onClose} />
+        <div className='  rounded-[12px]'>
+          {title ? (
+            <Typography variant="h2" className={classes.title}>
+              {title}
+            </Typography>
+          ) : (
+            ''
+          )}
+          <div
+            className={clsx(
+              classes.contentContainer,
+              !showDivider ? classes.noDivider : ''
+            )}
+          >
+            {children}
+          </div>
+          {showActions && (
+            <Grid container justify="center" className={classes.btnContainer}>
+              <Grid item md={6}>
+                <Btn text="Annuler" whiteColor onClick={onClose} />
+              </Grid>
+              <Grid item md={6}>
+                <Btn text={confirmText} onClick={onClick} />
+              </Grid>
             </Grid>
-            <Grid item md={6}>
-              <Btn text={confirmText} onClick={onClick} />
-            </Grid>
-          </Grid>
-        )}
-      </div>
+          )}
+        </div>
+       </div>
     </Dialog>
   );
 };
