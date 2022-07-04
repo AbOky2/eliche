@@ -299,8 +299,7 @@ const PropertyPage = ({
                           Le mot de Kit le nid.
                         </p>
                         <p className="  text-[14px] font-medium text-left text-white">
-                          Kit le nid aime bien faire des prouts dans les logements, et ça tombe bien parce que il y a un
-                          piano livré avec l’appartement ! À vous les gateaux aux chocolats mmmm !
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis felis eu posuere semper. Proin egestas eros at odio porttitor efficitur. Quisque id enim orci !
                         </p>
                   </div>
 
@@ -331,7 +330,7 @@ const PropertyPage = ({
                         <div className="flex flex-col h-_343 justify-start items-start  rounded-[12px] bg-white border border-_bordureBleu ">
                           <Maps loc={property.loc?.coordinates} />
                         </div>
-                        <div className="flex flex-col justify-start items-start relative gap-2 p-6 rounded-xl bg-white border border-[#eaeffa] mt-4">
+                        {/* <div className="flex flex-col justify-start items-start relative gap-2 p-6 rounded-xl bg-white border border-[#eaeffa] mt-4">
                             <p className="flex-grow-0 flex-shrink-0  text-lg font-bold text-left text-[#0e215c]">
                               La Banque Postale peut sûrement financer ton projet !
                             </p>
@@ -343,7 +342,7 @@ const PropertyPage = ({
                                 Découvrir
                               </p>
                             </div>
-                        </div>
+                        </div> */}
                   </div>
               </div>
               </>
