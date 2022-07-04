@@ -545,3 +545,5 @@
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-07-03T23:55:54.207Z","value":"[object Object]"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-07-03T23:56:31.709Z","value":"[object Object]"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-07-04T00:42:51.804Z","value":"[object Object]"}
+{"level":"info","message":"> Ready on https://app.kitlenid.fr","service":"user-service","timestamp":"2022-07-04T01:08:29.443Z"}
+{"level":"info","message":"> Ready on https://app.kitlenid.fr","service":"user-service","timestamp":"2022-07-04T01:11:56.013Z"}

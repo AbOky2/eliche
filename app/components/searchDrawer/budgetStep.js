@@ -182,7 +182,6 @@ export const BudgetStep = withStyles()(
                   display: 'flex',
                   alignItems: 'flex-end',
                   color: 'white',
-                  fontWeight: 'bold',
                   width: '120px',
                   height: '2px',
                   borderRadius: '12px',
