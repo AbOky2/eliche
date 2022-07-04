@@ -21,9 +21,9 @@
 //   SENDGRID_API_KEY,
 // } = process.env;
 
-const NEXT_PUBLIC_ROOT_URL = 'https://app.kitlenid.fr';
+const NEXT_PUBLIC_ROOT_URL = 'http://localhost:3000';
 const NEXT_PUBLIC_UPLOAD_URL = 'https://media.kitlenid.fr';
-const NODE_ENV = 'production';
+const NODE_ENV = 'dev';
 const MONGO_URL_PROD='mongodb+srv://ki75tlenid8bh:bkfjwHUpTAPtwU9c@cluster0.xer1k.mongodb.net/mbi?retryWrites=true&w=majority';
 const MONGO_URL_TEST =
   'mongodb+srv://dbtest:dbtest@cluster0.h9mof.mongodb.net/?retryWrites=true&w=majority';
@@ -46,8 +46,7 @@ const SENDGRID_API_KEY =
 const MAIL_USER = 'kitlenid@gmail.com';
 
 const PORT = process.env.PORT || 3000;
-const ROOT_URL = process.env.ROOT_URL || `https://app.kitlenid.fr:${PORT}`;
-
+const ROOT_URL = process.env.ROOT_URL || `https://app.kitlenid.fr:${PORT}`
 // const SESSION_SECRET =
 //   process.env.SESSION_SECRET || 'M87kjdsfs876d98hdshhfjsecret';
 const dev = NODE_ENV !== 'production';
