@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-
 const propTypes = {
   user: PropTypes.shape({
     displayName: PropTypes.string,
@@ -22,9 +21,7 @@ class Index extends React.Component {
           <title>Kit le nid</title>
           <meta name="description" content="List of purchased books." />
         </Head>
-        {/* <Header />
-        <Coeur />
-        <Footer /> */}
+       
       </div>
     );
   }
