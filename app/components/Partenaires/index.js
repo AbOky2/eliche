@@ -31,7 +31,7 @@ export const Partenaires = ({
     <a
       className="flex justify-center items-center absolute left-36 top-20 gap-2.5 px-10 py-3 rounded-xl"
       style={{ background: "linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)" }}
-      href="/partners/6033b549ef86fb3e943fe86d"
+      href="https://heyme.care/fr"
     >
       <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white cursor-pointer" >
         Découvrir Heyme
@@ -53,7 +53,7 @@ export const Partenaires = ({
     <a
       className="flex justify-center items-center w-_189 absolute left-36 top-20 gap-2.5 px-10 py-3 rounded-xl"
       style={{ background: "linear-gradient(to bottom, #81a3f9 -0.06%, #3462d8 108.09%)" }}
-      href="/partners/6033b60eef86fb3e943fe86f"
+      href="https://www.cautioneo.com/"
     >
       <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-white">
         Découvrir Cautioneo

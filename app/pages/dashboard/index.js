@@ -366,9 +366,9 @@ const AuthContext = ({
           >
             <a>
               <div className={classes.lastSearch}>
-                <Typography variant="h2" className="text-xs">
+                <p className=" text-_aPropos lg:text-[20px] md:text-sm md:font-bold">
                   {loc}
-                </Typography>
+                </p>
                 <Typography>
                   {`${
                     pieces ? toArr(pieces).join(', ') : 'Toute type de'

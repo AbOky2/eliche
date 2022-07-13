@@ -408,11 +408,10 @@ const StudentProfile = ({
         }}
       >
         <div className="align-start">
-          <Link href={pages.dashboard}>
-            <a>
+          <a href={pages.dashboard}>
               <Icon type="LogoVV" size="large" />
             </a>
-          </Link>
+         
         </div>
         <div
           className="flex font-_spaceGrotesk text-[20px] font-bold  text-[#113eb6] content-end gap-7 pr-10"
