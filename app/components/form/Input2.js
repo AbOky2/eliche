@@ -44,6 +44,7 @@ const styles = (theme) => ({
       '&:focus': {
         border: `solid 1px ${theme.palette.newBlue}`,
         transition: 'border .1s ease-out, box-shadow .1s ease-out',
+        
       },
     },
     '& textarea': {
@@ -69,6 +70,7 @@ const styles = (theme) => ({
       width: 50,
       justifyContent: 'center',
       alignItems: 'center',
+      
     },
   },
   label: {
@@ -97,6 +99,7 @@ const styles = (theme) => ({
     position: 'relative',
     height: '40%',
     '&  input': {
+    fontSize:'12px',
       width: '100%',
       // padding: '2rem',
       marginTop: '0.3rem',

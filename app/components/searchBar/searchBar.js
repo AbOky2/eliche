@@ -14,7 +14,7 @@ import { LocationStep } from 'components/searchDrawer/locationStep';
 export const SearchBar = ({}) => {
   const [queryData, setQueryData] = useState({
     loc: '',
-    maxPrice: 0,
+    maxPrice: 600000,
     typeOfAnnonce: typeOfAnnonciesObj.buy,
     pieces: null,
   });

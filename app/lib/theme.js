@@ -147,8 +147,8 @@ theme.ui.listContainer = {
 };
 theme.ui.searchInput = {
   fontFamily: theme.typography.fontFamily,
-  color: `${theme.palette.newBlack}!important`,
-  fontSize: '1.4rem!important',
+  color: '#6976A0',
+  fontSize: '12px',
   fontWeight: '600!important',
   lineHeight: '2rem!important',
 };
