@@ -559,3 +559,4 @@
 >>>>>>> 2f77ba24f083f9e4e6d484a5a017fcc1f64050e8
 {"level":"info","message":"> Ready on https://app.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-13T12:09:02.466Z"}
 {"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-21T12:25:36.885Z"}
+{"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-22T08:55:04.885Z"}
