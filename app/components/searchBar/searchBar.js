@@ -4,12 +4,14 @@ import Router from 'next/router';
 import { Icon } from 'components';
 
 
-import { GoogleMaps, CustomInput } from 'components/form/Input2';
+import { GoogleMaps, CustomInput } from 'components/form/Input';
 import { propertyPiecesSelectMap, isArray, typeOfAnnonciesObj } from 'helpers';
 
 import { Grid } from '@material-ui/core';
-import { DropdownSelect } from 'components/form/Select2';
+import { DropdownSelect } from 'components/form/Select';
 import { LocationStep } from 'components/searchDrawer/locationStep';
+import Dialog from '@material-ui/core/Dialog';
+
 
 export const SearchBar = ({}) => {
   const [queryData, setQueryData] = useState({
@@ -39,6 +41,13 @@ export const SearchBar = ({}) => {
   };
   const handleBudget = (value) =>
     setQueryData({ ...queryData, maxPrice: value });
+
+  
+
+    const [showModal1, setShowModal1] = useState(false);
+    const toggleModal1 = () => setShowModal1(!showModal1);
+    const [showModal2, setShowModal2] = useState(false);
+    const toggleModal2 = () => setShowModal2(!showModal2);
 
   return (<>
     {/* <Grid className="flex container w-[936px] h-[97px] absolute left-[106.5px] border-2 top-[398.5px] rounded-[20px] bg-black">
@@ -121,38 +130,132 @@ export const SearchBar = ({}) => {
 
       <div className=' w-full border-r-[1px] border-_aPropos'>
         <div>
-          <p  className=' text-[#4F80FF] font-bold text-[16px] ml-7'>Nombre de pièce</p>
+          <p  className=' text-[#4F80FF] font-bold text-[16px] ml-7' >Nombre de pièce</p>
         </div>
-        <div className='text-xs'><DropdownSelect
+        <div className='text-xs p-3 w-full'>
+          
+        <Dialog
+          open={showModal1}
+          onClose={toggleModal1}
+          PaperProps={{
+            style: {
+              borderRadius: '12px',
+              padding: '24px',
+              width: '50%',
+              height: '253px',
+              // backgroundColor: 'red',
+              display: 'absolute',
+  
+              top: '30%',
+            },
+          }}>
+          <DropdownSelect
           name="typeOfAnnonce"
           placeholder="Combien de pièce souhaitez-vous?"
           list={propertyPiecesSelectMap}
           value={queryData.pieces}
           onChange={handleSelectPieces}
-        /></div>
+        />
+        <div className='flex justify-end'>
+                <button
+                    onClick={toggleModal1}
+                    // handleSumit={handleSumit}
+                    type="submit"
+                    className='rounded-[12px] h-[85%] w-[50%] flex justify-center p-2'
+                    style={{
+                      background:
+                        'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                      color: 'white',
+                      
+                    }}
+                  >
+                    <p className='text-center text-bold flex justify-center'>
+                    Valider</p>
+                  </button>
+              </div> 
+        </Dialog>
+        <input 
+        onClick={toggleModal1}
+        placeholder="Combien de pièce souhaitez-vous?"
+        value={queryData.pieces}
+        className=' text-[#8C97B6] font-[600] text-[16px] text-center w-full'/>
+        </div>
+        
+         
       </div>
+
+
+
+
+
+
 
       <div className=' w-full '>
        <div className=' flex'>
-        <div className='flex flex-col'>
-                <div className=''>
-                  <p  className=' text-[#4F80FF] font-bold text-[16px] ml-9'>Budget</p>
+        <div className='flex w-full flex-col'>
+                <div className=' w-full'>
+                  <p  className=' text-[#4F80FF] font-bold text-[16px] ml-9' >Budget</p>
                 </div>
             
-                <div><CustomInput
-                  name="maxPrice"
-                  value={
-                    queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
-                      ? queryData.maxPrice
-                      : ''
-                  }
-                  showSub={!isLocation}
-                  onChange={handleBudget}
-                  placeholder="Quel est votre budget?"
-                  //handleSumit={handleFinish}
-                /></div>
-            </div>
-            <div className=''>
+                <div>
+                <div className=''>
+                  <Dialog
+                      open={showModal2}
+                      onClose={toggleModal2}
+                      // onClick={handleSumit}
+                      showActions={false}
+                      title='Budget'
+                      PaperProps={{
+                        style: {
+                          borderRadius: '12px',
+                          padding: '24px',
+                          width: '30%',
+                          // backgroundColor: 'red',
+                          display: 'absolute',
+              
+                          top: '10%',
+                        },
+                      }}>
+                            <CustomInput
+                            name="maxPrice"
+                            value={
+                              queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
+                                ? queryData.maxPrice
+                                : ''
+                            }
+                            showSub={!isLocation}
+                            onChange={handleBudget}
+                            placeholder="Quel est votre budget?"
+                            //handleSumit={handleFinish}
+                            />
+                <div className='flex justify-end'>
+                <button
+                    onClick={toggleModal2}
+                    // handleSumit={handleSumit}
+                    type="submit"
+                    className='rounded-[12px] h-[85%] w-[50%] flex justify-center p-2'
+                    style={{
+                      background:
+                        'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                      color: 'white',
+                      
+                    }}
+                  >
+                    <p className='text-center text-bold flex justify-center'>
+                    Valider</p>
+                  </button>
+              </div>   
+              </Dialog> </div>
+              <input 
+              onClick={toggleModal2}
+                placeholder="Combien de pièce souhaitez-vous?"
+                value={queryData.maxPrice}
+                className=' text-[#8C97B6] font-[600] text-[16px] text-center '/>
+
+                </div>
+        </div>
+            
+            <div className=' w-full flex justify-end'>
                 <div
                   onClick={handleFinish}
                   style={{
@@ -169,41 +272,7 @@ export const SearchBar = ({}) => {
       </div>
     </div>
     </>
-    // <div>
-    //   <div className="w-[936px] h-[97px] absolute left-[106.5px] top-[398.5px] rounded-[20px] bg-white" />
-    //   {/* <div className="w-[1251px] h-[298px] absolute left-[109.5px] top-[1389.5px] rounded-[20px] bg-white" /> */}
-    //   {/* <div className="flex justify-center items-center w-[213px] h-14 absolute left-[172px] top-[1570px] gap-2.5 px-[103px] py-[9px] rounded-xl bg-white border border-[#3679ff]">
-    //     <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-[#3679ff]">
-    //       Télécharger notre guide
-    //     </p>
-    //   </div> */}
-
-    //   <div className="w-[150px] h-12">
-    //     <LocationStep />
-    //     {/* <p className="absolute left-[152px] top-[451px] text-base font-semibold text-left text-[#8c97b6]">
-    //       Où cherchez-vous ?
-    //     </p>
-    //     <p className="absolute left-[152px] top-[425px] text-base font-bold text-left text-[#4f80ff]">
-    //       Localisation
-    //     </p> */}
-    //   </div>
-    //   <div className="w-[278px] h-12">
-    //     <p className="absolute left-[365px] top-[451px] text-base font-semibold text-left text-[#8c97b6]">
-    //       Combien de pièces souhaitez-vous ?
-    //     </p>
-    //     <p className="absolute left-[365px] top-[425px] text-base font-bold text-left text-[#4f80ff]">
-    //       Nombre de pièces{' '}
-    //     </p>
-    //   </div>
-    //   <div className="w-[179px] h-12">
-    //     <p className="absolute left-[735px] top-[451px] text-base font-semibold text-left text-[#8c97b6]">
-    //       Quel est votre budget ?
-    //     </p>
-    //     <p className="absolute left-[735px] top-[425px] text-base font-bold text-left text-[#4f80ff]">
-    //       Budget
-    //     </p>
-    //   </div>
-    // </div>
+    
   );
 };
 SearchBar.propTypes = {};

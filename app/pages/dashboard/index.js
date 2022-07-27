@@ -356,7 +356,7 @@ const AuthContext = ({
       {userSearch.lastSearch
         ?.slice(0, 3)
         .map(({ loc, maxPrice, page, pieces, sort, ...search }, index) => (
-          <Link
+          <a
             key={index}
             href={`/dashboard/search/${
               search.typeOfAnnonce === 'Location' ? 'location' : 'buy'
@@ -364,7 +364,6 @@ const AuthContext = ({
               loc,
             })}`}
           >
-            <a>
               <div className={classes.lastSearch}>
                 <p className=" text-_aPropos lg:text-[20px] md:text-sm md:font-bold">
                   {loc}
@@ -380,8 +379,7 @@ const AuthContext = ({
                   <Icon type="sliderArrow" size="small" />
                 </span>
               </div>
-            </a>
-          </Link>
+          </a>
         ))}
     </div>
     <div className={classes.lastViewdContainer}>
@@ -758,7 +756,7 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                       <p className='text-[#849CD9] text-[20px]'>
                         Réalisez votre <strong>premier achat immobilier</strong> <br/> pour seulement <strong>699€/mois ! (1)</strong>
                       </p>
-                      <div className=' absolute mt-4'>
+                      <div className=' absolute mt-4  w-[80%]'>
                       <SearchBar />
                       </div>
                   </div>
@@ -995,9 +993,9 @@ const NoAuthDashboard = ({ user = {}, partners, classes }) => {
                 de tes propres ailes.
               </p>
               <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 px-10 py-3 rounded-xl border border-_aPropos mt-6">
-                <p className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-_aPropos">
+                <a className="flex-grow-0 flex-shrink-0 text-sm font-bold text-left text-_aPropos" href='static/img/Guideachat.pdf'>
                   Télécharger notre guide
-                </p>
+                </a>
               </div>
               </div>
               <div >

@@ -637,7 +637,7 @@ const StudentProfile = ({
         // onClick={handleSumbit}
         showActions={false}
         title={
-          changeName ? 'Finalise ton inscription' : 'Connexion ou inscription'
+          changeName ? 'Finalise ton inscription' : 'Connexion ou Inscription'
         }
         // confirmText="Enregistrer"
       >

@@ -162,3 +162,4 @@
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-07-03T23:55:54.207Z","value":"[object Object]"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-07-03T23:56:31.709Z","value":"[object Object]"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"service":"user-service","stringValue":"\"[object Object]\"","timestamp":"2022-07-04T00:42:51.804Z","value":"[object Object]"}
+{"code":"ECONNRESET","level":"error","message":"request to https://maps.googleapis.com/maps/api/geocode/json?sensor=false&key=AIzaSyC59sI-cU0pmzMBVVtxBAcJeokj0S8ra3s&components=country%3Afrance&address=%C3%8Ele-de-France%2C+France failed, reason: read ECONNRESET","name":"HttpError","service":"user-service","timestamp":"2022-07-25T10:29:35.751Z"}

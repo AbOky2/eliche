@@ -14,6 +14,7 @@ import {PieceStep} from '../../searchDrawer/pieceStep';
 
 import { useState } from 'react';
 import { BudgetPopUp } from 'components/searchDrawer/budgetPopUp';
+import Router from 'next/router';
 
 
 
@@ -49,8 +50,8 @@ const searchFields = withStyles(
 
     const handleFinish = () => {
       Router.push({
-        pathname: 'dashboard/search/buy',
-        query: { ...state },
+        query: { ...queryData },
+
       });
     };
     const handleChange = ({ name, value }) =>
@@ -72,11 +73,11 @@ const searchFields = withStyles(
             name="loc"
             value={queryData.loc}
             onChange={handleMapSearch}
-            placeholder={isMdView ? 'Où cherchez-vous ?' : 'Localisation'}
+            placeholder={isMdView ? 'Où cherchez-vous ?': 'Localisation'}
             
           /></div>
                      
-              <div onClick={handleSumit} className="">
+              <div onClick={handleFinish} className="">
                 <Icon type="recherche" size='small' color='white'  />
               </div>
          
@@ -160,14 +161,33 @@ const searchFields = withStyles(
                     list={propertyPiecesSelectMap}
                     value={queryData.pieces}
                     onChange={handleSelect}
-                  />      
+                  />     
+
+                  <div className='flex justify-end'>
+                <button
+                    onClick={toggleModal1}
+                    //handleSumit={handleSumit}
+                    type="submit"
+                    className='rounded-[12px] h-[85%] w-[50%] flex justify-center p-2'
+                    style={{
+                      background:
+                        'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                      color: 'white',
+                      
+                    }}
+                  >
+                    <p className='text-center text-bold flex justify-center'>
+                    Valider</p>
+                  </button>
+              </div> 
+                  
         </Dialog> 
         
-  
+          <div className='bg-red-900'>
           <Dialog
               open={showModal2}
               onClose={toggleModal2}
-              onClick={handleSumit}
+             // onClick={handleSumit}
               showActions={false}
               title='Budget'
               PaperProps={{
@@ -175,7 +195,6 @@ const searchFields = withStyles(
                   borderRadius: '12px',
                   padding: '24px',
                   width: '100%',
-                  height: '95%',
                   // backgroundColor: 'red',
                   display: 'absolute',
       
@@ -193,22 +212,27 @@ const searchFields = withStyles(
                 showSub={!isLocation}
                 onChange={handleBudget}
                 placeholder="Budget maximal"
-                handleSumit={handleSumit}
+                //handleSumit={handleSumit}
               /> 
-              {/* <BudgetPopUp 
-              handleSumit = {handleSumit}
-               value={
-                queryData.maxPrice > 0 && !Number.isNaN(queryData.maxPrice)
-                  ? queryData.maxPrice
-                  : ''
-              }
-              onChange={handleBudget}
-  
-              /> */}
-  
-  
-                
-              </Dialog>
+              <div className='flex justify-end'>
+                <button
+                    onClick={toggleModal2}
+                    //handleSumit={handleSumit}
+                    type="submit"
+                    className='rounded-[12px] h-[85%] w-[50%] flex justify-center p-2'
+                    style={{
+                      background:
+                        'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                      color: 'white',
+                      
+                    }}
+                  >
+                    <p className='text-center text-bold flex justify-center'>
+                    Valider</p>
+                  </button>
+              </div>
+   
+              </Dialog> </div>
               </>
 
         ):(
@@ -243,20 +267,20 @@ const searchFields = withStyles(
         <Dialog
             open={showModal2}
             onClose={toggleModal2}
-            onClick={handleSumit}
+            //onClick={handleSumit}
             showActions={false}
             title='Budget'
             PaperProps={{
               style: {
                 borderRadius: '12px',
                 padding: '24px',
-                width: '39%',
+                width: '29%',
                 height: '60%',
-                right:'30%',
+                right:'34%',
                 // backgroundColor: 'red',
                 display: 'absolute',
     
-                top: '6%',
+                top: '13%',
               },
             }}>
               
@@ -270,8 +294,25 @@ const searchFields = withStyles(
               showSub={!isLocation}
               onChange={handleBudget}
               placeholder="Budget maximal"
-              handleSumit={handleSumit}
+             // handleSumit={handleSumit}
             /> 
+            <div className='flex justify-end'>
+            <button
+                onClick={toggleModal2}
+                //handleSumit={handleSumit}
+                type="submit"
+                className='rounded-[12px] h-[85%] w-[50%] flex justify-center p-2'
+                style={{
+                  background:
+                    'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
+                  color: 'white',
+                  
+                }}
+              >
+                <p className='text-center text-bold flex justify-center'>
+                Valider</p>
+              </button>
+              </div>
            
             </Dialog>
           </>

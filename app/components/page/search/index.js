@@ -51,6 +51,7 @@ const SearchPage = ({
   //   ...pick(properties, pagePropertyWhilist),
   //   page: defaultPage,
   // });
+  
   const [page, setPage] = useState({
     pageList: state?.slice(0, defaultLimit),
     limit: defaultLimit,
@@ -159,7 +160,7 @@ const SearchPage = ({
     Router.push(
       {
         query: {
-          listView: currView,
+          //listView: currView,
           page: pageInfo.page,
           loc: queryData.loc,
           sort: sortBy,
@@ -170,6 +171,7 @@ const SearchPage = ({
       undefined,
       { shallow: true }
     );
+
   };
 
   const paginate = (page_number) =>
@@ -248,6 +250,8 @@ const SearchPage = ({
 
   console.log("toute les données", state.length);
   console.log("La page ", page);
+  console.log("localisation", loc);
+  console.log("query data loc", queryData.loc);
   
 
   function listMap(){

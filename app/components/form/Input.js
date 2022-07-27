@@ -73,7 +73,9 @@ const styles = (theme) => ({
   },
   label: {
     margin: '2rem 0 .6rem',
-    color: theme.palette.newBlack,
+    color: '#0E215C',
+    fontSize:'16px',
+    fontWeight:'700',
   },
   left: {
     paddingRight: '1.3rem',
@@ -405,16 +407,14 @@ export const CustomInput = withStyles(styles)(
 <br />
 
 <div className="flex justify-center mb-4 items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 p-4 rounded-xl bg-[#eff4ff] border border-[#3679ff]">
-        <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#3679ff]">
-          <span className="flex-grow-0 flex-shrink-0 text-base font-bold text-left text-[#3679ff]">
+        <p className=" text-[#3679ff]">
+          <span className=" font-bold  text-[#3679ff]">
             Vous ne connaissez pas{" "}
-          </span>
-          <br />
-          <span className="flex-grow-0 flex-shrink-0 text-base font-bold text-left text-[#3679ff]">
+        
             votre budget ?{" "}
           </span>
           <br />
-          <span className="flex-grow-0 flex-shrink-0 text-base text-left text-[#3679ff]">
+          <span className=" text-left text-[#3679ff]">
             Utiliser notre simulateur ci-dessous.
           </span>
         </p>
@@ -447,28 +447,7 @@ export const CustomInput = withStyles(styles)(
 />
 
 <div className='flex h-2 text-white' >
-<button
-                onClick={handleSumit}
-                className={classes.submit}
-                type="submit"
-                style={{
-                  background:
-                    'linear-gradient(180deg, #81A3F9 -0.06%, #3462D8 108.09%)',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  color: 'white',
-                  fontWeight: 'bold',
-                  width: '127px',
-                  height: '42px',
-                  borderRadius: '12px',
-                  margin: '16px',
-                  marginLeft: '210px',
-                  placeItems: 'center',
-                  padding: '22px',
-                }}
-              >
-                Valider
-              </button>
+
   
 </div>
         </div>

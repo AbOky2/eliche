@@ -21,9 +21,9 @@
 //   SENDGRID_API_KEY,
 // } = process.env;
 
-const NEXT_PUBLIC_ROOT_URL = 'https://nexity.kitlenid.fr';
+const NEXT_PUBLIC_ROOT_URL = 'http://localhost:3000';
 const NEXT_PUBLIC_UPLOAD_URL = 'https://media.kitlenid.fr';
-const NODE_ENV = 'production';
+const NODE_ENV = 'dev';
 const MONGO_URL_PROD='mongodb+srv://ki75tlenid8bh:bkfjwHUpTAPtwU9c@cluster0.xer1k.mongodb.net/mbi?retryWrites=true&w=majority';
 const MONGO_URL_TEST =
   'mongodb+srv://dbtest:dbtest@cluster0.h9mof.mongodb.net/?retryWrites=true&w=majority';

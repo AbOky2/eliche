@@ -18,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:"12px",
   },
   title: {
-    paddingTop: '4rem',
+    padding:'24px',
     textAlign: 'center',
+    fontSize:'16px',
+    fontWeight:'700',
     borderBottom: `1px solid ${theme.palette.grayBlue}`,
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -31,9 +33,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   close: {
+
+    padding:'24px',
+    display:'flex',
     position: 'absolute',
-    top: 35,
-    right: 35,
     cursor: 'pointer',
     [theme.breakpoints.down('sm')]: {
       top: '2rem',
@@ -59,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
   },
   btnContainer: {
-    marginTop: 30,
     '& > div:first-of-type': {
       paddingRight: 11,
       '& div': {
@@ -102,31 +104,31 @@ export const Modal = ({
       // fullWidth
       // maxWidth="lg"
       
-      className='  rounded-[12px] h-[700px]  mt-8 '
+      className='  rounded-[12px] h-[700px] mt-8 '
       // {...props}
     >
-      <div className='rounded-[12px] '>
-        <div className={classes.close} onClick={onClose}>
-          <Icon type="close" size='large' />
-        </div>
-        <div className='  rounded-[12px]'>
-          {title ? (
-            <Typography variant="h2" className={classes.title}>
-              {title}
-            </Typography>
-          ) : (
-            ''
-          )}
-          <div
-            className={clsx(
-              classes.contentContainer,
-              !showDivider ? classes.noDivider : ''
+      <div className='rounded-[9px] p-6  '>
+        <div className='  flex flex-row-reverse justify-between '>
+          <div className=' flex justify-center text-center items-center font-_spaceGrotesk' onClick={onClose}>
+            <Icon type="close" size='large' />
+          </div>
+          <div className=' rounded-[12px] flex justify-center '>
+            {title ? (
+              <p className='font-_spaceGrotesk text-[16px] text-[#272832] font-bold text-center'>
+                {title}
+              </p>
+            ) : (
+              ''
             )}
+          </div>
+        </div>
+          <div
+            className=''
           >
             {children}
           </div>
           {showActions && (
-            <Grid container justify="center" className={classes.btnContainer}>
+            <Grid container className='' >
               <Grid item md={6}>
                 <Btn text="Annuler" whiteColor onClick={onClose} />
               </Grid>
@@ -135,7 +137,7 @@ export const Modal = ({
               </Grid>
             </Grid>
           )}
-        </div>
+        
        </div>
     </Dialog>
   );

@@ -561,3 +561,7 @@
 {"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-21T12:25:36.885Z"}
 {"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-22T08:55:04.885Z"}
 {"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-22T09:18:56.786Z"}
+{"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-22T10:11:55.884Z"}
+{"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-25T08:39:15.296Z"}
+{"code":"ECONNRESET","level":"error","message":"request to https://maps.googleapis.com/maps/api/geocode/json?sensor=false&key=AIzaSyC59sI-cU0pmzMBVVtxBAcJeokj0S8ra3s&components=country%3Afrance&address=%C3%8Ele-de-France%2C+France failed, reason: read ECONNRESET","name":"HttpError","service":"user-service","timestamp":"2022-07-25T10:29:35.751Z"}
+{"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-26T08:46:16.118Z"}

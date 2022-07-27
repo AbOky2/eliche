@@ -27,7 +27,7 @@ export const SignIn = ({
       item
       justify="center"
       alignItems="center"
-      className={classes.formContainer}
+      className=''
     >
       {!invokePasswordInput ? (
         <Input
