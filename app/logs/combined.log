@@ -565,3 +565,4 @@
 {"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-25T08:39:15.296Z"}
 {"code":"ECONNRESET","level":"error","message":"request to https://maps.googleapis.com/maps/api/geocode/json?sensor=false&key=AIzaSyC59sI-cU0pmzMBVVtxBAcJeokj0S8ra3s&components=country%3Afrance&address=%C3%8Ele-de-France%2C+France failed, reason: read ECONNRESET","name":"HttpError","service":"user-service","timestamp":"2022-07-25T10:29:35.751Z"}
 {"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-26T08:46:16.118Z"}
+{"level":"info","message":"> Ready on https://nexity.kitlenid.fr:3000","service":"user-service","timestamp":"2022-07-28T13:06:50.858Z"}

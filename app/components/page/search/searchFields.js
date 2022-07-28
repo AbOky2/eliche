@@ -77,7 +77,7 @@ const searchFields = withStyles(
             
           /></div>
                      
-              <div onClick={handleFinish} className="">
+              <div onClick={handleSumit} className="">
                 <Icon type="recherche" size='small' color='white'  />
               </div>
          
